@@ -25,12 +25,3 @@ inserirRota('/criar_usuario', function (dados, resposta) {
         resposta({ erro: "Erro ao inserir o usuário!" });
     });
 })
-
-inserirRota('/criar_usuario', (dados, resposta) => {
-    console.log(dados);
-    database('SELECT * FROM USER').then(result => {
-        resposta({ resposta: result });
-    }).catch(erro => {
-        resposta({ resposta: erro });
-    });
-});
