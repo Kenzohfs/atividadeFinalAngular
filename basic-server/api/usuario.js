@@ -2,8 +2,11 @@
 inserirRota('/buscar_usuario',
     function (dados, resposta) {
         console.log(dados);
-
-        resposta({ ok: "Requisição efetuada com sucesso!" });
+        database('SELECT * FROM USER').then(result => {
+            resposta({ resposta: result });
+        }).catch(erro => {
+            resposta({ resposta: erro });
+        });
     });
 
 inserirRota('/criar_usuario', function (dados, resposta) {
