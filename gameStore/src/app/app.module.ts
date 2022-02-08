@@ -1,23 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
-import { LogInComponent } from './login/log-in/log-in.component';
+import { HomepageComponent } from './jogos/homepage/homepage.component';
+
+const rotas: Routes = [
+  { path: '', component: HomepageComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: LogInComponent,
-        canActivate: []
-      }
-    ]),
     BrowserModule,
     LoginModule
   ],
