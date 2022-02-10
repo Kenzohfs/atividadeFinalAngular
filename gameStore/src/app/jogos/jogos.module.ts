@@ -8,6 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
   imports: [
     CommonModule
   ],
-  declarations: [ListaJogosComponent, InfoJogoComponent, HomepageComponent]
+  declarations: [ListaJogosComponent, InfoJogoComponent, HomepageComponent],
+  exports: [ListaJogosComponent, InfoJogoComponent, HomepageComponent]
 })
 export class JogosModule { }
