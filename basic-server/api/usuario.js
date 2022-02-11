@@ -12,14 +12,6 @@ inserirRota('/buscar_usuario',
 inserirRota('/criar_usuario', function (dados, resposta) {
     console.log(dados);
 
-    // if (!dados.nome) {
-    //     return resposta({ erro: "É necessário preencher o nome" });
-    // }
-
-    // if (!dados.nickname) {
-    //     return resposta({ erro: "É necessário preencher o nickname" });
-    // }
-
     database(`INSERT INTO USER (NOME, EMAIL, SENHA, TELEFONE) VALUES ("${dados.nome}", "${dados.email}", "${dados.senha}", "${dados.telefone}")`).then(result => {
         console.log("Usuario inserido com sucessso!");
         resposta({ message: "Usuario inserido com sucessso!" });
