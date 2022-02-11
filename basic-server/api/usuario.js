@@ -12,15 +12,15 @@ inserirRota('/buscar_usuario',
 inserirRota('/criar_usuario', function (dados, resposta) {
     console.log(dados);
 
-    if (!dados.nome) {
-        return resposta({ erro: "É necessário preencher o nome" });
-    }
+    // if (!dados.nome) {
+    //     return resposta({ erro: "É necessário preencher o nome" });
+    // }
 
-    if (!dados.nickname) {
-        return resposta({ erro: "É necessário preencher o nickname" });
-    }
+    // if (!dados.nickname) {
+    //     return resposta({ erro: "É necessário preencher o nickname" });
+    // }
 
-    database(`INSERT INTO USER (NOME, NICKNAME) VALUES ("${dados.nome}", "${dados.nickname}")`).then(result => {
+    database(`INSERT INTO USER (NOME, EMAIL, SENHA, TELEFONE) VALUES ("${dados.nome}", "${dados.email}", "${dados.senha}", "${dados.telefone}")`).then(result => {
         console.log("Usuario inserido com sucessso!");
         resposta({ message: "Usuario inserido com sucessso!" });
     }).catch(erro => {
@@ -33,12 +33,12 @@ inserirRota('/login', function (dados, resposta) {
     console.log(dados);
 
     database(`SELECT * FROM USER WHERE NICKNAME = "${dados.nickname}" and password = "${dados.password}" limit 1`)
-    .then(result => {
-        console.log('result:', result);
-        resposta({ user: result[0] });
-    }).catch(erro => {
-        resposta({ erro: "Erro ao buscar os usuários!"});
-    });
+        .then(result => {
+            console.log('result:', result);
+            resposta({ user: result[0] });
+        }).catch(erro => {
+            resposta({ erro: "Erro ao buscar os usuários!" });
+        });
 });
 
 // fetch('/api/buscar_usuario', {
@@ -57,4 +57,7 @@ inserirRota('/login', function (dados, resposta) {
 //     console.log(dados);
 // }).catch(function (erro) {
 //     console.log(erro);
-// });
+// // });
+
+// Select * from user:
+// fetch('/api/buscar_usuario', { method: 'POST'});
