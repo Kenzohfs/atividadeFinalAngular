@@ -16,6 +16,7 @@ import { JogosModule } from './jogos/jogos.module';
 import { AdminModule } from './admin/admin.module';
 import { CompraModule } from './compra/compra.module';
 import CheckLogged from './checkLogged.canactivate';
+import { FormsModule } from '@angular/forms';
 
 const rotas: Routes = [
   { path: '', component: HomepageComponent },
@@ -40,6 +41,7 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(rotas);
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     LoginModule,
     JogosModule,
     AdminModule,
