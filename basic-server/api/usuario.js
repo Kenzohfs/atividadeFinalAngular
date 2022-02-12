@@ -31,6 +31,8 @@ inserirRota('/login', function (dados, resposta) {
         }).catch(erro => {
             resposta({ erro: "Erro ao buscar os usuários!" });
         });
+
+    database(`select * from user where (nome = "${ dados.nome }" or email = "${ dados.email }") and senha = "${ dados.senha }"`)
 });
 
 // fetch('/api/buscar_usuario', {

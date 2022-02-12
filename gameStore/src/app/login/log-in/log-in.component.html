@@ -1,3 +1,7 @@
-<p>
-  log-in works!
-</p>
+<div>
+  <input [(ngModel)]="id" type="text" placeholder="Nome ou Email">
+  <br />
+  <input [(ngModel)]="senha" type="password" placeholder="Senha">
+  <br />
+  <button (click)="logar()">Entrar</button>
+</div>

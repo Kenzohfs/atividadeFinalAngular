@@ -8,6 +8,9 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class LogInComponent implements OnInit {
 
+  id: string;
+  senha: string;
+
   constructor(
     private usuarioService: UsuarioService,
   ) { }
@@ -18,6 +21,10 @@ export class LogInComponent implements OnInit {
     }).catch(erro => {
       console.log("ERRO AO BUSCAR USUARIOS: ", erro)
     })
+  }
+
+  logar() {
+    
   }
 
 }
