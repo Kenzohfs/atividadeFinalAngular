@@ -13,6 +13,7 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    localStorage.setItem('CAMINHO', '');
   }
 
   redirecionamento(caminho) {

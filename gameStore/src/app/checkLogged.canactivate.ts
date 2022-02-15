@@ -14,10 +14,12 @@ class CheckLogged implements CanActivate {
     ): Observable<boolean> | Promise<boolean> | boolean {
         console.log("checkLogged");
 
-        
-
-        this.router.navigate(['login']);
-        return false;
+        if (localStorage.getItem('USUARIO') == 'true') {
+            return true;
+        } else {
+            this.router.navigate(['login']);
+            return false;
+        }
     }
 }  
 

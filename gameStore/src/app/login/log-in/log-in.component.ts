@@ -24,6 +24,7 @@ export class LogInComponent implements OnInit {
     this.usuarioService.logar(this.id, this.senha).then((dados: any) => {
         if (dados.user) {
           console.log(dados);
+          localStorage.setItem('USUARIO', "true");
           this.router.navigate([localStorage.getItem('CAMINHO')]);
         } else {
           alert('Usuário e senha incorretos!');
