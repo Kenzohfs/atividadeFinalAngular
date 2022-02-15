@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   buscarUsuarios() {
     return new Promise((resolvido, rejeitado) => {
@@ -41,4 +44,31 @@ export class UsuarioService {
       .catch(rejeitado);
     })
   }
+
+  logar(id, senha) {
+    return new Promise((resolvido, rejeitado) => {
+
+      fetch('/api/login', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            id: id, senha: senha
+          }
+        ),
+        headers: { 
+          'Content-Type': 'application/json' 
+        }
+      })
+      .then(resultado => resultado.json())
+      .then(resolvido)
+      .catch(rejeitado);
+    })
+  }
+
+  redirecionamento(caminho) {
+    this.router.navigate([caminho]);
+    localStorage.setItem('CAMINHO', window.location.pathname);
+    console.log(localStorage.getItem('CAMINHO'));
+  }
+
 }

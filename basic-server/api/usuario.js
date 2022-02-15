@@ -22,17 +22,15 @@ inserirRota('/criar_usuario', function (dados, resposta) {
 })
 
 inserirRota('/login', function (dados, resposta) {
-    console.log(dados);
+    console.log('teste', dados);
 
-    database(`SELECT * FROM USER WHERE NICKNAME = "${dados.nickname}" and password = "${dados.password}" limit 1`)
-        .then(result => {
-            console.log('result:', result);
-            resposta({ user: result[0] });
-        }).catch(erro => {
-            resposta({ erro: "Erro ao buscar os usuários!" });
-        });
+    database(`SELECT * FROM USER WHERE (nome = "${dados.id}" or email = "${dados.id}") AND senha = "${dados.senha}" LIMIT 1`)
+      .then(result => {
+        resposta({ user: result[0] });
+      }).catch(erro => {
+        resposta({ erro: 'Erro ao buscar os usuários!' });
+      });
 
-    database(`select * from user where (nome = "${ dados.nome }" or email = "${ dados.email }") and senha = "${ dados.senha }"`)
 });
 
 // fetch('/api/buscar_usuario', {

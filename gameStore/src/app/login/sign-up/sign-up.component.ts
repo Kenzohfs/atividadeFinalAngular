@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class SignUpComponent implements OnInit {
   confirmarSenha: string;
 
   constructor(
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -23,11 +25,11 @@ export class SignUpComponent implements OnInit {
 
   cadastrarUsuario() {
     if (this.verificarCampos()) {
-      console.log("cadastrarUsuario() passou");
-
       this.usuarioService.criarUsuario(this.nome, this.email, this.telefone, this.senha)
       .then(resultado => {
         console.log("RESULTADO: ", resultado)
+        this.nome = this.email = this.telefone = this.senha = this.confirmarSenha = undefined;
+        this.router.navigate(['login']);
       }).catch(erro => {
         console.log("ERRO AO BUSCAR USUARIOS: ", erro)
       });

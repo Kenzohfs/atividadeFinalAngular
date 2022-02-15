@@ -13,6 +13,9 @@ class CheckLogged implements CanActivate {
         state: RouterStateSnapshot
     ): Observable<boolean> | Promise<boolean> | boolean {
         console.log("checkLogged");
+
+        
+
         this.router.navigate(['login']);
         return false;
     }

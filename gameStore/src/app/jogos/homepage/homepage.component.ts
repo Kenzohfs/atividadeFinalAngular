@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private usuarioService: UsuarioService
+  ) { }
 
   ngOnInit() {
+  }
+
+  redirecionamento(caminho) {
+    this.usuarioService.redirecionamento(caminho);
   }
 
 }
