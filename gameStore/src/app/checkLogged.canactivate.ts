@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 class CheckLogged implements CanActivate {
     constructor(
         private router: Router,
-      ) { }
+    ) { }
 
     canActivate(
         route: ActivatedRouteSnapshot,
@@ -17,10 +17,11 @@ class CheckLogged implements CanActivate {
         if (localStorage.getItem('USUARIO') == 'true') {
             return true;
         } else {
+            localStorage.setItem('CAMINHO', window.location.pathname);
             this.router.navigate(['login']);
             return false;
         }
     }
-}  
+}
 
 export default CheckLogged;

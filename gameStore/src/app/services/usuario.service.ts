@@ -15,13 +15,13 @@ export class UsuarioService {
 
       fetch('/api/buscar_usuario', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json' 
+        headers: {
+          'Content-Type': 'application/json'
         }
       })
-      .then(resultado => resultado.json())
-      .then(resolvido)
-      .catch(rejeitado);
+        .then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
     })
   }
 
@@ -35,13 +35,13 @@ export class UsuarioService {
             nome: nome, email: email, telefone: telefone, senha: senha
           }
         ),
-        headers: { 
-          'Content-Type': 'application/json' 
+        headers: {
+          'Content-Type': 'application/json'
         }
       })
-      .then(resultado => resultado.json())
-      .then(resolvido)
-      .catch(rejeitado);
+        .then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
     })
   }
 
@@ -55,20 +55,53 @@ export class UsuarioService {
             id: id, senha: senha
           }
         ),
-        headers: { 
-          'Content-Type': 'application/json' 
+        headers: {
+          'Content-Type': 'application/json'
         }
       })
-      .then(resultado => resultado.json())
-      .then(resolvido)
-      .catch(rejeitado);
+        .then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
     })
   }
 
   redirecionamento(caminho) {
-    this.router.navigate([caminho]);
     localStorage.setItem('CAMINHO', window.location.pathname);
+    this.router.navigate([caminho]);
     console.log(localStorage.getItem('CAMINHO'));
+  }
+
+  dadosSignup(nome, email) {
+    // fetch('/api/verificacao_signup', {
+    //   method: 'POST',
+    //   body: JSON.stringify(
+    //     {
+    //       nome: nome, email: email
+    //     }
+    //   ),
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // });
+
+
+    return new Promise((resolvido, rejeitado) => {
+
+      fetch('/api/verificacao_signup', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            nome: nome, email: email
+          }
+        ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
+    })
   }
 
 }

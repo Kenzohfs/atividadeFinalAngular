@@ -25,13 +25,23 @@ inserirRota('/login', function (dados, resposta) {
     console.log('teste', dados);
 
     database(`SELECT * FROM USER WHERE (nome = "${dados.id}" or email = "${dados.id}") AND senha = "${dados.senha}" LIMIT 1`)
-      .then(result => {
-        resposta({ user: result[0] });
-      }).catch(erro => {
-        resposta({ erro: 'Erro ao buscar os usuários!' });
-      });
+        .then(result => {
+            resposta({ user: result[0] });
+        }).catch(erro => {
+            resposta({ erro: 'Erro ao buscar os usuários!' });
+        });
 
 });
+
+inserirRota('/verificacao_signup',
+    function (dados, resposta) {
+        console.log(dados);
+        database(`SELECT * FROM USER where "${dados.nome}" = NOME or "${dados.email}" = EMAIL`).then(result => {
+            resposta( result );
+        }).catch(erro => {
+            resposta({ erro: "Erro ao buscar os usuários!" });
+        });
+    });
 
 // fetch('/api/buscar_usuario', {
 //     method: 'POST',

@@ -21,7 +21,8 @@ export class LogInComponent implements OnInit {
   }
 
   logar() {
-    this.usuarioService.logar(this.id, this.senha).then((dados: any) => {
+    if( this.id && this.senha ) {
+      this.usuarioService.logar(this.id, this.senha).then((dados: any) => {
         if (dados.user) {
           console.log(dados);
           localStorage.setItem('USUARIO', "true");
@@ -32,5 +33,6 @@ export class LogInComponent implements OnInit {
       }).catch(erro => {
         console.log(erro);
       });
+    }
   }
 }
