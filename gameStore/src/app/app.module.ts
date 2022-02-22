@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
@@ -16,7 +17,6 @@ import { JogosModule } from './jogos/jogos.module';
 import { AdminModule } from './admin/admin.module';
 import { CompraModule } from './compra/compra.module';
 import CheckLogged from './checkLogged.canactivate';
-import { FormsModule } from '@angular/forms';
 
 const rotas: Routes = [
   { path: '', component: HomepageComponent },

@@ -87,9 +87,4 @@ export class SignUpComponent implements OnInit {
       return true;
     }
   }
-
-  verificarDadosDuplicados() {
-
-
-  }
 }
