@@ -9,6 +9,15 @@ inserirRota('/buscar_usuario',
         });
     });
 
+inserirRota('/buscar_admin', function(dados, resposta) {
+    console.log("Dados: ", dados);
+    database('SELECT * FROM ADMINISTRADOR').then(result => {
+        resposta({ list: result });
+    }).catch(erro => {
+        resposta({ erro: "Erro ao buscar os admins!" });
+    })
+})
+
 inserirRota('/criar_usuario', function (dados, resposta) {
     console.log(dados);
 
