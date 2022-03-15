@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class LogInComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
+    private adminService: AdminService,
     private router: Router
   ) { }
 
@@ -21,12 +23,21 @@ export class LogInComponent implements OnInit {
   }
 
   logar() {
-    if( this.id && this.senha ) {
+    if (this.id && this.senha) {
       this.usuarioService.logar(this.id, this.senha).then((dados: any) => {
         if (dados.user) {
           console.log(dados);
           localStorage.setItem('USUARIO', "true");
           this.router.navigate([localStorage.getItem('CAMINHO')]);
+
+          this.adminService.verificarAdmin(this.id).then((dados: any) => {
+            if (dados.length > 0) {
+              console.log("logar admin: ", dados);
+              localStorage.setItem('ADMIN', "TRUE");
+            } else {
+              localStorage.setItem('ADMIN', "FALSE");
+            }
+          });
         } else {
           alert('Usuário e senha incorretos!');
         }
@@ -35,4 +46,5 @@ export class LogInComponent implements OnInit {
       });
     }
   }
+
 }

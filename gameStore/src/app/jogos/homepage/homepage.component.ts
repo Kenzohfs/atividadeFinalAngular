@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class HomepageComponent implements OnInit {
 
   constructor(
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -17,7 +19,15 @@ export class HomepageComponent implements OnInit {
   }
 
   redirecionamento(caminho) {
+    console.log("caminho home: ", caminho);
     this.usuarioService.redirecionamento(caminho);
   }
 
+  adcBtn() {
+    if(localStorage.getItem('ADMIN') == 'TRUE') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

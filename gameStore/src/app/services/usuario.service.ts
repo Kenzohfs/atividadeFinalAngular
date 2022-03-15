@@ -65,10 +65,11 @@ export class UsuarioService {
     })
   }
 
-  redirecionamento(caminho) {
+  redirecionamento(caminho: string) {
     localStorage.setItem('CAMINHO', window.location.pathname);
+    console.log(caminho);
     this.router.navigate([caminho]);
-    console.log(localStorage.getItem('CAMINHO'));
+    console.log("redirecionamento service: ", localStorage.getItem('CAMINHO'));
   }
 
   dadosSignup(nome, email) {
@@ -104,4 +105,7 @@ export class UsuarioService {
     })
   }
 
+  
 }
+
+  

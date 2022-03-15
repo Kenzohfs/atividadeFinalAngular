@@ -20,10 +20,14 @@ class CheckLogged implements CanActivate {
         console.log("path", this.path);
 
         if (localStorage.getItem('USUARIO') == 'true') {
-            if (this.path == "/adicionar-jogo" || localStorage.getItem('CAMINHO') == "/adicionar-jogo") {
-                console.log("Entrou");
+            if ((this.path == "adicionar-jogo" || localStorage.getItem('CAMINHO') == "adicionar-jogo")
+                && localStorage.getItem("ADMIN") == 'TRUE') {
+                return true;
+            } else {
+                this.router.navigate(['']);
+                console.log('retornou')
+                return false;
             }
-            return true;
         } else {
             localStorage.setItem('CAMINHO', window.location.pathname);
             this.router.navigate(['login']);

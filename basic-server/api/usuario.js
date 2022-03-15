@@ -9,7 +9,7 @@ inserirRota('/buscar_usuario',
         });
     });
 
-inserirRota('/buscar_admin', function(dados, resposta) {
+inserirRota('/buscar_admin', function (dados, resposta) {
     console.log("Dados: ", dados);
     database('SELECT * FROM ADMINISTRADOR').then(result => {
         resposta({ list: result });
@@ -39,18 +39,27 @@ inserirRota('/login', function (dados, resposta) {
         }).catch(erro => {
             resposta({ erro: 'Erro ao buscar os usuários!' });
         });
-
 });
 
+//*
 inserirRota('/verificacao_signup',
     function (dados, resposta) {
         console.log(dados);
         database(`SELECT * FROM USER where "${dados.nome}" = NOME or "${dados.email}" = EMAIL`).then(result => {
-            resposta( result );
+            resposta(result);
         }).catch(erro => {
             resposta({ erro: "Erro ao buscar os usuários!" });
         });
     });
+
+inserirRota('/verificacao_admin', function (dados, resposta) {
+    console.log("verificação admin: ", dados);
+    database(`SELECT * FROM ADMINISTRADOR, USER WHERE ("${dados.id}" = USER.NOME OR "${dados.id}" = USER.EMAIL) AND USER.ID = ADMINISTRADOR.USER_ID`).then(result => {
+        resposta(result);
+    }).catch(erro => {
+        resposta({ erro: "Erro ao buscar o admin"});
+    })
+});
 
 // fetch('/api/buscar_usuario', {
 //     method: 'POST',
