@@ -1,3 +1,10 @@
-<p>
-  adicionar-jogo works!
-</p>
+<div>
+  <input type="text" placeholder="Nome" [(ngModel)]="nome">
+  <input type="text" placeholder="Preço" [(ngModel)]="preco">
+  <input type="text" placeholder="Gênero" [(ngModel)]="genero">
+  <input type="filetype" placeholder="Imagem" [(ngModel)]="imagem">
+  <input type="file" placeholder="Faixa Etária" [(ngModel)]="faixaEtaria">
+  <input type="text" placeholder="Sinopse" [(ngModel)]="sinopse">
+  <br>
+  <button (click)="adicionarJogo();">Enviar</button>
+</div>

@@ -75,6 +75,22 @@ database(`CREATE TABLE IF NOT EXISTS JOGO (
     console.log("Erro ao criar tabela Jogo!")
 })
 
+database(`CREATE TABLE IF NOT EXISTS JOGO_GENERO (
+    CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
+    CODIGO_JOGO INTEGER,
+    CODIGO_GENERO INTEGER,
+    FOREIGN KEY (CODIGO_JOGO) REFERENCES JOGO (CODIGO)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (CODIGO_GENERO) REFERENCES GENERO (CODIGO)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+)`).then(result => {
+    console.log("Tabela Jogo_Genero criada com sucesso!");
+}).catch(erro => {
+    console.log("Erro ao criar a tabela Jogo_Genero");
+})
+
 database(`CREATE TABLE IF NOT EXISTS GENERO (
     CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
     GENERO VARCHAR(45) NOT NULL,

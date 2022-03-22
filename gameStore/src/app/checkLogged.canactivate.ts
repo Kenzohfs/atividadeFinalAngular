@@ -16,20 +16,17 @@ class CheckLogged implements CanActivate {
     ): Observable<boolean> | Promise<boolean> | boolean {
         console.log("checkLogged");
 
-        this.path = window.location.pathname;
-        console.log("path", this.path);
-
         if (localStorage.getItem('USUARIO') == 'true') {
-            if ((this.path == "adicionar-jogo" || localStorage.getItem('CAMINHO') == "adicionar-jogo")
+            if ((localStorage.getItem('CAMINHO') == "adicionar-jogo")
                 && localStorage.getItem("ADMIN") == 'TRUE') {
                 return true;
             } else {
-                this.router.navigate(['']);
+                this.router.navigate([localStorage.getItem("PASTCAMINHO")]);
                 console.log('retornou')
                 return false;
             }
         } else {
-            localStorage.setItem('CAMINHO', window.location.pathname);
+            localStorage.setItem('PASTCAMINHO', window.location.pathname);
             this.router.navigate(['login']);
             return false;
         }

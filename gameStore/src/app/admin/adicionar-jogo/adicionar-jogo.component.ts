@@ -12,4 +12,14 @@ export class AdicionarJogoComponent implements OnInit {
   ngOnInit() {
   }
 
+  nome;
+  preco;
+  genero;
+  imagem;
+  faixaEtaria; 
+  sinopse;
+
+  adicionarJogo() {
+    
+  }
 }

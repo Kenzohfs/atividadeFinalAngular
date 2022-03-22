@@ -28,7 +28,7 @@ export class LogInComponent implements OnInit {
         if (dados.user) {
           console.log(dados);
           localStorage.setItem('USUARIO', "true");
-          this.router.navigate([localStorage.getItem('CAMINHO')]);
+          this.router.navigate([localStorage.getItem('PASTCAMINHO')]);
 
           this.adminService.verificarAdmin(this.id).then((dados: any) => {
             if (dados.length > 0) {
