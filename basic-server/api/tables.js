@@ -75,28 +75,36 @@ database(`CREATE TABLE IF NOT EXISTS JOGO (
     console.log("Erro ao criar tabela Jogo!")
 })
 
-database(`CREATE TABLE IF NOT EXISTS JOGO_GENERO (
-    CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
-    CODIGO_JOGO INTEGER,
-    CODIGO_GENERO INTEGER,
-    FOREIGN KEY (CODIGO_JOGO) REFERENCES JOGO (CODIGO)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (CODIGO_GENERO) REFERENCES GENERO (CODIGO)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-)`).then(result => {
-    console.log("Tabela Jogo_Genero criada com sucesso!");
-}).catch(erro => {
-    console.log("Erro ao criar a tabela Jogo_Genero");
-})
-
 database(`CREATE TABLE IF NOT EXISTS GENERO (
     CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
     GENERO VARCHAR(45) NOT NULL,
     TAG VARCHAR(45)
 )`).then(result => {
     console.log("Tabela Gênero criada com sucesso!");
+
+    database(`SELECT * FROM GENERO`).then(resultado => {
+        if (resultado.length == 0) {
+            database(`INSERT INTO GENERO (GENERO) VALUES
+            ('Ação'),
+            ('Misterio'),
+            ('RPG'),
+            ('Mundo Aberto'),
+            ('2D'),
+            ('Plataforma'),
+            ('Roguelike'),
+            ('Battle Royale')`).then(resultado => {
+                console.log("Resultado: ", resultado);
+            }).catch(erro => {
+                console.log("erro: ", erro);
+            });
+            console.log("Entrou genero");
+        } else {
+            console.log("Entrou else Genero");
+        }
+    }).catch(error => {
+        console.log("Error: ", error);
+    })
+
 }).catch(erro => {
     console.log("Erro ao criar a tabela Gênero!");
 })
@@ -129,4 +137,18 @@ database(`CREATE TABLE IF NOT EXISTS PEDIDO_EFETUADO (
     console.log("Tabela Pedido_efetuado criada com sucesso!");
 }).catch(erro => {
     console.log("Erro ao criar a tabela Pedido_Efetuado");
+})
+
+database(`CREATE TABLE IF NOT EXISTS JOGO_PEDIDO_EFETUADO (
+    CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
+    JOGO_CODIGO INTEGER NOT NULL,
+    PEDIDO_EFETUADO_CODIGO INTEGER NOT NULL,
+    FOREIGN KEY (JOGO_CODIGO) REFERENCES JOGO (CODIGO) 
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (PEDIDO_EFETUADO_CODIGO) REFERENCES PEDIDO_EFETUADO (CODIGO)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)`) .then(result => {
+    console.log("Tabela Jogo_Pedido_Efetuado criada com sucesso!");
+}).catch(erro => {
+    console.log("Erro ao criar a tabela Jogo_Pedido_Efetuado");
 })
