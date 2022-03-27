@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
+import * as myGlobals from '../../myGlobals';
 
 @Component({
   selector: 'app-adicionar-jogo',
@@ -8,14 +9,28 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class AdicionarJogoComponent implements OnInit {
 
-  constructor(private admin: AdminService) { }
+  dropdownList = myGlobals.listaGeneros;
+  selectedItems = [];
+  dropdownSettings = {};
+
+  constructor(private admin: AdminService) {
+  }
 
   ngOnInit() {
+    console.log("a", this.dropdownList);
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
   nome;
   preco;
-  genero = [1, 2, 3, 4]
   imagem;
   faixaEtaria;
   sinopse;
@@ -42,30 +57,30 @@ export class AdicionarJogoComponent implements OnInit {
           "Content-Type": "application/json"
         }
       }).then(resultado => {
-          console.log("fetch 1 : ", resultado)
-          resultado.json().then(dados => {
-            console.log("dados: ", dados)
-            this.genero.forEach((e) => {
-              fetch("/api/inserir-jogo-genero", {
-                method: 'POST',
-                body: JSON.stringify({
-                  jogo_codigo: dados.user.CODIGO,
-                  genero_codigo: e
-                }),
-                headers: {
-                  "Content-Type": "application/json"
-                }
-              })
+        console.log("fetch 1 : ", resultado)
+        resultado.json().then(dados => {
+          console.log("dados: ", dados)
+          this.selectedItems.forEach((e) => {
+            fetch("/api/inserir-jogo-genero", {
+              method: 'POST',
+              body: JSON.stringify({
+                jogo_codigo: dados.user.CODIGO,
+                genero_codigo: e.item_id
+              }),
+              headers: {
+                "Content-Type": "application/json"
+              }
             })
           })
         })
+      })
     });
-
-
   }
 
-
-
-
-
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
 }

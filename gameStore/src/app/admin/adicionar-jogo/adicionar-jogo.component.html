@@ -9,7 +9,9 @@
   <br>
   <input type="text" placeholder="Sinopse" [(ngModel)]="sinopse">
   <br>
-  <input type="text" placeholder="Gêneros">
+  <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
+    [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+  </ng-multiselect-dropdown>
   <br>
   <button (click)="adicionarJogo();">Enviar</button>
 </div>

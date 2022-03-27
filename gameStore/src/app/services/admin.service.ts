@@ -45,9 +45,9 @@ export class AdminService {
           'Content-Type': 'application/json'
         }
       })
-      .then(resultado => resultado.json())
-      .then(resolvido)
-      .catch(rejeitado)
+        .then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado)
     })
   }
 
@@ -67,10 +67,9 @@ export class AdminService {
           'Content-Type': 'application/json'
         }
       })
-      .then(resultado => resultado.json())
-      .then(resolvido)
-      .catch(rejeitado)
+        .then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado)
     })
   }
-  
 }

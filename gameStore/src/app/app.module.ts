@@ -3,6 +3,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { HomepageComponent } from './jogos/homepage/homepage.component';
@@ -40,6 +42,7 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(rotas);
     AppComponent
   ],
   imports: [
+    NgMultiSelectDropDownModule.forRoot(),
     BrowserModule,
     FormsModule,
     LoginModule,
