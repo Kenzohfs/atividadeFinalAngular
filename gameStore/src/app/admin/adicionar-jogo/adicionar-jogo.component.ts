@@ -17,7 +17,7 @@ export class AdicionarJogoComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("a", this.dropdownList);
+    console.log("dropdownlist: ", this.dropdownList);
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'item_id',
@@ -36,11 +36,6 @@ export class AdicionarJogoComponent implements OnInit {
   sinopse;
 
   adicionarJogo() {
-    //para incorporar uma lista de generos interativa, pode-se definir uma aq dentro talvez
-    //caso o angular não deixe, dê um jeito de deixá-la fora dos métodos
-    //pq neste caso com uma lista estática o foreach está funcionando
-    //só dê um jeito de já ter uma lista com os códigos antes de inicar essa função
-
     this.admin.adicionarJogo(this.nome, this.preco, this.imagem, this.faixaEtaria, this.sinopse).then((dados: any) => {
       console.log("dados: ", dados)
     }).then((resultado: any) => {
