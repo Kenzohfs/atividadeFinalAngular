@@ -73,19 +73,6 @@ export class UsuarioService {
   }
 
   dadosSignup(nome, email) {
-    // fetch('/api/verificacao_signup', {
-    //   method: 'POST',
-    //   body: JSON.stringify(
-    //     {
-    //       nome: nome, email: email
-    //     }
-    //   ),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // });
-
-
     return new Promise((resolvido, rejeitado) => {
 
       fetch('/api/verificacao_signup', {

@@ -28,7 +28,6 @@ export class LogInComponent implements OnInit {
         if (dados.user) {
           console.log(dados);
           localStorage.setItem('USUARIO', "true");
-          this.router.navigate([localStorage.getItem('PASTCAMINHO')]);
 
           this.adminService.verificarAdmin(this.id).then((dados: any) => {
             if (dados.length > 0) {
@@ -37,6 +36,7 @@ export class LogInComponent implements OnInit {
             } else {
               localStorage.setItem('ADMIN', "FALSE");
             }
+            this.router.navigate([localStorage.getItem('PASTCAMINHO')]);
           });
         } else {
           alert('Usuário e senha incorretos!');

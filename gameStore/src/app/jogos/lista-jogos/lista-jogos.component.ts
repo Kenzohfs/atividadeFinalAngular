@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { JogoService } from 'src/app/services/jogo.service';
 
 @Component({
   selector: 'app-lista-jogos',
@@ -7,10 +8,12 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./lista-jogos.component.css']
 })
 export class ListaJogosComponent implements OnInit {
-
+  listaJogos
   constructor(
-    private usuarioService: UsuarioService
-  ) { }
+    private usuarioService: UsuarioService, private jogoService: JogoService
+  ) { 
+    
+   }
 
   ngOnInit() {
   }
