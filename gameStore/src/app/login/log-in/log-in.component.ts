@@ -36,7 +36,11 @@ export class LogInComponent implements OnInit {
             } else {
               localStorage.setItem('ADMIN', "FALSE");
             }
-            this.router.navigate([localStorage.getItem('PASTCAMINHO')]);
+            if (localStorage.getItem("PASTCAMINHO")) {
+              this.router.navigate([localStorage.getItem('PASTCAMINHO')]);
+            } else {
+              this.router.navigate(['/']);
+            }
           });
         } else {
           alert('Usuário e senha incorretos!');

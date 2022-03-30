@@ -60,3 +60,30 @@ inserirRota("/listar-jogo-genero", function (dados, resposta) {
         resposta({ erro: "Erro ao listar os jogos_gêneros" });
     })
 })
+
+inserirRota('/listar-jogo-palavra-chave', function (dados, resposta) {
+    console.log(dados);
+    database(`SELECT * FROM JOGO WHERE NOME LIKE "%${dados.string}%"`).then(result => {
+        resposta(result);
+    }).catch(erro => {
+        resposta({ erro: "Erro ao listar os jogos" });
+    });
+})
+
+inserirRota('/listar-jogo-nome-asc', function (dados, resposta) {
+    console.log(dados);
+    database(`SELECT * FROM JOGO ORDER BY NOME ASC`).then(result => {
+        resposta(result);
+    }).catch(erro => {
+        resposta({ erro: "Erro ao listar os jogos" });
+    });
+})
+
+inserirRota('/listar-jogo-nome-desc', function (dados, resposta) {
+    console.log(dados);
+    database(`SELECT * FROM JOGO ORDER BY NOME DESC`).then(result => {
+        resposta(result);
+    }).catch(erro => {
+        resposta({ erro: "Erro ao listar os jogos" });
+    });
+})

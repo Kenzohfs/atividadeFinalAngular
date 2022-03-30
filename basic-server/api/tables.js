@@ -62,19 +62,6 @@ database(`CREATE TABLE IF NOT EXISTS ADMINISTRADOR (
     console.log("Erro ao criar tabela Administrador");
 });
 
-database(`CREATE TABLE IF NOT EXISTS JOGO (
-    CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
-    NOME VARCHAR(45) NOT NULL,
-    PRECO DOUBLE NOT NULL,
-    DESCRICAO VARCHAR(200),
-    IMAGEM_NOME VARCHAR(100),
-    FAIXA_ETARIA INTEGER NOT NULL
-)`).then(result => {
-    console.log("Tabela Jogo criada com sucesso!")
-}).catch(erro => {
-    console.log("Erro ao criar tabela Jogo!")
-})
-
 database(`CREATE TABLE IF NOT EXISTS GENERO (
     CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
     GENERO VARCHAR(45) NOT NULL,
