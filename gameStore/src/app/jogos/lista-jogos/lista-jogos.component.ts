@@ -12,7 +12,7 @@ export class ListaJogosComponent implements OnInit {
   constructor(
     private usuarioService: UsuarioService, private jogoService: JogoService
   ) { 
-    
+    this.jogoService.returnListaJogos();
    }
 
   ngOnInit() {

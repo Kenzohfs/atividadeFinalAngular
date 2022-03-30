@@ -10,18 +10,14 @@ export class JogoService {
   returnListaJogos() {
     return new Promise((resolvido, rejeitado) => {
 
-      fetch('/api/jogos', {
-        method: 'POST',
-        body: JSON.stringify(
-          {
-            id: id
-          }
-        ),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+      fetch('/api/listar-jogos', {
+        method: 'POST'
       })
-        .then(resultado => resultado.json())
+        .then(resultado =>  {
+          resultado.json().then(e => {
+            console.log('deu boa povo: ', e);
+          })
+        })
         .then(resolvido)
         .catch(rejeitado);
     })
