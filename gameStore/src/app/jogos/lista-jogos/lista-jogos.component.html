@@ -7,11 +7,13 @@
   <input type="text" [(ngModel)]='palavraChave' (keyup.enter)='pesquisarJogo()'>
   <button (click)='ordernarLista("ASC")'>Ordenar asc</button>
   <button (click)='ordernarLista("DESC")'>Ordenar desc</button>
-  <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="getLista()"
+
+  <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
     [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
   </ng-multiselect-dropdown>
+
   <div class="jogo_container" *ngFor="let jogo of listaJogos" (click)="redirecionarJogo(jogo.CODIGO)">
-    <img class="imagem_jogo" src="{{getPath(jogo.IMAGEM_NOME)}}" alt="{{jogo.NOME}}">
+    <img class="imagem_jogo" src="{{ getPath(jogo.IMAGEM_NOME) }}" alt="{{ jogo.NOME }}">
     <p>{{jogo.NOME}}</p>
     <p>{{getPreco(jogo.PRECO)}}</p>
   </div>

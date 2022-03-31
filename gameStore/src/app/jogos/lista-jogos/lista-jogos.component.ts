@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { JogoService } from 'src/app/services/jogo.service';
-import * as myGlobals from '../../myGlobals';
-
 
 @Component({
   selector: 'app-lista-jogos',
@@ -12,15 +10,15 @@ import * as myGlobals from '../../myGlobals';
   styleUrls: ['./lista-jogos.component.css']
 })
 export class ListaJogosComponent implements OnInit {
-  dropdownList;
-  listaJogos
+  listaJogos;
   palavraChave;
+  dropdownList = JSON.parse(localStorage.getItem('GENEROS'));
   selectedItems = [];
   dropdownSettings = {};
 
   constructor(
     private usuarioService: UsuarioService, private jogoService: JogoService, private router: Router
-  ) { 
+  ) {
     this.jogoService.returnListaJogos().then((dados: any) => {
       dados.json().then(e => {
         this.listaJogos = e;
@@ -28,15 +26,13 @@ export class ListaJogosComponent implements OnInit {
         console.log(this.listaJogos);
       })
     });
-    console.log('listajogos: ',this.listaJogos)
-   }
+  }
 
   ngOnInit() {
-    console.log("dropdownlist: ", this.dropdownList);
     this.dropdownSettings = {
       singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
+      idField: 'CODIGO',
+      textField: 'GENERO',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
@@ -44,16 +40,10 @@ export class ListaJogosComponent implements OnInit {
     };
   }
 
-  getLista() {
-    this.dropdownList = myGlobals.listaGeneros;
-  }
-
   pesquisarJogo() {
-    console.log(this.palavraChave);
     this.jogoService.returnListaJogosPalChav(this.palavraChave).then((dados: any) => {
       dados.json().then(e => {
         this.listaJogos = e;
-        console.log('e chave: ', e);
       })
     })
   }
@@ -63,22 +53,35 @@ export class ListaJogosComponent implements OnInit {
       this.jogoService.returnListaJogosOrdAsc().then((dados: any) => {
         dados.json().then(e => {
           this.listaJogos = e;
-          console.log('e ord: ', e)
         })
       })
     } else {
       this.jogoService.returnListaJogosOrdDesc().then((dados: any) => {
         dados.json().then(e => {
           this.listaJogos = e;
-          console.log('e ord: ', e)
         })
       })
     }
   }
 
+  // filtro por genero:
+  // *Pegar lista de generos escolhida
+  // *Procurar códigos de jogos que contém código do gênero (dar fetch para
+  // pegar resultado de todos as tuplas que contém o código do gênero)
+  // *Verificar se esse jogo tem todos os gêneros da lista (fazer verificação se
+  // tem algum jogo que tem todos os códigos de generos da lista)
+  // *Usar lista final para mostrar na tela
+
   onItemSelect(item: any) {
     console.log(item);
+    console.log('lista: ', this.selectedItems)
+    this.jogoService.returnListaJogosGeneros(this.selectedItems).then((dados: any) => {
+      dados.json().then(e => {
+        console.log('eeeeee: ', e);
+      })
+    })
   }
+
   onSelectAll(items: any) {
     console.log(items);
   }
@@ -92,7 +95,7 @@ export class ListaJogosComponent implements OnInit {
   }
 
   getPreco(preco) {
-    return preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    return preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
   }
 
   redirecionarJogo(codigo) {

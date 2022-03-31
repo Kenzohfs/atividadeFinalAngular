@@ -102,9 +102,23 @@ database(`CREATE TABLE IF NOT EXISTS JOGO_GENERO(
     JOGO_CODIGO INTEGER NOT NULL,
     FOREIGN KEY (GENERO_CODIGO) REFERENCES GENERO (CODIGO)
     ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (JOGO_CODIGO) REFERENCES JOGO (CODIGO)
+    ON DELETE CASCADE
     ON UPDATE CASCADE
 )`).then(result => {
     console.log("Tabela Jogo_Genero criada com sucesso!");
+
+    database(`INSERT INTO JOGO_GENERO (GENERO_CODIGO, JOGO_CODIGO) VALUES
+    (1, 1),
+    (3, 1),
+    (4, 1),
+    (1, 2),
+    (3, 2),
+    (4, 2),
+    (4, 3),
+    (5, 3),
+    (6, 3)`)
 }).catch(erro => {
     console.log("Erro ao criar a tabela Jogo_Genero!")
 });

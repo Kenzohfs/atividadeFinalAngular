@@ -54,4 +54,24 @@ export class JogoService {
         .catch(rejeitado);
     })
   }
+
+  returnListaJogosGeneros(listaGeneros) {
+    return new Promise((resolvido, rejeitado) => {
+      listaGeneros.forEach(e => {
+        fetch('/api/listar-lista-jogo-genero', {
+          method: 'POST',
+          body: JSON.stringify(
+            {
+              codigogenero: e.CODIGO
+            }
+          ),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(resolvido)
+          .catch(rejeitado);
+      })
+    })
+  }
 }
