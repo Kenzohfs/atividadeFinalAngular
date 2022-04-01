@@ -11,7 +11,7 @@ import { JogoService } from 'src/app/services/jogo.service';
 })
 export class ListaJogosComponent implements OnInit {
   listaJogos;
-  palavraChave = this.returnPalavra();;
+  palavraChave = "";
   dropdownList = JSON.parse(localStorage.getItem('GENEROS'));
   selectedItems = [];
   dropdownSettings = {};
@@ -41,14 +41,6 @@ export class ListaJogosComponent implements OnInit {
     this.pesquisarJogo();
   }
 
-  returnPalavra() {
-    if (localStorage.getItem("PESQUISARJOGO")) {
-     return localStorage.getItem("PESQUISARJOGO");
-    } else {
-      return "";
-    }
-  }
-
   pesquisarJogo() {
     this.jogoService.returnListaJogosPalChav(this.palavraChave).then((dados: any) => {
       dados.json().then(e => {
@@ -73,88 +65,99 @@ export class ListaJogosComponent implements OnInit {
     }
   }
 
-  // filtro por genero:
-  // *Pegar lista de generos escolhida
-  // *Procurar códigos de jogos que contém código do gênero (dar fetch para
-  // pegar resultado de todos as tuplas que contém o código do gênero)
-  // *Verificar se esse jogo tem todos os gêneros da lista (fazer verificação se
-  // tem algum jogo que tem todos os códigos de generos da lista)
-  // *Usar lista final para mostrar na tela
+  filtrarGenero() {
+    if (this.selectedItems.length == 0) {
+      this.jogoService.returnListaJogos().then((dados: any) => {
+        dados.json().then(e => {
+          this.listaJogos = e;
+        })
+      });
+    } else {
+      console.log('lista: ', this.selectedItems)
+      let listaFiltradaGenero = [];
+      fetch('api/listar-jogo-genero', {
+        method: 'POST'
+      }).then(resultado => {
+        resultado.json().then(dado => {
+          console.log('dado: ', dado);
+          console.log('generos: ', this.selectedItems);
+          this.selectedItems.forEach(e => {
+            dado.forEach(item => {
+              if (e.CODIGO == item.GENERO_CODIGO) {
+                listaFiltradaGenero.push(item.JOGO_CODIGO);
+              }
+            })
+          })
+          console.log("listaFiltradaGenero: ", listaFiltradaGenero);
+          let countJogo, listaFiltrada = [], verificacao;
+          for (let i = 0; i < listaFiltradaGenero.length; i++) {
+            countJogo = 0;
+            for (let a = 0; a < listaFiltradaGenero.length; a++) {
+              if (listaFiltradaGenero[i] == listaFiltradaGenero[a]) {
+                countJogo++;
+              }
+            }
+
+            console.log('jogo de código: ', listaFiltradaGenero[i], " repetiu ", countJogo, " vezes")
+            console.log('length select: ', this.selectedItems.length);
+
+            if (countJogo == this.selectedItems.length) {
+              verificacao = true;
+              for (let c = 0; c < listaFiltrada.length; c++) {
+                if (listaFiltrada[c] == listaFiltradaGenero[i]) {
+                  verificacao = false;
+                }
+              }
+              if (verificacao) {
+                listaFiltrada.push(listaFiltradaGenero[i]);
+              }
+            }
+          }
+          console.log("listafiltrada: ", listaFiltrada);
+          let listaJogosFiltradaByGen = [];
+          listaFiltrada.forEach(e => {
+            fetch('/api/listar-jogo-pelo-genero', {
+              method: 'POST',
+              body: JSON.stringify(
+                {
+                  codigo: e
+                }
+              ),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(vai => {
+              vai.json().then(a => {
+                console.log('a ', a);
+                listaJogosFiltradaByGen.push(a[0]);
+              })
+            })
+          })
+          console.log('oi: ', listaJogosFiltradaByGen);
+          this.listaJogos = listaJogosFiltradaByGen;
+        })
+      })
+    }
+  }
 
   onItemSelect(item: any) {
     console.log(item);
-    console.log('lista: ', this.selectedItems)
-    let listaFiltradaGenero = [];
-    fetch('api/listar-jogo-genero', {
-      method: 'POST'
-    }).then(resultado => {
-      resultado.json().then(dado => {
-        console.log('dado: ', dado);
-        console.log('generos: ', this.selectedItems);
-        this.selectedItems.forEach(e => {
-          dado.forEach(item => {
-            if (e.CODIGO == item.GENERO_CODIGO) {
-              listaFiltradaGenero.push(item.JOGO_CODIGO);
-            }
-          })
-        })
-        console.log("listaFiltradaGenero: ", listaFiltradaGenero);
-        let countJogo, listaFiltrada = [], verificacao;
-        for (let i = 0; i < listaFiltradaGenero.length; i++) {
-          countJogo = 0;
-          for (let a = 0; a < listaFiltradaGenero.length; a++) {
-            if (listaFiltradaGenero[i] == listaFiltradaGenero[a]) {
-              countJogo++;
-            }
-          }
-
-          console.log('jogo de código: ', listaFiltradaGenero[i], " repetiu ", countJogo, " vezes")
-          console.log('length select: ', this.selectedItems.length);
-
-          if (countJogo == this.selectedItems.length) {
-            verificacao = true;
-            for (let c = 0; c < listaFiltrada.length; c++) {
-              if (listaFiltrada[c] == listaFiltradaGenero[i]) {
-                verificacao = false;
-              }
-            }
-            if (verificacao) {
-              listaFiltrada.push(listaFiltradaGenero[i]);
-            }
-          }
-        }
-        console.log("listafiltrada: ", listaFiltrada);
-        let listaJogosFiltradaByGen = [];
-        listaFiltrada.forEach(e => {
-          fetch('/api/listar-jogo-pelo-genero', {
-            method: 'POST',
-            body: JSON.stringify(
-              {
-                codigo: e
-              }
-            ),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }).then(vai => {
-            vai.json().then(a => {
-              console.log('a ', a);
-              listaJogosFiltradaByGen.push(a[0]);
-            })
-          })
-        })
-        console.log('oi: ', listaJogosFiltradaByGen);
-        this.listaJogos = listaJogosFiltradaByGen;
-      })
-    })
-
-
   }
 
   onSelectAll(items: any) {
     console.log(items);
+    this.selectedItems = items;
+    this.filtrarGenero();
   }
 
+  onDeSelectAll(items: any) {
+    this.jogoService.returnListaJogos().then((dados: any) => {
+      dados.json().then(e => {
+        this.listaJogos = e;
+      })
+    });
+  }
+ 
   redirecionamento(caminho) {
     this.usuarioService.redirecionamento(caminho);
   }

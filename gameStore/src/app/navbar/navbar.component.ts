@@ -9,7 +9,6 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  inputField;
 
   constructor(private router: Router, private adminService: AdminService) { }
 
@@ -39,12 +38,6 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('PASTCAMINHO', window.location.pathname);
     this.router.navigate([caminho]);
     console.log("redirecionamento service: ", localStorage.getItem('CAMINHO'));
-  }
-
-  pesquisarJogo() {
-    this.router.navigate(['/jogos']);
-    localStorage.setItem("PESQUISARJOGO", this.inputField);
-    this.inputField = "";
   }
 
   sair() {

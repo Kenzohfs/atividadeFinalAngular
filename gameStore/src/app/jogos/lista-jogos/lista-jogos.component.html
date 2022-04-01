@@ -4,12 +4,13 @@
   <button (click)="redirecionamento('signup')">Signup</button>
 </div>
 <div>
-  <input type="text" [(ngModel)]='palavraChave' (keyup.enter)='pesquisarJogo()'>
+  <input type="text" [(ngModel)]='palavraChave' (keyup)='pesquisarJogo()'>
   <button (click)='ordernarLista("ASC")'>Ordenar asc</button>
   <button (click)='ordernarLista("DESC")'>Ordenar desc</button>
 
   <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
-    [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+    [(ngModel)]="selectedItems" (onSelect)="filtrarGenero()" (onSelectAll)="onSelectAll($event)"
+    (onDeSelect)="filtrarGenero()" (onDeSelectAll)="onDeSelectAll($event)">
   </ng-multiselect-dropdown>
 
   <div class="jogo_container" *ngFor="let jogo of listaJogos" (click)="redirecionarJogo(jogo.CODIGO)">
