@@ -1,0 +1,9 @@
+#navbar {
+    display: flex;
+    width: 100vw;
+    height: 80px;
+}
+
+#pesquisar {
+    height: 40px;
+}

@@ -33,4 +33,30 @@
         </ul>
     </div>
 </nav> -->
+<div id="navbar" *ngIf="mostrarNavbar()">
+    <div id="home" (click)='redirecionar("/")'>
+        Home
+    </div>
+    <input type="text" id="pesquisar">
+    <div id="lista_jogos" (click)='redirecionar("/jogos")'>
+        Lista Jogos
+    </div>
+    <div id="carrinho" (click)='redirecionar("/carrinho")'>
+        Carrinho
+    </div>
+    <div class="btn-group" mdbDropdown>
+        <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
+            mdbWavesEffect>
+            Basic dropdown
+        </button>
+
+        <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </div>
+</div>
 <router-outlet></router-outlet>
