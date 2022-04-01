@@ -19,6 +19,7 @@ import { JogosModule } from './jogos/jogos.module';
 import { AdminModule } from './admin/admin.module';
 import { CompraModule } from './compra/compra.module';
 import CheckLogged from './checkLogged.canactivate';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const rotas: Routes = [
   { path: '', component: HomepageComponent },
@@ -39,7 +40,8 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(rotas);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     NgMultiSelectDropDownModule.forRoot(),
@@ -53,6 +55,7 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(rotas);
     routing
   ],
   providers: [CheckLogged],
+  exports: [NavbarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

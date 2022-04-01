@@ -8,6 +8,14 @@ export class AdminService {
 
   constructor(private router: Router) { }
 
+  getListaGeneros() {
+    fetch('/api/listar-generos', { method: 'POST' }).then((dados: any) => {
+      dados.json().then((e: any) => {
+        localStorage.setItem("GENEROS", JSON.stringify(e));
+      })
+    })
+  }
+
   verificarAdmin(id) {
     return new Promise((resolvido, rejeitado) => {
 

@@ -11,7 +11,7 @@ import { JogoService } from 'src/app/services/jogo.service';
 })
 export class ListaJogosComponent implements OnInit {
   listaJogos;
-  palavraChave;
+  palavraChave = this.returnPalavra();;
   dropdownList = JSON.parse(localStorage.getItem('GENEROS'));
   selectedItems = [];
   dropdownSettings = {};
@@ -38,6 +38,15 @@ export class ListaJogosComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+    this.pesquisarJogo();
+  }
+
+  returnPalavra() {
+    if (localStorage.getItem("PESQUISARJOGO")) {
+     return localStorage.getItem("PESQUISARJOGO");
+    } else {
+      return "";
+    }
   }
 
   pesquisarJogo() {

@@ -15,6 +15,6 @@ import { HomepageComponent } from './homepage/homepage.component';
     FormsModule
   ],
   declarations: [ListaJogosComponent, InfoJogoComponent, HomepageComponent],
-  exports: [ListaJogosComponent, InfoJogoComponent, HomepageComponent]
+  exports: [ListaJogosComponent, InfoJogoComponent, HomepageComponent],
 })
 export class JogosModule { }

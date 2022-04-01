@@ -1,0 +1,23 @@
+<div id="navbar" *ngIf="mostrarNavbar()">
+    <div id="home" (click)='redirecionar("/")'>
+        Home
+    </div>
+    <input type="text" id="pesquisar" [(ngModel)]="inputField" (keyup.enter)="pesquisarJogo()">
+    <div id="lista_jogos" (click)='redirecionar("/jogos")'>
+        Lista Jogos
+    </div>
+    <div id="carrinho" (click)='redirecionar("/carrinho")'>
+        Carrinho
+    </div>
+    <div class="dropdown">
+        <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Perfil
+        </div>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item" (click)='redirecionar("/pedidos")'>Pedidos efetuados</button></li>
+            <li *ngIf="adicionarjogo()"><button class="dropdown-item"
+                    (click)="redirecionar('/adicionar-jogo')">Adicionar Jogo</button></li>
+            <li><button class="dropdown-item" (click)='sair()'>Sair</button></li>
+        </ul>
+    </div>
+</div>
