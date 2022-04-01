@@ -66,10 +66,7 @@ export class UsuarioService {
   }
 
   redirecionamento(caminho: string) {
-    localStorage.setItem("CAMINHO", caminho);
-    localStorage.setItem('PASTCAMINHO', window.location.pathname);
-    this.router.navigate([caminho]);
-    console.log("redirecionamento service: ", localStorage.getItem('CAMINHO'));
+    
   }
 
   dadosSignup(nome, email) {

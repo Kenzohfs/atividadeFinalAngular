@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { UsuarioService } from './services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,19 @@ import { UsuarioService } from './services/usuario.service';
 export class AppComponent {
   title = 'gameStore';
 
-  constructor(private usuarioService: UsuarioService) {
+  constructor(private router: Router) {
+    this.getListaGeneros();
+  }
+
+  adicionarjogo() {
+    if(localStorage.getItem('ADMIN') == 'TRUE') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getListaGeneros() {
     fetch('/api/listar-generos', {method: 'POST'}).then((dados: any) => {
       dados.json().then((e: any) => {
         localStorage.setItem("GENEROS", JSON.stringify(e));
@@ -28,6 +39,15 @@ export class AppComponent {
 
   redirecionar(caminho) {
     console.log("caminho home: ", caminho);
-    this.usuarioService.redirecionamento(caminho);
+    localStorage.setItem("CAMINHO", caminho);
+    localStorage.setItem('PASTCAMINHO', window.location.pathname);
+    this.router.navigate([caminho]);
+    console.log("redirecionamento service: ", localStorage.getItem('CAMINHO'));
+  }
+
+  sair() {
+    localStorage.clear();
+    this.getListaGeneros();
+    this.router.navigate(['/login']);
   }
 }

@@ -44,19 +44,17 @@
     <div id="carrinho" (click)='redirecionar("/carrinho")'>
         Carrinho
     </div>
-    <div class="btn-group" mdbDropdown>
-        <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
-            mdbWavesEffect>
-            Basic dropdown
-        </button>
-
-        <div class="dropdown-menu dropdown-primary">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="divider dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+    <div class="dropdown">
+        <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Perfil
         </div>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item" (click)='redirecionar("/pedidos")'>Pedidos efetuados</button></li>
+            <li *ngIf="adicionarjogo()"><button class="dropdown-item" (click)="redirecionar('/adicionar-jogo')">Adicionar Jogo</button></li>
+            <li><button class="dropdown-item" (click)='sair()'>Sair</button></li>
+        </ul>
     </div>
 </div>
 <router-outlet></router-outlet>
+<!-- <div *ngIf="adicionarjogo()">oi</div> -->

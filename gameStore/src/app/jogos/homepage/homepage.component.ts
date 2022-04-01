@@ -16,17 +16,4 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     localStorage.setItem('CAMINHO', '');
   }
-
-  redirecionamento(caminho) {
-    console.log("caminho home: ", caminho);
-    this.usuarioService.redirecionamento(caminho);
-  }
-
-  adcBtn() {
-    if(localStorage.getItem('ADMIN') == 'TRUE') {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }

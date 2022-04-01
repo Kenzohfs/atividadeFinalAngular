@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 .multiselect-dropdown {
     width: 300px !important;
 }
