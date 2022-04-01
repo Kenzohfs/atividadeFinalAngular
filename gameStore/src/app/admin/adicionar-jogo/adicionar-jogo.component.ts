@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AdminService } from 'src/app/services/admin.service';
-import * as myGlobals from '../../myGlobals';
 
 @Component({
   selector: 'app-adicionar-jogo',
@@ -10,7 +9,7 @@ import * as myGlobals from '../../myGlobals';
 })
 export class AdicionarJogoComponent implements OnInit {
 
-  dropdownList = myGlobals.listaGeneros;
+  dropdownList = JSON.parse(localStorage.getItem('GENEROS'));
   selectedItems = [];
   dropdownSettings = {};
 
@@ -21,8 +20,8 @@ export class AdicionarJogoComponent implements OnInit {
     console.log("dropdownlist: ", this.dropdownList);
     this.dropdownSettings = {
       singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
+      idField: 'CODIGO',
+      textField: 'GENERO',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,

@@ -96,3 +96,12 @@ inserirRota('/listar-lista-jogo-genero', function (dados, resposta) {
         resposta({ erro: 'Erro ao buscar dados da tabela Jogo_Genero'})
     });
 })
+
+inserirRota('/listar-jogo-pelo-genero', function (dados, resposta) {
+    console.log(dados);
+    database(`SELECT * FROM JOGO WHERE CODIGO = ${dados.codigo}`).then(result => {
+        resposta(result);
+    }).catch(erro => {
+        resposta({ erro: 'Erro ao buscar dados da tabela jogo'})
+    });
+})

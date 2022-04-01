@@ -108,17 +108,28 @@ database(`CREATE TABLE IF NOT EXISTS JOGO_GENERO(
     ON UPDATE CASCADE
 )`).then(result => {
     console.log("Tabela Jogo_Genero criada com sucesso!");
-
-    database(`INSERT INTO JOGO_GENERO (GENERO_CODIGO, JOGO_CODIGO) VALUES
-    (1, 1),
-    (3, 1),
-    (4, 1),
-    (1, 2),
-    (3, 2),
-    (4, 2),
-    (4, 3),
-    (5, 3),
-    (6, 3)`)
+    database(`SELECT * FROM JOGO_GENERO`).then(resultado => {
+        if (resultado.length == 0) {
+            database(`INSERT INTO JOGO_GENERO (GENERO_CODIGO, JOGO_CODIGO) VALUES
+            (1, 1),
+            (3, 1),
+            (4, 1),
+            (1, 2),
+            (3, 2),
+            (4, 2),
+            (4, 3),
+            (5, 3),
+            (6, 3)`).then(resultado => {
+                console.log('Jogos_generos adicionados');
+            }).catch(erro => {
+                console.log('Erro ao adicionar jogos_generos: ', erro);
+            })
+        } else {
+            console.log("Jogos_generos já foram adicionados previamente");
+        }
+    }).catch(erro => {
+        console.log('Erro ao listar jogos_generos: ', erro);
+    })
 }).catch(erro => {
     console.log("Erro ao criar a tabela Jogo_Genero!")
 });

@@ -75,11 +75,71 @@ export class ListaJogosComponent implements OnInit {
   onItemSelect(item: any) {
     console.log(item);
     console.log('lista: ', this.selectedItems)
-    this.jogoService.returnListaJogosGeneros(this.selectedItems).then((dados: any) => {
-      dados.json().then(e => {
-        console.log('eeeeee: ', e);
+    let listaFiltradaGenero = [];
+    fetch('api/listar-jogo-genero', {
+      method: 'POST'
+    }).then(resultado => {
+      resultado.json().then(dado => {
+        console.log('dado: ', dado);
+        console.log('generos: ', this.selectedItems);
+        this.selectedItems.forEach(e => {
+          dado.forEach(item => {
+            if (e.CODIGO == item.GENERO_CODIGO) {
+              listaFiltradaGenero.push(item.JOGO_CODIGO);
+            }
+          })
+        })
+        console.log("listaFiltradaGenero: ", listaFiltradaGenero);
+        let countJogo, listaFiltrada = [], verificacao;
+        for (let i = 0; i < listaFiltradaGenero.length; i++) {
+          countJogo = 0;
+          for (let a = 0; a < listaFiltradaGenero.length; a++) {
+            if (listaFiltradaGenero[i] == listaFiltradaGenero[a]) {
+              countJogo++;
+            }
+          }
+
+          console.log('jogo de código: ', listaFiltradaGenero[i], " repetiu ", countJogo, " vezes")
+          console.log('length select: ', this.selectedItems.length);
+
+          if (countJogo == this.selectedItems.length) {
+            verificacao = true;
+            for (let c = 0; c < listaFiltrada.length; c++) {
+              if (listaFiltrada[c] == listaFiltradaGenero[i]) {
+                verificacao = false;
+              }
+            }
+            if (verificacao) {
+              listaFiltrada.push(listaFiltradaGenero[i]);
+            }
+          }
+        }
+        console.log("listafiltrada: ", listaFiltrada);
+        let listaJogosFiltradaByGen = [];
+        listaFiltrada.forEach(e => {
+          fetch('/api/listar-jogo-pelo-genero', {
+            method: 'POST',
+            body: JSON.stringify(
+              {
+                codigo: e
+              }
+            ),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(vai => {
+            vai.json().then(a => {
+              console.log('a ', a);
+              listaJogosFiltradaByGen.push(a[0]);
+            })
+          })
+        })
+        console.log('oi: ', listaJogosFiltradaByGen);
+        this.listaJogos = listaJogosFiltradaByGen;
       })
     })
+
+
   }
 
   onSelectAll(items: any) {
