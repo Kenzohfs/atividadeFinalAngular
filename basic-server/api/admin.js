@@ -97,11 +97,29 @@ inserirRota('/listar-lista-jogo-genero', function (dados, resposta) {
     });
 })
 
-inserirRota('/listar-jogo-pelo-genero', function (dados, resposta) {
+inserirRota('/procurar-jogo-id', function (dados, resposta) {
     console.log(dados);
     database(`SELECT * FROM JOGO WHERE CODIGO = ${dados.codigo}`).then(result => {
+        resposta(result[0]);
+    }).catch(erro => {
+        resposta({ erro: 'Erro ao buscar dados da tabela jogo'})
+    });
+})
+
+inserirRota('/return-generos-codigos', function (dados, resposta) {
+    console.log(dados);
+    database(`SELECT * FROM JOGO_GENERO WHERE JOGO_CODIGO = ${dados.codigo}`).then(result => {
         resposta(result);
     }).catch(erro => {
         resposta({ erro: 'Erro ao buscar dados da tabela jogo'})
+    });
+})
+
+inserirRota('/procurar-genero', function (dados, resposta) {
+    console.log(dados);
+    database(`SELECT * FROM GENERO WHERE CODIGO = ${dados.codigo}`).then(result => {
+        resposta(result[0]);
+    }).catch(erro => {
+        resposta({ erro: 'Erro ao buscar gêneros da tabela gêneros'})
     });
 })

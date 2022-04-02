@@ -9,9 +9,56 @@ export class JogoService {
 
   returnListaJogos() {
     return new Promise((resolvido, rejeitado) => {
-
       fetch('/api/listar-jogos', {
         method: 'POST'
+      })
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
+  returnGenerosCodigos(codigoJogo) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('/api/return-generos-codigos', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            codigo: codigoJogo
+          }
+        ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
+  returnObjetoGenero(codigo) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('/api/procurar-genero', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            codigo: codigo
+          }
+        ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
+  procurarJogo(id: number) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('/api/procurar-jogo-id', {
+        method: 'POST',
+        body: JSON.stringify({
+          codigo: id
+        }),
+        headers: { 'Content-Type': 'application/json' }
       })
         .then(resolvido)
         .catch(rejeitado);
@@ -55,23 +102,21 @@ export class JogoService {
     })
   }
 
-  returnListaJogosGeneros(listaGeneros) {
+  returnListaJogosGeneros(codigo) {
     return new Promise((resolvido, rejeitado) => {
-      listaGeneros.forEach(e => {
-        fetch('/api/listar-lista-jogo-genero', {
-          method: 'POST',
-          body: JSON.stringify(
-            {
-              codigogenero: e.CODIGO
-            }
-          ),
-          headers: {
-            'Content-Type': 'application/json'
+      fetch('/api/listar-lista-jogo-genero', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            codigogenero: codigo
           }
-        })
-          .then(resolvido)
-          .catch(rejeitado);
+        ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
+        .then(resolvido)
+        .catch(rejeitado);
     })
   }
 }

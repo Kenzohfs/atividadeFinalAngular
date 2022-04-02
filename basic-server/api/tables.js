@@ -64,8 +64,7 @@ database(`CREATE TABLE IF NOT EXISTS ADMINISTRADOR (
 
 database(`CREATE TABLE IF NOT EXISTS GENERO (
     CODIGO INTEGER PRIMARY KEY AUTOINCREMENT,
-    GENERO VARCHAR(45) NOT NULL,
-    TAG VARCHAR(45)
+    GENERO VARCHAR(45) NOT NULL
 )`).then(result => {
     console.log("Tabela Gênero criada com sucesso!");
 

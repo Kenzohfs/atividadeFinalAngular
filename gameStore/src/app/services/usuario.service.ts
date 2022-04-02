@@ -65,10 +65,6 @@ export class UsuarioService {
     })
   }
 
-  redirecionamento(caminho: string) {
-    
-  }
-
   dadosSignup(nome, email) {
     return new Promise((resolvido, rejeitado) => {
 

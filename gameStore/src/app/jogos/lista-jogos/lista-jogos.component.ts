@@ -116,7 +116,7 @@ export class ListaJogosComponent implements OnInit {
           console.log("listafiltrada: ", listaFiltrada);
           let listaJogosFiltradaByGen = [];
           listaFiltrada.forEach(e => {
-            fetch('/api/listar-jogo-pelo-genero', {
+            fetch('/api/procurar-jogo-id', {
               method: 'POST',
               body: JSON.stringify(
                 {
@@ -156,10 +156,6 @@ export class ListaJogosComponent implements OnInit {
         this.listaJogos = e;
       })
     });
-  }
- 
-  redirecionamento(caminho) {
-    this.usuarioService.redirecionamento(caminho);
   }
 
   getPath(imagemNome) {

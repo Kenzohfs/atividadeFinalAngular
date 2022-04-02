@@ -60,24 +60,3 @@ inserirRota('/verificacao_admin', function (dados, resposta) {
         resposta({ erro: "Erro ao buscar o admin"});
     })
 });
-
-// fetch('/api/buscar_usuario', {
-//     method: 'POST',
-//     body: JSON.stringify(
-//         {
-//             nome: "bruno", nickname: "BRUNO", idade: 23
-//         }
-//     ),
-//     headers: {
-//         "Content-Type": "application/json"
-//     }
-// }).then(function (result) {
-//     return result.json();
-// }).then(function (dados) {
-//     console.log(dados);
-// }).catch(function (erro) {
-//     console.log(erro);
-// // });
-
-// Select * from user:
-// fetch('/api/buscar_usuario', { method: 'POST'});

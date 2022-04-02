@@ -1,5 +1,15 @@
 <div>
   info-jogo works!
-  <button (click)="redirecionamento('login')">Login</button>
-  <button (click)="redirecionamento('signup')">Signup</button>
+  <img id="img" src="{{ imagemPrincipal }}" [alt]="nome">
+  <p>{{ nome }}</p>
+  <p>{{ preco }}</p>
+  <button>Comprar</button>
+  <ul *ngFor="let genero of listaGeneros">
+    <li>
+      <div>{{ genero.GENERO }}</div>
+    </li>
+  </ul>
+  <p>{{ faixaEtaria }} Classificação Etária</p>
+  <p>Sinopse:</p>
+  <p>{{ descricao }}</p>
 </div>
