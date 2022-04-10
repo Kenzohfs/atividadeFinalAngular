@@ -85,7 +85,52 @@ export class UsuarioService {
     })
   }
 
-  
+  fecharPedido(user_id, valor) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('/api/inserir_pedido', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            valor: valor,
+            user_id: user_id
+          }
+        ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
+  listar_pedidos() {
+    return new Promise((resolvido, rejeitado) => {
+
+      fetch('/api/listar_pedidos', {
+        method: 'POST'
+      })
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
+  inserirJogoPedido(pedido_codigo, jogo_codigo) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('/api/inserir_jogo_pedido', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            pedido_codigo: pedido_codigo,
+            jogo_codigo: jogo_codigo
+          }
+        ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(resolvido)
+        .catch(rejeitado);
+    })
+  }
 }
 
   

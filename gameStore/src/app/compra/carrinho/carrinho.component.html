@@ -4,6 +4,7 @@
     <ul>
       <li *ngFor="let jogo of listaJogosCarrinho">Nome: {{ jogo.NOME }} <br> Preço: {{ jogo.PRECO }}</li>
     </ul>
+    <div>Subtotal: {{ subtotal }}</div>
     <button (click)="fecharPedido()">Finalizar Pedido</button>
   </div>
   <div *ngIf="!aparecer">

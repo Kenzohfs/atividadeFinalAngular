@@ -26,9 +26,9 @@ export class LogInComponent implements OnInit {
     if (this.id && this.senha) {
       this.usuarioService.logar(this.id, this.senha).then((dados: any) => {
         if (dados.user) {
-          console.log(dados);
+          console.log("dados login: ", dados);
           localStorage.setItem('USUARIO', "true");
-
+          localStorage.setItem("USER_ID", dados.user.ID)
           this.adminService.verificarAdmin(this.id).then((dados: any) => {
             if (dados.length > 0) {
               console.log("logar admin: ", dados);
