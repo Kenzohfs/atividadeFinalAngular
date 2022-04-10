@@ -16,25 +16,34 @@ export class InfoJogoComponent implements OnInit {
   preco;
   faixaEtaria;
   descricao;
+  jogo;
+  buttonText: String;
+  aparecer;
+  listaCarrinho = [];
 
-  constructor(private jogoService: JogoService, private route: ActivatedRoute) {
+  constructor(private jogoService: JogoService, private route: ActivatedRoute, private router: Router) {
     this.urlParam = route.snapshot.paramMap.get('codigo');
-    console.log('urlparam: ', this.urlParam);
     this.jogoService.procurarJogo(this.urlParam).then((resultado: any) => {
       resultado.json().then(dado => {
-        console.log("dado: ", dado);
+        this.jogo = dado;
         this.imagemPrincipal = '../../../assets/images/' + dado.IMAGEM_PRINCIPAL + '.jpg';
-        console.log(this.imagemPrincipal)
         this.nome = dado.NOME;
         this.preco = dado.PRECO.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });;
         this.faixaEtaria = dado.FAIXA_ETARIA;
         this.descricao = dado.DESCRICAO;
+        this.aparecer = true;
+        this.listaCarrinho.forEach(e => {
+          if (e.CODIGO == dado.CODIGO) {
+            this.aparecer = false;
+          }
+        })
       })
     })
 
+    this.listaCarrinho = (JSON.parse(localStorage.getItem("CARRINHO"))) || [];
+
     this.jogoService.returnGenerosCodigos(this.urlParam).then((resultado: any) => {
       resultado.json().then(dados => {
-        console.log("dados; ", dados);
         dados.forEach(e => {
           this.jogoService.returnObjetoGenero(e.GENERO_CODIGO).then((resultado: any) => {
             resultado.json().then(dado => {
@@ -42,12 +51,24 @@ export class InfoJogoComponent implements OnInit {
             })
           })
         })
-        console.log('listaGeneros: ', this.listaGeneros)
+        //console.log('listaGeneros: ', this.listaGeneros)
       })
     })
 
   }
 
   ngOnInit() {
+  }
+
+  adicionarCarrinho() {
+    if (localStorage.getItem("USUARIO") == 'true') {
+      this.listaCarrinho.push(this.jogo)
+      localStorage.setItem("CARRINHO", JSON.stringify(this.listaCarrinho));
+      this.aparecer = !this.aparecer;
+    } else {
+      let path = window.location.pathname;
+      localStorage.setItem("PASTCAMINHO", path);
+      this.router.navigate(['/login'])
+    }
   }
 }

@@ -3,7 +3,8 @@
   <img id="img" src="{{ imagemPrincipal }}" [alt]="nome">
   <p>{{ nome }}</p>
   <p>{{ preco }}</p>
-  <button>Comprar</button>
+  <button *ngIf="aparecer" (click)="adicionarCarrinho()"> + Carrinho </button>
+  <button *ngIf="!aparecer" (click)="this.router.navigate(['/carrinho'])"> Visualizar carrinho</button>
   <ul *ngFor="let genero of listaGeneros">
     <li>
       <div>{{ genero.GENERO }}</div>

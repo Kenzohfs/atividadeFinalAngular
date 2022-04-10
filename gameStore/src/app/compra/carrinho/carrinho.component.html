@@ -1,3 +1,12 @@
 <div>
   carrinho works!
+  <div *ngIf="aparecer">
+    <ul>
+      <li *ngFor="let jogo of listaJogosCarrinho">Nome: {{ jogo.NOME }} <br> Preço: {{ jogo.PRECO }}</li>
+    </ul>
+    <button (click)="fecharPedido()">Finalizar Pedido</button>
+  </div>
+  <div *ngIf="!aparecer">
+    Carrinho vazio
+  </div>
 </div>
