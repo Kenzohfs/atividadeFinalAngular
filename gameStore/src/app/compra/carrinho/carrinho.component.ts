@@ -36,6 +36,7 @@ export class CarrinhoComponent implements OnInit {
           this.listaJogosCarrinho.forEach(e => {
             this.usuarioService.inserirJogoPedido((dados.length), e.CODIGO);
             localStorage.removeItem("CARRINHO");
+            this.aparecer = false;
             this.listaJogosCarrinho = JSON.parse(localStorage.getItem("CARRINHO")) || [];
           })
         })
