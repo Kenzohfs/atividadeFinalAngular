@@ -114,6 +114,17 @@ export class UsuarioService {
     })
   }
 
+  listar_jogo_pedido() {
+    return new Promise((resolvido, rejeitado) => {
+      
+      fetch('/api/listar_jogo_pedido', {
+        method: 'POST'
+      })
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
   inserirJogoPedido(pedido_codigo, jogo_codigo) {
     return new Promise((resolvido, rejeitado) => {
       fetch('/api/inserir_jogo_pedido', {
