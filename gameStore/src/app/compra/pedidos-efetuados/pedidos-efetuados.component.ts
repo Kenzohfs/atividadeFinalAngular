@@ -43,14 +43,20 @@ export class PedidosEfetuadosComponent implements OnInit {
         this.usuarioService.listar_jogo_pedido().then((resultado: any) => {
           resultado.json().then(jogosPedidos => {
             console.log('jogos pedidos: ', jogosPedidos)
+
             this.listaPedidos.forEach(a => {
+
               jogosPedidos.forEach(b => {
+
                 if (a.CODIGO == b.PEDIDO_EFETUADO_CODIGO) {
                   this.listaJogoPedidoTemp.push(b);
                 }
+
               })
+
               this.listaJogoPedido.push(this.listaJogoPedidoTemp);
               this.listaJogoPedidoTemp = [];
+              
             })
 
             console.log('listajogopedido: ', this.listaJogoPedido);
