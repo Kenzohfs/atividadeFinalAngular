@@ -32,11 +32,12 @@ export class AdicionarJogoComponent implements OnInit {
   nome;
   preco;
   imagem;
+  imagem_principal;
   faixaEtaria;
   sinopse;
 
   adicionarJogo() {
-    this.admin.adicionarJogo(this.nome, this.preco, this.imagem, this.faixaEtaria, this.sinopse).then((dados: any) => {
+    this.admin.adicionarJogo(this.nome, this.preco, this.imagem, this.imagem_principal, this.faixaEtaria, this.sinopse).then((dados: any) => {
       console.log("dados: ", dados)
     }).then((resultado: any) => {
       console.log("resultado: ", resultado)

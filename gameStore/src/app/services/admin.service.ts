@@ -36,7 +36,7 @@ export class AdminService {
     })
   }
 
-  adicionarJogo(nome: String, preco: number, imagem: String, faixaEtaria: number, sinopse: String) {
+  adicionarJogo(nome: String, preco: number, imagem: String, imagem_principal: String, faixaEtaria: number, sinopse: String) {
     return new Promise((resolvido, rejeitado) => {
       fetch('/api/adicionar-jogo', {
         method: "POST",
@@ -45,6 +45,7 @@ export class AdminService {
             nome: nome,
             preco: preco,
             imagem_nome: imagem,
+            imagem_principal: imagem_principal,
             faixa_etaria: faixaEtaria,
             descricao: sinopse
           }

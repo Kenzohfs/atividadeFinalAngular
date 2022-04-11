@@ -159,7 +159,11 @@ export class ListaJogosComponent implements OnInit {
   }
 
   getPath(imagemNome) {
-    return '../../../assets/images/' + imagemNome + '.jpg';
+    if (imagemNome.toUpperCase() == imagemNome) {
+      return '../../../assets/images/' + imagemNome + '.jpg';
+    } else {
+      return imagemNome;
+    }
   }
 
   getPreco(preco) {

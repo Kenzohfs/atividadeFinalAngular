@@ -26,9 +26,13 @@ export class InfoJogoComponent implements OnInit {
     this.jogoService.procurarJogo(this.urlParam).then((resultado: any) => {
       resultado.json().then(dado => {
         this.jogo = dado;
-        this.imagemPrincipal = '../../../assets/images/' + dado.IMAGEM_PRINCIPAL + '.jpg';
+        if (dado.IMAGEM_PRINCIPAL.toUpperCase() == dado.IMAGEM_PRINCIPAL) {
+          this.imagemPrincipal = '../../../assets/images/' + dado.IMAGEM_PRINCIPAL + '.jpg';
+        } else {
+          this.imagemPrincipal = dado.IMAGEM_PRINCIPAL;
+        }
         this.nome = dado.NOME;
-        this.preco = dado.PRECO.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });;
+        this.preco = dado.PRECO.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         this.faixaEtaria = dado.FAIXA_ETARIA;
         this.descricao = dado.DESCRICAO;
         this.aparecer = true;
@@ -69,6 +73,14 @@ export class InfoJogoComponent implements OnInit {
       let path = window.location.pathname;
       localStorage.setItem("PASTCAMINHO", path);
       this.router.navigate(['/login'])
+    }
+  }
+
+  getPath(imagemNome) {
+    if (imagemNome.toUpperCase() == imagemNome) {
+      return '../../../assets/images/' + imagemNome + '.jpg';
+    } else {
+      return imagemNome;
     }
   }
 }
