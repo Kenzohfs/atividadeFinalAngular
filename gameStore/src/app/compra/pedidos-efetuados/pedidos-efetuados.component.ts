@@ -60,6 +60,11 @@ export class PedidosEfetuadosComponent implements OnInit {
             })
 
             console.log('listajogopedido: ', this.listaJogoPedido);
+
+            //lógica para pegar o nome e preco de cada jogo
+            //criar lista com os jogos da lsitaJogoPedido
+            //usar ela para mostar no frontend
+
           })
         })
 

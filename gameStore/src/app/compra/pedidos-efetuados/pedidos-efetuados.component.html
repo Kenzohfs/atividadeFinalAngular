@@ -1,11 +1,16 @@
 <div>
-  pedidos-efetuados works!
-  <ul *ngIf="aparecer">
-    <li *ngFor="let pedido of listaPedidos">
-      Subtotal: {{ pedido.VALOR }}
-    </li>
-  </ul>
-  <div *ngIf="!aparecer">
-    Nenhum pedido efetuado!
-  </div>
+    pedidos-efetuados works!
+    <div *ngIf="aparecer">
+        <div *ngFor="let pedido of listaPedidos">
+            <ul>
+                <li *ngFor="let jogo of listaJogoPedido">
+
+                </li>
+                Subtotal: {{ pedido.VALOR }}
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="!aparecer">
+        Nenhum pedido efetuado!
+    </div>
 </div>
