@@ -30,17 +30,28 @@ export class CarrinhoComponent implements OnInit {
 
   fecharPedido() {
     this.usuarioService.fecharPedido(parseInt(localStorage.getItem("USER_ID")), this.subtotal).then((e: any) => {
+
       this.usuarioService.listar_pedidos().then((e: any) => {
+
         e.json().then(dados => {
+
           console.log("dados listar pedidos: ", dados);
           this.listaJogosCarrinho.forEach(e => {
+
             this.usuarioService.inserirJogoPedido((dados.length), e.CODIGO);
             localStorage.removeItem("CARRINHO");
             this.aparecer = false;
             this.listaJogosCarrinho = JSON.parse(localStorage.getItem("CARRINHO")) || [];
+
+            this.pedidoEfetuadoSucesso();
           })
         })
       })
     });
   }
+
+  pedidoEfetuadoSucesso() {
+    alert("Pedido efetuado com sucesso!");
+  }
+
 }

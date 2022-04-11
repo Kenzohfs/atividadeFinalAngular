@@ -1,12 +1,13 @@
 <div>
-    pedidos-efetuados works!
     <div *ngIf="aparecer">
-        <div *ngFor="let pedido of listaPedidos">
+        <div *ngFor="let jogo of listaJogos; let i = index;">
             <ul>
-                <li *ngFor="let jogo of listaJogoPedido">
-
+                <li *ngFor="let joguinho of jogo">
+                    Nome: {{ joguinho.NOME }} Preço: {{ returnMoedaBrasileria(joguinho.PRECO) }}
+                    <div *ngFor="">
+                    </div>
                 </li>
-                Subtotal: {{ pedido.VALOR }}
+                Subtotal: {{ returnMoedaBrasileria(listaPedidos[i].VALOR) }}
             </ul>
         </div>
     </div>
