@@ -129,7 +129,7 @@ export class ListaJogosComponent implements OnInit {
             }).then(vai => {
               vai.json().then(a => {
                 console.log('a ', a);
-                listaJogosFiltradaByGen.push(a[0]);
+                listaJogosFiltradaByGen.push(a);
               })
             })
           })
