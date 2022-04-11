@@ -32,6 +32,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  usuarioLogado() {
+    if (localStorage.getItem("USUARIO") == "true") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   redirecionar(caminho) {
     console.log("caminho home: ", caminho);
     localStorage.setItem("CAMINHO", caminho);

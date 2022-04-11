@@ -13,10 +13,11 @@
             Perfil
         </div>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><button class="dropdown-item" (click)='redirecionar("/pedidos")'>Pedidos efetuados</button></li>
-            <li *ngIf="adicionarjogo()"><button class="dropdown-item"
-                    (click)="redirecionar('/adicionar-jogo')">Adicionar Jogo</button></li>
-            <li><button class="dropdown-item" (click)='sair()'>Sair</button></li>
+            <li *ngIf="!usuarioLogado()"><button class="dropdown-item" (click)="redirecionar('/login')">Entrar</button></li>
+            <li *ngIf="!usuarioLogado()"><button class="dropdown-item" (click)="redirecionar('/signup')">Cadastrar</button></li>
+            <li *ngIf="usuarioLogado()"><button class="dropdown-item" (click)='redirecionar("/pedidos")'>Pedidos efetuados</button></li>
+            <li *ngIf="adicionarjogo()"><button class="dropdown-item" (click)="redirecionar('/adicionar-jogo')">Adicionar Jogo</button></li>
+            <li *ngIf="usuarioLogado()"><button class="dropdown-item" (click)='sair()'>Sair</button></li>
         </ul>
     </div>
 </div>
