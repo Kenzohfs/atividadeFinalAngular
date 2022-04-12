@@ -83,6 +83,7 @@ export class ListaJogosComponent implements OnInit {
           this.listaJogos = e;
         })
       });
+      
     } else {
       console.log('lista: ', this.selectedItems)
       let listaFiltradaGenero = [];
