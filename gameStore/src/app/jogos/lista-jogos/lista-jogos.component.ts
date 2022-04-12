@@ -55,16 +55,23 @@ export class ListaJogosComponent implements OnInit {
 
   ordernarLista(tipo) {
     if (tipo == 'ASC') {
-      this.jogoService.returnListaJogosOrdAsc().then((dados: any) => {
-        dados.json().then(e => {
-          this.listaJogos = e;
-        })
+      this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
+        return (a.NOME > b.NOME) ? 1 : ((b.NOME > a.NOME) ? -1 : 0);
       })
+
+      // this.jogoService.returnListaJogosOrdAsc().then((dados: any) => {
+      //   dados.json().then(e => {
+      //     this.listaJogos = e;
+      //   })
+      // })
     } else {
-      this.jogoService.returnListaJogosOrdDesc().then((dados: any) => {
-        dados.json().then(e => {
-          this.listaJogos = e;
-        })
+      // this.jogoService.returnListaJogosOrdDesc().then((dados: any) => {
+      //   dados.json().then(e => {
+      //     this.listaJogos = e;
+      //   })
+      // })
+      this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
+        return (a.NOME < b.NOME) ? 1 : ((b.NOME < a.NOME) ? -1 : 0);
       })
     }
   }
