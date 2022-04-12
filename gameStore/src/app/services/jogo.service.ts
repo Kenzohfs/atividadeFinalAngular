@@ -65,7 +65,7 @@ export class JogoService {
     })
   }
 
-  returnListaJogosPalChav(string) {
+  returnListaJogosPalChav(listaJogos, string) {
     return new Promise((resolvido, rejeitado) => {
 
       fetch('/api/listar-jogo-palavra-chave', {

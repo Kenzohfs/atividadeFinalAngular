@@ -54,4 +54,20 @@ export class CarrinhoComponent implements OnInit {
     alert("Pedido efetuado com sucesso!");
   }
 
+  removerItem(indice) {
+    this.listaJogosCarrinho.splice(indice, 1);
+    let lista = JSON.parse(localStorage.getItem("CARRINHO"));
+    lista.splice(indice, 1);
+    if (lista.length > 0) {
+      localStorage.setItem("CARRINHO", JSON.stringify(lista));
+    } else {
+      this.aparecer = !this.aparecer;
+      localStorage.removeItem("CARRINHO");
+    }
+    console.log('listacarrinhos: ', this.listaJogosCarrinho);
+  }
+
+  returnPreco(preco) {
+    return preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+  }
 }

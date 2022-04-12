@@ -10,8 +10,9 @@ import { JogoService } from 'src/app/services/jogo.service';
   styleUrls: ['./lista-jogos.component.css']
 })
 export class ListaJogosComponent implements OnInit {
-  listaJogos;
-  palavraChave = "";
+  listaJogos = [];
+  listaJogosFiltrada = []
+  palavraChave: String;
   dropdownList = JSON.parse(localStorage.getItem('GENEROS'));
   selectedItems = [];
   dropdownSettings = {};
@@ -22,8 +23,9 @@ export class ListaJogosComponent implements OnInit {
     this.jogoService.returnListaJogos().then((dados: any) => {
       dados.json().then(e => {
         this.listaJogos = e;
+        this.listaJogosFiltrada = e;
         console.log('e', e);
-        console.log(this.listaJogos);
+        console.log("lista jogos: ", this.listaJogos);
       })
     });
   }
@@ -42,11 +44,13 @@ export class ListaJogosComponent implements OnInit {
   }
 
   pesquisarJogo() {
-    this.jogoService.returnListaJogosPalChav(this.palavraChave).then((dados: any) => {
-      dados.json().then(e => {
-        this.listaJogos = e;
-      })
-    })
+    let palavra = this.palavraChave;
+
+    const listaFiltrada = this.listaJogos.filter(function (element) {
+      return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
+    });
+
+    this.listaJogosFiltrada = listaFiltrada;
   }
 
   ordernarLista(tipo) {

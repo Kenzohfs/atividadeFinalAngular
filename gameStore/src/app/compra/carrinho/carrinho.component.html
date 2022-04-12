@@ -1,10 +1,14 @@
 <div>
-  carrinho works!
   <div *ngIf="aparecer">
     <ul>
-      <li *ngFor="let jogo of listaJogosCarrinho">Nome: {{ jogo.NOME }} <br> Preço: {{ jogo.PRECO }}</li>
+      <li *ngFor="let jogo of listaJogosCarrinho, let i = index;">Nome: {{ jogo.NOME }}
+        <br>
+        Preço: {{ returnPreco(jogo.PRECO) }}
+        <br>
+        <button (click)="removerItem(i)">Remover</button>
+      </li>
     </ul>
-    <div>Subtotal: {{ subtotal }}</div>
+    <div>Subtotal: {{ returnPreco(subtotal) }}</div>
     <button (click)="fecharPedido()">Finalizar Pedido</button>
   </div>
   <div *ngIf="!aparecer">
