@@ -108,10 +108,10 @@ export class ListaJogosComponent implements OnInit {
 
           //lista de jogos que corresponderam a algum genero selecionado
           //IMPORTANTE: se escolher mais de um gênero e um jogo tiver mais de uma congruência com essa lista
-          //de gêneros, o jogo vai ser adicionado duas vezes
+          //de gêneros, o jogo vai ser adicionado mais de uma vez
           console.log("listaFiltradaGenero: ", listaFiltradaGenero);
 
-          //lógica para descobrir quantas vezes cada jogo repediu na listafiltradagenero
+          //lógica para descobrir quantas vezes cada jogo repetiu na listafiltradagenero
           let countJogo, listaFiltrada = [], verificacao;
           for (let i = 0; i < listaFiltradaGenero.length; i++) {
             countJogo = 0;
@@ -146,9 +146,33 @@ export class ListaJogosComponent implements OnInit {
               }
             }
           }
+
+          //lista dos códigos dos jogos que foram filtrados
           console.log("listafiltrada: ", listaFiltrada);
+          
+          //lógica para excluir os itens da listafiltrada caso não estejam aparecendo na tela
+          let contagem = 0;
+          listaFiltrada.forEach(jogoTemp => {
+
+            let congruência: boolean = false;
+            this.listaJogosFiltrada.forEach(jogoTelaTemp => {
+
+              if (jogoTemp == jogoTelaTemp.CODIGO) {
+                congruência = true;
+              }
+            })
+
+            if (congruência == false) {
+              listaFiltrada.splice(contagem, 1);
+            }
+
+            contagem++;
+          })
+
+          //logica para adicionar na listajogosfiltradabygen os objetos jogos através de seus códigos
           let listaJogosFiltradaByGen = [];
           listaFiltrada.forEach(e => {
+
             fetch('/api/procurar-jogo-id', {
               method: 'POST',
               body: JSON.stringify(
@@ -160,14 +184,18 @@ export class ListaJogosComponent implements OnInit {
                 'Content-Type': 'application/json'
               }
             }).then(vai => {
+
               vai.json().then(a => {
+
                 console.log('a ', a);
                 listaJogosFiltradaByGen.push(a);
               })
             })
           })
+
+          //lista de objetos jogos que corresponderam aos generos seleciondados
           console.log('oi: ', listaJogosFiltradaByGen);
-          this.listaJogos = listaJogosFiltradaByGen;
+          this.listaJogosFiltrada = listaJogosFiltradaByGen;
         })
       })
     }
