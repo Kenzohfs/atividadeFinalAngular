@@ -78,21 +78,26 @@ export class ListaJogosComponent implements OnInit {
 
   filtrarGenero() {
     if (this.selectedItems.length == 0) {
-      this.jogoService.returnListaJogos().then((dados: any) => {
-        dados.json().then(e => {
-          this.listaJogos = e;
-        })
-      });
+      // this.jogoService.returnListaJogos().then((dados: any) => {
+      //   dados.json().then(e => {
+      //     this.listaJogos = e;
+      //   })
+      // });
       
     } else {
       console.log('lista: ', this.selectedItems)
       let listaFiltradaGenero = [];
+
+      //fetch para pegar lista de jogos generos (codigo do jogo e codigo do genero, a tabela n-n);
       fetch('api/listar-jogo-genero', {
         method: 'POST'
       }).then(resultado => {
         resultado.json().then(dado => {
           console.log('dado: ', dado);
           console.log('generos: ', this.selectedItems);
+
+          //verificar o código do genero selecionado é igual a um código_genero da lista de jogos generos
+          //adicionar os codigos dos jogos numa lista
           this.selectedItems.forEach(e => {
             dado.forEach(item => {
               if (e.CODIGO == item.GENERO_CODIGO) {
@@ -100,10 +105,18 @@ export class ListaJogosComponent implements OnInit {
               }
             })
           })
+
+          //lista de jogos que corresponderam a algum genero selecionado
+          //IMPORTANTE: se escolher mais de um gênero e um jogo tiver mais de uma congruência com essa lista
+          //de gêneros, o jogo vai ser adicionado duas vezes
           console.log("listaFiltradaGenero: ", listaFiltradaGenero);
+
+          //lógica para descobrir quantas vezes cada jogo repediu na listafiltradagenero
           let countJogo, listaFiltrada = [], verificacao;
           for (let i = 0; i < listaFiltradaGenero.length; i++) {
             countJogo = 0;
+
+            //faz verificação se o codigo do jogo ta se repetindo dentro da listafiltradagenero
             for (let a = 0; a < listaFiltradaGenero.length; a++) {
               if (listaFiltradaGenero[i] == listaFiltradaGenero[a]) {
                 countJogo++;
@@ -113,13 +126,21 @@ export class ListaJogosComponent implements OnInit {
             console.log('jogo de código: ', listaFiltradaGenero[i], " repetiu ", countJogo, " vezes")
             console.log('length select: ', this.selectedItems.length);
 
+            //se o jogo repetiu a mesma quantidade de vezes que a quantidade de gêneros selecionada
+            //quer dizer q o jogo possui todos os gêneros selecionados pelo usuários
+            //e deve aparecer na tela dpois do filtro
             if (countJogo == this.selectedItems.length) {
               verificacao = true;
+
+              //verificação se o jogo que estou verificando acima já foi adicionado na lista
               for (let c = 0; c < listaFiltrada.length; c++) {
                 if (listaFiltrada[c] == listaFiltradaGenero[i]) {
                   verificacao = false;
                 }
               }
+
+              //se o jogo já foi adicionado, não vai ser adicionado denovo
+              //se não foi adicionado, será adicionado nessa, e somente nessa vez
               if (verificacao) {
                 listaFiltrada.push(listaFiltradaGenero[i]);
               }
