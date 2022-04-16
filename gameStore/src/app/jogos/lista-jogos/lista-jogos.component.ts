@@ -46,27 +46,22 @@ export class ListaJogosComponent implements OnInit {
   pesquisarJogo() {
     let palavra = this.palavraChave;
     console.log("palavra: ", palavra)
-    // if (palavra == "") {
-      if (this.selectedItems.length == 0) {
+    if (this.selectedItems.length == 0) {
 
-        const listaFiltrada = this.listaJogos.filter(function (element) {
+      const listaFiltrada = this.listaJogos.filter(function (element) {
+        return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
+      });
+      this.listaJogosFiltrada = listaFiltrada;
+    } else {
+      if (palavra == "") {
+        this.filtrarGenero();
+      } else {
+        const listaFiltrada = this.listaJogosFiltrada.filter(function (element) {
           return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
         });
         this.listaJogosFiltrada = listaFiltrada;
-      } else {
-        if (palavra == "") {
-          this.filtrarGenero();
-        } else {
-          const listaFiltrada = this.listaJogosFiltrada.filter(function (element) {
-            return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
-          });
-          this.listaJogosFiltrada = listaFiltrada;
-        }
       }
-    // } 
-    // else {
-    //   this.filtrarGenero();
-    // }
+    }
   }
 
   ordernarLista(tipo) {
@@ -74,18 +69,7 @@ export class ListaJogosComponent implements OnInit {
       this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
         return (a.NOME > b.NOME) ? 1 : ((b.NOME > a.NOME) ? -1 : 0);
       })
-
-      // this.jogoService.returnListaJogosOrdAsc().then((dados: any) => {
-      //   dados.json().then(e => {
-      //     this.listaJogos = e;
-      //   })
-      // })
     } else {
-      // this.jogoService.returnListaJogosOrdDesc().then((dados: any) => {
-      //   dados.json().then(e => {
-      //     this.listaJogos = e;
-      //   })
-      // })
       this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
         return (a.NOME < b.NOME) ? 1 : ((b.NOME < a.NOME) ? -1 : 0);
       })
@@ -99,18 +83,12 @@ export class ListaJogosComponent implements OnInit {
       } else {
         this.pesquisarJogo();
       }
-      // this.jogoService.returnListaJogos().then((dados: any) => {
-      //   dados.json().then(e => {
-      //     this.listaJogos = e;
-      //   })
-      // });
 
     } else {
 
       if (this.palavraChave == "") {
         this.listaJogosFiltrada = this.listaJogos;
       }
-
       console.log('lista: ', this.selectedItems)
       let listaFiltradaGenero = [];
 
@@ -224,8 +202,17 @@ export class ListaJogosComponent implements OnInit {
           this.listaJogosFiltrada = listaJogosFiltradaByGen;
         })
       })
+
+      //tentativa de fazer funcionar o erro
+      //w, mundo aberto, ação, tirar o ação
+      //deveria aparecer the withcer 3 e spiritfarer
+      //só aparece the witcher 3
+      // if (this.palavraChave != "") {
+      //   this.pesquisarJogo();
       // }
     }
+
+
   }
 
   onItemSelect(item: any) {
