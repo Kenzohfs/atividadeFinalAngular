@@ -64,7 +64,7 @@ export class PedidosEfetuadosComponent implements OnInit {
             console.log('listajogopedido: ', this.listaJogoPedido);
 
             //lógica para pegar o nome e preco de cada jogo
-            //criar lista com os jogos da lsitaJogoPedido
+            //criar lista com os jogos da listaJogoPedido
             //usar ela para mostar no frontend
 
             this.jogoService.returnListaJogos().then((e: any) => {

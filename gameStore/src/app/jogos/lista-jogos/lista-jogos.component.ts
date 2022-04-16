@@ -46,21 +46,23 @@ export class ListaJogosComponent implements OnInit {
   pesquisarJogo() {
     let palavra = this.palavraChave;
 
-    if (this.selectedItems.length == 0) {
+    if (palavra != "") {
+      if (this.selectedItems.length == 0) {
 
-      const listaFiltrada = this.listaJogos.filter(function (element) {
-        return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
-      });
-      this.listaJogosFiltrada = listaFiltrada;
+        const listaFiltrada = this.listaJogos.filter(function (element) {
+          return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
+        });
+        this.listaJogosFiltrada = listaFiltrada;
+      } else {
+
+        const listaFiltrada = this.listaJogosFiltrada.filter(function (element) {
+          return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
+        });
+        this.listaJogosFiltrada = listaFiltrada;
+      }
     } else {
-
-      const listaFiltrada = this.listaJogosFiltrada.filter(function (element) {
-        return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
-      });
-      this.listaJogosFiltrada = listaFiltrada;
+      this.filtrarGenero();
     }
-
-
   }
 
   ordernarLista(tipo) {
@@ -88,6 +90,11 @@ export class ListaJogosComponent implements OnInit {
 
   filtrarGenero() {
     if (this.selectedItems.length == 0) {
+      if (this.palavraChave == "") {
+        this.listaJogosFiltrada = this.listaJogos;
+      } else {
+        this.pesquisarJogo();
+      }
       // this.jogoService.returnListaJogos().then((dados: any) => {
       //   dados.json().then(e => {
       //     this.listaJogos = e;
@@ -96,122 +103,122 @@ export class ListaJogosComponent implements OnInit {
 
     } else {
 
-      if (this.palavraChave == "") {
-        
-        console.log('lista: ', this.selectedItems)
-        let listaFiltradaGenero = [];
+      // if (this.palavraChave.length != 0) {
 
-        //fetch para pegar lista de jogos generos (codigo do jogo e codigo do genero, a tabela n-n);
-        fetch('api/listar-jogo-genero', {
-          method: 'POST'
-        }).then(resultado => {
-          resultado.json().then(dado => {
-            console.log('dado: ', dado);
-            console.log('generos: ', this.selectedItems);
+      console.log('lista: ', this.selectedItems)
+      let listaFiltradaGenero = [];
 
-            //verificar o código do genero selecionado é igual a um código_genero da lista de jogos generos
-            //adicionar os codigos dos jogos numa lista
-            this.selectedItems.forEach(e => {
-              dado.forEach(item => {
-                if (e.CODIGO == item.GENERO_CODIGO) {
-                  listaFiltradaGenero.push(item.JOGO_CODIGO);
-                }
-              })
-            })
+      //fetch para pegar lista de jogos generos (codigo do jogo e codigo do genero, a tabela n-n);
+      fetch('api/listar-jogo-genero', {
+        method: 'POST'
+      }).then(resultado => {
+        resultado.json().then(dado => {
+          console.log('dado: ', dado);
+          console.log('generos: ', this.selectedItems);
 
-            //lista de jogos que corresponderam a algum genero selecionado
-            //IMPORTANTE: se escolher mais de um gênero e um jogo tiver mais de uma congruência com essa lista
-            //de gêneros, o jogo vai ser adicionado mais de uma vez
-            console.log("listaFiltradaGenero: ", listaFiltradaGenero);
-
-            //lógica para descobrir quantas vezes cada jogo repetiu na listafiltradagenero
-            let countJogo, listaFiltrada = [], verificacao;
-            for (let i = 0; i < listaFiltradaGenero.length; i++) {
-              countJogo = 0;
-
-              //faz verificação se o codigo do jogo ta se repetindo dentro da listafiltradagenero
-              for (let a = 0; a < listaFiltradaGenero.length; a++) {
-                if (listaFiltradaGenero[i] == listaFiltradaGenero[a]) {
-                  countJogo++;
-                }
+          //verificar o código do genero selecionado é igual a um código_genero da lista de jogos generos
+          //adicionar os codigos dos jogos numa lista
+          this.selectedItems.forEach(e => {
+            dado.forEach(item => {
+              if (e.CODIGO == item.GENERO_CODIGO) {
+                listaFiltradaGenero.push(item.JOGO_CODIGO);
               }
+            })
+          })
 
-              console.log('jogo de código: ', listaFiltradaGenero[i], " repetiu ", countJogo, " vezes")
-              console.log('length select: ', this.selectedItems.length);
+          //lista de jogos que corresponderam a algum genero selecionado
+          //IMPORTANTE: se escolher mais de um gênero e um jogo tiver mais de uma congruência com essa lista
+          //de gêneros, o jogo vai ser adicionado mais de uma vez
+          console.log("listaFiltradaGenero: ", listaFiltradaGenero);
 
-              //se o jogo repetiu a mesma quantidade de vezes que a quantidade de gêneros selecionada
-              //quer dizer q o jogo possui todos os gêneros selecionados pelo usuários
-              //e deve aparecer na tela dpois do filtro
-              if (countJogo == this.selectedItems.length) {
-                verificacao = true;
+          //lógica para descobrir quantas vezes cada jogo repetiu na listafiltradagenero
+          let countJogo, listaFiltrada = [], verificacao;
+          for (let i = 0; i < listaFiltradaGenero.length; i++) {
+            countJogo = 0;
 
-                //verificação se o jogo que estou verificando acima já foi adicionado na lista
-                for (let c = 0; c < listaFiltrada.length; c++) {
-                  if (listaFiltrada[c] == listaFiltradaGenero[i]) {
-                    verificacao = false;
-                  }
-                }
-
-                //se o jogo já foi adicionado, não vai ser adicionado denovo
-                //se não foi adicionado, será adicionado nessa, e somente nessa vez
-                if (verificacao) {
-                  listaFiltrada.push(listaFiltradaGenero[i]);
-                }
+            //faz verificação se o codigo do jogo ta se repetindo dentro da listafiltradagenero
+            for (let a = 0; a < listaFiltradaGenero.length; a++) {
+              if (listaFiltradaGenero[i] == listaFiltradaGenero[a]) {
+                countJogo++;
               }
             }
 
-            //lista dos códigos dos jogos que foram filtrados
-            console.log("listafiltrada: ", listaFiltrada);
+            console.log('jogo de código: ', listaFiltradaGenero[i], " repetiu ", countJogo, " vezes")
+            console.log('length select: ', this.selectedItems.length);
 
-            //lógica para excluir os itens da listafiltrada caso não estejam aparecendo na tela
-            let contagem = 0;
-            listaFiltrada.forEach(jogoTemp => {
+            //se o jogo repetiu a mesma quantidade de vezes que a quantidade de gêneros selecionada
+            //quer dizer q o jogo possui todos os gêneros selecionados pelo usuários
+            //e deve aparecer na tela dpois do filtro
+            if (countJogo == this.selectedItems.length) {
+              verificacao = true;
 
-              let congruência: boolean = false;
-              this.listaJogosFiltrada.forEach(jogoTelaTemp => {
-
-                if (jogoTemp == jogoTelaTemp.CODIGO) {
-                  congruência = true;
+              //verificação se o jogo que estou verificando acima já foi adicionado na lista
+              for (let c = 0; c < listaFiltrada.length; c++) {
+                if (listaFiltrada[c] == listaFiltradaGenero[i]) {
+                  verificacao = false;
                 }
-              })
-
-              if (congruência == false) {
-                listaFiltrada.splice(contagem, 1);
               }
 
-              contagem++;
+              //se o jogo já foi adicionado, não vai ser adicionado denovo
+              //se não foi adicionado, será adicionado nessa, e somente nessa vez
+              if (verificacao) {
+                listaFiltrada.push(listaFiltradaGenero[i]);
+              }
+            }
+          }
+
+          //lista dos códigos dos jogos que foram filtrados
+          console.log("listafiltrada: ", listaFiltrada);
+
+          //lógica para excluir os itens da listafiltrada caso não estejam aparecendo na tela
+          let contagem = 0;
+          listaFiltrada.forEach(jogoTemp => {
+
+            let congruência: boolean = false;
+            this.listaJogosFiltrada.forEach(jogoTelaTemp => {
+
+              if (jogoTemp == jogoTelaTemp.CODIGO) {
+                congruência = true;
+              }
             })
 
-            //logica para adicionar na listajogosfiltradabygen os objetos jogos através de seus códigos
-            let listaJogosFiltradaByGen = [];
-            listaFiltrada.forEach(e => {
+            if (congruência == false) {
+              listaFiltrada.splice(contagem, 1);
+            }
 
-              fetch('/api/procurar-jogo-id', {
-                method: 'POST',
-                body: JSON.stringify(
-                  {
-                    codigo: e
-                  }
-                ),
-                headers: {
-                  'Content-Type': 'application/json'
+            contagem++;
+          })
+
+          //logica para adicionar na listajogosfiltradabygen os objetos jogos através de seus códigos
+          let listaJogosFiltradaByGen = [];
+          listaFiltrada.forEach(e => {
+
+            fetch('/api/procurar-jogo-id', {
+              method: 'POST',
+              body: JSON.stringify(
+                {
+                  codigo: e
                 }
-              }).then(vai => {
+              ),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(vai => {
 
-                vai.json().then(a => {
+              vai.json().then(a => {
 
-                  console.log('a ', a);
-                  listaJogosFiltradaByGen.push(a);
-                })
+                console.log('a ', a);
+                listaJogosFiltradaByGen.push(a);
               })
             })
-
-            //lista de objetos jogos que corresponderam aos generos seleciondados
-            console.log('oi: ', listaJogosFiltradaByGen);
-            this.listaJogosFiltrada = listaJogosFiltradaByGen;
           })
+
+          //lista de objetos jogos que corresponderam aos generos seleciondados
+          console.log('oi: ', listaJogosFiltradaByGen);
+          this.listaJogosFiltrada = listaJogosFiltradaByGen;
         })
-      }
+      })
+      // }
     }
   }
 
