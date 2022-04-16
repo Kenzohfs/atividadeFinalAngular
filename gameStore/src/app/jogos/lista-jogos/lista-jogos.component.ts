@@ -40,13 +40,13 @@ export class ListaJogosComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
-    this.pesquisarJogo();
+    // this.pesquisarJogo();
   }
 
   pesquisarJogo() {
     let palavra = this.palavraChave;
-
-    if (palavra != "") {
+    console.log("palavra: ", palavra)
+    // if (palavra == "") {
       if (this.selectedItems.length == 0) {
 
         const listaFiltrada = this.listaJogos.filter(function (element) {
@@ -54,15 +54,19 @@ export class ListaJogosComponent implements OnInit {
         });
         this.listaJogosFiltrada = listaFiltrada;
       } else {
-
-        const listaFiltrada = this.listaJogosFiltrada.filter(function (element) {
-          return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
-        });
-        this.listaJogosFiltrada = listaFiltrada;
+        if (palavra == "") {
+          this.filtrarGenero();
+        } else {
+          const listaFiltrada = this.listaJogosFiltrada.filter(function (element) {
+            return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
+          });
+          this.listaJogosFiltrada = listaFiltrada;
+        }
       }
-    } else {
-      this.filtrarGenero();
-    }
+    // } 
+    // else {
+    //   this.filtrarGenero();
+    // }
   }
 
   ordernarLista(tipo) {
@@ -103,7 +107,9 @@ export class ListaJogosComponent implements OnInit {
 
     } else {
 
-      // if (this.palavraChave.length != 0) {
+      if (this.palavraChave == "") {
+        this.listaJogosFiltrada = this.listaJogos;
+      }
 
       console.log('lista: ', this.selectedItems)
       let listaFiltradaGenero = [];
