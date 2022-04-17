@@ -2,22 +2,28 @@
     <div id="home" (click)='redirecionar("/")'>
         Home
     </div>
-    <div id="lista_jogos" (click)='redirecionar("/jogos")'>
-        Lista Jogos
-    </div>
-    <div id="carrinho" (click)='redirecionar("/carrinho")'>
-        Carrinho
-    </div>
-    <div class="dropdown">
-        <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Perfil
+    <div id="nav-right-part">
+        <div id="lista-jogos" (click)='redirecionar("/jogos")'>
+            Lista Jogos
         </div>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li *ngIf="!usuarioLogado()"><button class="dropdown-item" (click)="redirecionar('/login')">Entrar</button></li>
-            <li *ngIf="!usuarioLogado()"><button class="dropdown-item" (click)="redirecionar('/signup')">Cadastrar</button></li>
-            <li *ngIf="usuarioLogado()"><button class="dropdown-item" (click)='redirecionar("/pedidos")'>Pedidos efetuados</button></li>
-            <li *ngIf="adicionarjogo()"><button class="dropdown-item" (click)="redirecionar('/adicionar-jogo')">Adicionar Jogo</button></li>
-            <li *ngIf="usuarioLogado()"><button class="dropdown-item" (click)='sair()'>Sair</button></li>
-        </ul>
+        <div id="carrinho" (click)='redirecionar("/carrinho")'>
+            Carrinho
+        </div>
+        <div id="perfil" class="dropdown">
+            <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Perfil
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li *ngIf="!usuarioLogado()"><button class="dropdown-item"
+                        (click)="redirecionar('/login')">Entrar</button></li>
+                <li *ngIf="!usuarioLogado()"><button class="dropdown-item"
+                        (click)="redirecionar('/signup')">Cadastrar</button></li>
+                <li *ngIf="usuarioLogado()"><button class="dropdown-item" (click)='redirecionar("/pedidos")'>Pedidos
+                        efetuados</button></li>
+                <li *ngIf="adicionarjogo()"><button class="dropdown-item"
+                        (click)="redirecionar('/adicionar-jogo')">Adicionar Jogo</button></li>
+                <li *ngIf="usuarioLogado()"><button class="dropdown-item" (click)='sair()'>Sair</button></li>
+            </ul>
+        </div>
     </div>
 </div>
