@@ -44,7 +44,7 @@ export class ListaJogosComponent implements OnInit {
     // this.pesquisarJogo();
   }
 
-  pesquisarJogo() {
+  pesquisarJogo(onItemDeSelect: boolean) {
     let palavra = this.palavraChave;
     console.log("palavra: ", palavra)
     if (this.selectedItems.length == 0) {
@@ -55,7 +55,9 @@ export class ListaJogosComponent implements OnInit {
       this.listaJogosFiltrada = listaFiltrada;
     } else {
       if (palavra == "") {
-        this.filtrarGenero();
+        if (!onItemDeSelect) {
+          this.filtrarGenero();
+        }
       } else {
         const listaFiltrada = this.listaJogosFiltrada.filter(function (element) {
           return element.NOME.toLowerCase().indexOf(palavra.toLowerCase()) > -1;
@@ -82,7 +84,7 @@ export class ListaJogosComponent implements OnInit {
       if (this.palavraChave == "") {
         this.listaJogosFiltrada = this.listaJogos;
       } else {
-        this.pesquisarJogo();
+        this.pesquisarJogo(false);
       }
 
     } else {
@@ -220,13 +222,17 @@ export class ListaJogosComponent implements OnInit {
   }
 
   filtrarGeneroDeSelect() {
-    let palavraTemp = this.palavraChave;
-    this.palavraChave = "";
+    let palavraTemp: String = "";
+    if (this.palavraChave != "") {
+      palavraTemp = this.palavraChave;
+      this.palavraChave = "";
+    }
 
+    this.listaJogosFiltrada = this.listaJogos;
     this.filtrarGenero();
 
     this.palavraChave = palavraTemp;
-    this.pesquisarJogo();
+    this.pesquisarJogo(true);
   }
 
   onItemSelect(item: any) {
