@@ -55,6 +55,8 @@ export class ListaJogosComponent implements OnInit {
       this.listaJogosFiltrada = listaFiltrada;
     } else {
       if (palavra == "") {
+        //lógica para saber se a função ta sendo chamada pela função onItemDeSelect()
+        //se estiver, não deve filtrar o gênero denovo, pq se filtrar vai bugar
         if (!onItemDeSelect) {
           this.filtrarGenero();
         }
