@@ -16,6 +16,7 @@ export class ListaJogosComponent implements OnInit {
   dropdownList = JSON.parse(localStorage.getItem('GENEROS'));
   selectedItems = [];
   dropdownSettings = {};
+  orderBy: String = "ASC";
 
   constructor(
     private usuarioService: UsuarioService, private jogoService: JogoService, private router: Router
@@ -26,6 +27,7 @@ export class ListaJogosComponent implements OnInit {
         this.listaJogosFiltrada = e;
         console.log('e', e);
         console.log("lista jogos: ", this.listaJogos);
+        this.ordernarLista(this.orderBy);
       })
     });
   }
@@ -67,6 +69,8 @@ export class ListaJogosComponent implements OnInit {
         this.listaJogosFiltrada = listaFiltrada;
       }
     }
+
+    this.ordernarLista(this.orderBy);
   }
 
   ordernarLista(tipo) {
@@ -79,6 +83,8 @@ export class ListaJogosComponent implements OnInit {
         return (a.NOME < b.NOME) ? 1 : ((b.NOME < a.NOME) ? -1 : 0);
       })
     }
+    
+    this.orderBy = tipo;
   }
 
   filtrarGenero() {
@@ -198,6 +204,7 @@ export class ListaJogosComponent implements OnInit {
 
                 console.log('a ', a);
                 listaJogosFiltradaByGen.push(a);
+                this.ordernarLista(this.orderBy);
               })
             })
           })
@@ -205,22 +212,10 @@ export class ListaJogosComponent implements OnInit {
           //lista de objetos jogos que corresponderam aos generos seleciondados
           console.log('oi: ', listaJogosFiltradaByGen);
           this.listaJogosFiltrada = listaJogosFiltradaByGen;
+
         })
       })
-
-      //tentativa de fazer funcionar o erro
-      //w, mundo aberto, ação, tirar o ação
-      //deveria aparecer the withcer 3 e spiritfarer
-      //só aparece the witcher 3
-      // if (this.palavraChave != "") {
-      //   this.pesquisarJogo();
-      // }
-
-      //onItemDeSelect, usar sua funçaão
-      //definir palavrachave  = "", filtrar genero, e daí usar  palavrachave = varTemp;
     }
-
-
   }
 
   filtrarGeneroDeSelect() {
