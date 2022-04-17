@@ -12,7 +12,7 @@ import { JogoService } from 'src/app/services/jogo.service';
 export class ListaJogosComponent implements OnInit {
   listaJogos = [];
   listaJogosFiltrada = []
-  palavraChave: String;
+  palavraChave: String = "";
   dropdownList = JSON.parse(localStorage.getItem('GENEROS'));
   selectedItems = [];
   dropdownSettings = {};
@@ -210,6 +210,9 @@ export class ListaJogosComponent implements OnInit {
       // if (this.palavraChave != "") {
       //   this.pesquisarJogo();
       // }
+
+      //onItemDeSelect, usar sua funçaão
+      //definir palavrachave  = "", filtrar genero, e daí usar  palavrachave = varTemp;
     }
 
 
