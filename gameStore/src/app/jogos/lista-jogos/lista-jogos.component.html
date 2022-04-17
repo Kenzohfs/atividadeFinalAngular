@@ -5,7 +5,7 @@
 
   <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
     [(ngModel)]="selectedItems" (onSelect)="filtrarGenero()" (onSelectAll)="onSelectAll($event)"
-    (onDeSelect)="filtrarGenero()" (onDeSelectAll)="onDeSelectAll($event)">
+    (onDeSelect)="filtrarGeneroDeSelect()" (onDeSelectAll)="onDeSelectAll($event)">
   </ng-multiselect-dropdown>
 
   <div class="jogo_container" *ngFor="let jogo of listaJogosFiltrada" (click)="redirecionarJogo(jogo.CODIGO)">

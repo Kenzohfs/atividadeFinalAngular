@@ -40,6 +40,7 @@ export class ListaJogosComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+    //não sei pq tem isso aq
     // this.pesquisarJogo();
   }
 
@@ -216,6 +217,16 @@ export class ListaJogosComponent implements OnInit {
     }
 
 
+  }
+
+  filtrarGeneroDeSelect() {
+    let palavraTemp = this.palavraChave;
+    this.palavraChave = "";
+
+    this.filtrarGenero();
+
+    this.palavraChave = palavraTemp;
+    this.pesquisarJogo();
   }
 
   onItemSelect(item: any) {
