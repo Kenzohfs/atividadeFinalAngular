@@ -56,12 +56,25 @@ export class AdicionarJogoComponent implements OnInit {
         console.log("fetch 1 : ", resultado)
         resultado.json().then(dados => {
           console.log("dados: ", dados)
-          this.selectedItems.forEach((e) => {
+          console.log("selected items: ", this.selectedItems);
+          let listaGenerosJogo = [];
+
+          this.selectedItems.forEach(genero => {
+            JSON.parse(localStorage.getItem("GENEROS")).forEach(todosGeneros => {
+              if (genero.GENERO == todosGeneros.GENERO) {
+                listaGenerosJogo.push(todosGeneros);
+              }
+            })
+          })
+
+          console.log("lsitagenero jogos: ", listaGenerosJogo);
+          listaGenerosJogo.forEach((e) => {
+            console.log("e: ", e);
             fetch("/api/inserir-jogo-genero", {
               method: 'POST',
               body: JSON.stringify({
                 jogo_codigo: dados.user.CODIGO,
-                genero_codigo: e.item_id
+                genero_codigo: e.CODIGO
               }),
               headers: {
                 "Content-Type": "application/json"
