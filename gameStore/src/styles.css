@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-color: #1f2538;
+}
+
 .multiselect-dropdown {
     width: 300px !important;
 }

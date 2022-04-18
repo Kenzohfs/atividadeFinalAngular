@@ -1,0 +1,45 @@
+#footer {
+    width: 100%;
+    margin-top: 50px;
+}
+
+#agradecimentos {
+    padding-left: 13px;
+    background-color: #a239ca;
+}
+
+#agradecimentos span {
+    color: #e7dfdd;
+    font-weight: 600;
+}
+
+#footer-central {
+    padding: 2rem 0rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #1f2538;
+    color: #e7dfdd;
+}
+
+#left-part {
+    display: flex;
+}
+
+.contato {
+    margin-right: 2rem;
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.5rem;
+}
+
+#direitos {
+    text-align: center;
+    background-color: #0e0b16;
+}
+
+#direitos span{
+    color: white;
+}

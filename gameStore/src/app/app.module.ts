@@ -20,6 +20,7 @@ import { AdminModule } from './admin/admin.module';
 import { CompraModule } from './compra/compra.module';
 import CheckLogged from './checkLogged.canactivate';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 const rotas: Routes = [
   { path: '', component: HomepageComponent },
@@ -41,7 +42,8 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(rotas);
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     NgMultiSelectDropDownModule.forRoot(),
