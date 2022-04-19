@@ -74,6 +74,7 @@ export class ListaJogosComponent implements OnInit {
   }
 
   ordernarLista(tipo) {
+    console.log("listajogosfiltrada: ", this.listaJogosFiltrada);
     if (tipo == 'ASC') {
       this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
         return (a.NOME > b.NOME) ? 1 : ((b.NOME > a.NOME) ? -1 : 0);
@@ -83,6 +84,7 @@ export class ListaJogosComponent implements OnInit {
         return (a.NOME < b.NOME) ? 1 : ((b.NOME < a.NOME) ? -1 : 0);
       })
     }
+    console.log("listajogosfiltrada: ", this.listaJogosFiltrada);
     
     this.orderBy = tipo;
   }
