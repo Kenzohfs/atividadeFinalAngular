@@ -42,8 +42,6 @@ export class ListaJogosComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
-    //não sei pq tem isso aq
-    // this.pesquisarJogo();
   }
 
   pesquisarJogo(onItemDeSelect: boolean) {
@@ -245,11 +243,7 @@ export class ListaJogosComponent implements OnInit {
   }
 
   onDeSelectAll(items: any) {
-    this.jogoService.returnListaJogos().then((dados: any) => {
-      dados.json().then(e => {
-        this.listaJogos = e;
-      })
-    });
+    this.listaJogosFiltrada = this.listaJogos;
   }
 
   getPath(imagemNome) {
