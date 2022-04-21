@@ -30,49 +30,64 @@ export class AdicionarJogoComponent implements OnInit {
   }
 
   nome;
-  preco;
+  preco: number;
   imagem;
   imagem_principal;
-  faixaEtaria;
+  faixaEtaria: number;
   sinopse;
 
   adicionarJogo() {
-    this.admin.adicionarJogo(this.nome, this.preco, this.imagem, this.imagem_principal, this.faixaEtaria, this.sinopse).then((dados: any) => {
-      console.log("dados: ", dados)
-    }).then((resultado: any) => {
-      console.log("resultado: ", resultado)
-      fetch("/api/procurar-jogo", {
-        method: "POST",
-        body: JSON.stringify({
-          nome: this.nome,
-          preco: this.preco,
-          faixa_etaria: this.faixaEtaria,
-          descricao: this.sinopse
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then(resultado => {
-        console.log("fetch 1 : ", resultado)
-        resultado.json().then(dados => {
-          console.log("dados: ", dados)
-          console.log("selected items: ", this.selectedItems);
-          this.selectedItems.forEach((e) => {
-            console.log("e: ", e);
-            fetch("/api/inserir-jogo-genero", {
-              method: 'POST',
-              body: JSON.stringify({
-                jogo_codigo: dados.user.CODIGO,
-                genero_codigo: e.CODIGO
-              }),
-              headers: {
-                "Content-Type": "application/json"
-              }
+    console.log("a",this.selectedItems);
+    if (this.nome == null || this.preco == null || this.imagem == null || this.imagem_principal == null || this.faixaEtaria == null || this.sinopse == null || this.selectedItems.length == 0) {
+      alert("Insira todos os dados!")
+    } else if (typeof this.nome != "string" || typeof this.preco != "number" || typeof this.imagem != "string" || typeof this.imagem_principal != "string" || typeof this.faixaEtaria != "number" || typeof this.sinopse != "string" || this.imagem.indexOf("https://") == -1 || this.imagem_principal.indexOf("https://") == -1) {
+      alert("Dados inseridos incorretamente!")
+    } else {
+      this.admin.adicionarJogo(this.nome, this.preco, this.imagem, this.imagem_principal, this.faixaEtaria, this.sinopse).then((dados: any) => {
+        console.log("dados: ", dados)
+      }).then((resultado: any) => {
+        console.log("resultado: ", resultado)
+        fetch("/api/procurar-jogo", {
+          method: "POST",
+          body: JSON.stringify({
+            nome: this.nome,
+            preco: this.preco,
+            faixa_etaria: this.faixaEtaria,
+            descricao: this.sinopse
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(resultado => {
+          console.log("fetch 1 : ", resultado)
+          resultado.json().then(dados => {
+            console.log("dados: ", dados)
+            console.log("selected items: ", this.selectedItems);
+            this.selectedItems.forEach((e) => {
+              console.log("e: ", e);
+              fetch("/api/inserir-jogo-genero", {
+                method: 'POST',
+                body: JSON.stringify({
+                  jogo_codigo: dados.user.CODIGO,
+                  genero_codigo: e.CODIGO
+                }),
+                headers: {
+                  "Content-Type": "application/json"
+                }
+              })
             })
+            alert("Jogo inserido com sucesso!");
+            this.nome = null;
+            this.preco = null;
+            this.imagem = null;
+            this.imagem_principal = null;
+            this.faixaEtaria = null;
+            this.sinopse = null;
+            this.selectedItems = null;
           })
         })
       })
-    });
+    }
   }
 
   onItemSelect(item: any) {
