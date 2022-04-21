@@ -41,6 +41,14 @@ database(`CREATE TABLE IF NOT EXISTS JOGO (
                 'SPIRITFARER',
                 'SPIRITFARER PRINCIPAL',
                 10
+            ),
+            (
+                'LEGO® Star Wars™: The Skywalker Saga',
+                199.99,
+                'Jogue todos os nove filmes da saga Skywalker em um jogo diferente de qualquer outro. Com mais de 300 personagens jogáveis, mais de 100 veículos e 23 planetas para explorar, essa galáxia muito, muito distante nunca foi tão divertida! *Inclui o Obi-Wan Kenobi clássico como personagem jogável',
+                'LEGO STAR WARS THE SKYWALKER SAGA',
+                'LEGO STAR WARS THE SKYWALKER SAGA PRINCIPAL',
+                10
             );
             `).then(resultado => {
                 console.log("inserts jogo resultado: ", resultado);

@@ -75,15 +75,15 @@ export class ListaJogosComponent implements OnInit {
     console.log("listajogosfiltrada: ", this.listaJogosFiltrada);
     if (tipo == 'ASC') {
       this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
-        return (a.NOME > b.NOME) ? 1 : ((b.NOME > a.NOME) ? -1 : 0);
+        return (a.NOME.toLowerCase() > b.NOME.toLowerCase()) ? 1 : ((b.NOME.toLowerCase() > a.NOME.toLowerCase()) ? -1 : 0);
       })
     } else {
       this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
-        return (a.NOME < b.NOME) ? 1 : ((b.NOME < a.NOME) ? -1 : 0);
+        return (a.NOME.toLowerCase() < b.NOME.toLowerCase()) ? 1 : ((b.NOME.toLowerCase() < a.NOME.toLowerCase()) ? -1 : 0);
       })
     }
     console.log("listajogosfiltrada: ", this.listaJogosFiltrada);
-    
+
     this.orderBy = tipo;
   }
 
