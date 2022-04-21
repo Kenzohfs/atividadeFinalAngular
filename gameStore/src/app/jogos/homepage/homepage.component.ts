@@ -14,10 +14,8 @@ export class HomepageComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService, private router: Router, private adminService: AdminService
-  ) { 
-    
-  }
-  
+  ) { }
+
   ngOnInit() {
     localStorage.setItem('CAMINHO', '');
   }

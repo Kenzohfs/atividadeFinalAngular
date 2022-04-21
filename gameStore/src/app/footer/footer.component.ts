@@ -12,13 +12,4 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  mostrarFooter() {
-    let path = window.location.pathname;
-    if (path != '/login' && path != '/signup' ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
 }

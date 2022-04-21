@@ -19,9 +19,9 @@ export class AdminService {
   }
 
   getListaJogos() {
-    this.jogoService.returnListaJogos().then((dados: any) =>{
+    this.jogoService.returnListaJogos().then((dados: any) => {
       dados.json().then(lista => {
-        
+
         //lógica para pegar 28 (qtd de jogos na home) jogos aleatórios sem repetição
         let listaJogos = [];
         let indice;

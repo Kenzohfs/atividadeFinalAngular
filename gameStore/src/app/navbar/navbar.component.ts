@@ -23,15 +23,6 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  // mostrarNavbar() {
-  //   let path = window.location.pathname;
-  //   if (path != '/login' && path != '/signup' ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
   usuarioLogado() {
     if (localStorage.getItem("USUARIO") == "true") {
       return true;
