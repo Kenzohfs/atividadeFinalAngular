@@ -65,42 +65,42 @@ export class JogoService {
     })
   }
 
-  returnListaJogosPalChav(listaJogos, string) {
-    return new Promise((resolvido, rejeitado) => {
+  // returnListaJogosPalChav(listaJogos, string) {
+  //   return new Promise((resolvido, rejeitado) => {
 
-      fetch('/api/listar-jogo-palavra-chave', {
-        method: 'POST',
-        body: JSON.stringify({
-          string: string
-        }),
-        headers: { 'Content-Type': 'application/json' }
-      })
-        .then(resolvido)
-        .catch(rejeitado);
-    })
-  }
+  //     fetch('/api/listar-jogo-palavra-chave', {
+  //       method: 'POST',
+  //       body: JSON.stringify({
+  //         string: string
+  //       }),
+  //       headers: { 'Content-Type': 'application/json' }
+  //     })
+  //       .then(resolvido)
+  //       .catch(rejeitado);
+  //   })
+  // }
 
-  returnListaJogosOrdAsc() {
-    return new Promise((resolvido, rejeitado) => {
+  // returnListaJogosOrdAsc() {
+  //   return new Promise((resolvido, rejeitado) => {
 
-      fetch('/api/listar-jogo-nome-asc', {
-        method: 'POST'
-      })
-        .then(resolvido)
-        .catch(rejeitado);
-    })
-  }
+  //     fetch('/api/listar-jogo-nome-asc', {
+  //       method: 'POST'
+  //     })
+  //       .then(resolvido)
+  //       .catch(rejeitado);
+  //   })
+  // }
 
-  returnListaJogosOrdDesc() {
-    return new Promise((resolvido, rejeitado) => {
+  // returnListaJogosOrdDesc() {
+  //   return new Promise((resolvido, rejeitado) => {
 
-      fetch('/api/listar-jogo-nome-desc', {
-        method: 'POST'
-      })
-        .then(resolvido)
-        .catch(rejeitado);
-    })
-  }
+  //     fetch('/api/listar-jogo-nome-desc', {
+  //       method: 'POST'
+  //     })
+  //       .then(resolvido)
+  //       .catch(rejeitado);
+  //   })
+  // }
 
   returnListaJogosGeneros(codigo) {
     return new Promise((resolvido, rejeitado) => {
