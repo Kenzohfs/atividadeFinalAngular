@@ -43,8 +43,8 @@ export class CarrinhoComponent implements OnInit {
             this.aparecer = false;
             this.listaJogosCarrinho = JSON.parse(localStorage.getItem("CARRINHO")) || [];
 
-            this.pedidoEfetuadoSucesso();
           })
+          this.pedidoEfetuadoSucesso();
         })
       })
     });
