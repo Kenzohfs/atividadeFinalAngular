@@ -57,6 +57,8 @@ export class ListaJogosComponent implements OnInit {
       if (palavra == "") {
         //lógica para saber se a função ta sendo chamada pela função onItemDeSelect()
         //se estiver, não deve filtrar o gênero denovo, pq se filtrar vai bugar
+        //false = não ta sendo chamada pelo onitemdeselct()
+        //true = está sendo chamada;
         if (!onItemDeSelect) {
           this.filtrarGenero();
         }
@@ -244,6 +246,9 @@ export class ListaJogosComponent implements OnInit {
 
   onDeSelectAll(items: any) {
     this.listaJogosFiltrada = this.listaJogos;
+    if (this.palavraChave != "") { 
+      this.pesquisarJogo(false);
+    } 
   }
 
   getPath(imagemNome) {
