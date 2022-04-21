@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { JogoService } from 'src/app/services/jogo.service';
+import { Router } from '@angular/router';
 
+import { AdminService } from 'src/app/services/admin.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -9,29 +10,27 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  listaJogos = [];
+  listaJogos = JSON.parse(localStorage.getItem("LISTAJOGOS")) || [];
 
   constructor(
-    private usuarioService: UsuarioService, private jogoService: JogoService
+    private usuarioService: UsuarioService, private router: Router, private adminService: AdminService
   ) { 
-    jogoService.returnListaJogos().then((dados: any) =>{
-      dados.json().then(lista => {
-
-        //lógica para gerar 28 (qtd de jogos na home) números aleatórios
-        //para adicionar jogos na listaJogos 
-        let indice;
-        for (let i = 0; i < 28; i++) {
-          indice = Math.floor(Math.random() * (lista.length));
-          this.listaJogos.push(lista[indice]);
-
-          lista.splice(indice, 1);
-        }
-        console.log(this.listaJogos)
-      })
-    });
+    
   }
   
   ngOnInit() {
     localStorage.setItem('CAMINHO', '');
+  }
+
+  returnListaJogosLength() {
+    this.listaJogos = JSON.parse(localStorage.getItem("LISTAJOGOS"))
+    return 28;
+  }
+  getJogo(indice) {
+    return this.listaJogos[indice];
+  }
+
+  redirecionamento(jogoCodigo) {
+    this.router.navigate(['/jogos/' + jogoCodigo])
   }
 }

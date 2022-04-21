@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { JogoService } from './jogo.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private jogoService: JogoService) { }
 
   getListaGeneros() {
     fetch('/api/listar-generos', { method: 'POST' }).then((dados: any) => {
@@ -14,6 +16,24 @@ export class AdminService {
         localStorage.setItem("GENEROS", JSON.stringify(e));
       })
     })
+  }
+
+  getListaJogos() {
+    this.jogoService.returnListaJogos().then((dados: any) =>{
+      dados.json().then(lista => {
+        
+        //lógica para pegar 28 (qtd de jogos na home) jogos aleatórios sem repetição
+        let listaJogos = [];
+        let indice;
+        for (let i = 0; i < 28; i++) {
+          indice = Math.floor(Math.random() * (lista.length));
+          listaJogos.push(lista[indice]);
+
+          lista.splice(indice, 1);
+        }
+        localStorage.setItem("LISTAJOGOS", JSON.stringify(listaJogos));
+      })
+    });
   }
 
   verificarAdmin(id) {
