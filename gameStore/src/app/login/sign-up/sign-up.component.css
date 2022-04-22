@@ -23,6 +23,7 @@ main {
     color: #a239ca;
     font-size: 40px;
     margin-bottom: 10px;
+    letter-spacing: 0.2rem;
 }
 
 .input {
@@ -41,8 +42,15 @@ main {
     padding: 0.5rem 0.8rem;
     letter-spacing: 0.1rem;
     border-radius: 0.4rem;
+    transition: all 0.3s;
     background-color: #4717f6;
     color: #e7dfdd;
+    font-size: 18px;
+}
+
+#cadastrar:hover {
+    transition: all 0.3s;
+    background-color: #4116db;
 }
 
 #p-entrar {
