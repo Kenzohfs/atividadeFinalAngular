@@ -1,16 +1,28 @@
-<div>
-  <input type="text" [(ngModel)]='palavraChave' (keyup)='pesquisarJogo()'>
-  <button (click)='ordernarLista("ASC")'>Ordenar asc</button>
-  <button (click)='ordernarLista("DESC")'>Ordenar desc</button>
+<main>
 
-  <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
-    [(ngModel)]="selectedItems" (onSelect)="filtrarGenero()" (onSelectAll)="onSelectAll($event)"
-    (onDeSelect)="filtrarGeneroDeSelect()" (onDeSelectAll)="onDeSelectAll($event)">
-  </ng-multiselect-dropdown>
 
-  <div class="jogo_container" *ngFor="let jogo of listaJogosFiltrada" (click)="redirecionarJogo(jogo.CODIGO)">
-    <img class="imagem_jogo" src="{{ getPath(jogo.IMAGEM_NOME) }}" alt="{{ jogo.NOME }}">
-    <p>{{jogo.NOME}}</p>
-    <p>{{getPreco(jogo.PRECO)}}</p>
+  <div>
+    <div id="divFiltro">
+      <div id="left-part">
+        <h2 id="title">Filtros</h2>
+        <input type="text" [(ngModel)]='palavraChave' (keyup)='pesquisarJogo()' placeholder="Pesquisar...">
+      </div>
+      <div id="right-part">
+
+        <button (click)='ordernarLista("ASC")'>Ordenar asc</button>
+        <button (click)='ordernarLista("DESC")'>Ordenar desc</button>
+        
+        <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
+        [(ngModel)]="selectedItems" (onSelect)="filtrarGenero()" (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="filtrarGeneroDeSelect()" (onDeSelectAll)="onDeSelectAll($event)">
+      </ng-multiselect-dropdown>
+    </div>
+    </div>
+
+    <div class="jogo_container" *ngFor="let jogo of listaJogosFiltrada" (click)="redirecionarJogo(jogo.CODIGO)">
+      <img class="imagem_jogo" src="{{ getPath(jogo.IMAGEM_NOME) }}" alt="{{ jogo.NOME }}">
+      <p>{{jogo.NOME}}</p>
+      <p>{{getPreco(jogo.PRECO)}}</p>
+    </div>
   </div>
-</div>
+</main>
