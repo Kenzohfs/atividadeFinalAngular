@@ -5,9 +5,49 @@
 }
 
 body {
-    /* background-color: #1f2538; */
+    background-color: #1f2538;
 }
 
-.multiselect-dropdown {
-    width: 300px !important;
+.dropdown-menu {
+    background-color: #1f2538;
+    width: fit-content;
 }
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #2d3141;
+    color: white;
+}
+
+.dropdown-btn {
+    border: 0px !important;
+}
+
+.dropdown-multiselect__caret {
+    visibility: hidden;
+}
+
+.filter-textbox input {
+    background-color: #e7dfdd;
+    border-radius: 0.2rem;
+}
+
+.dropdown-list {
+    border: 0 !important;
+    width: fit-content !important;
+    background-color: #1f2538 !important;
+    box-shadow: none !important;
+}
+
+.dropdown-list li:hover {
+    background-color: #2d3141 !important;
+    color: white !important;
+}
+
+.dropdown-list li div {
+    color: white !important;
+}
+

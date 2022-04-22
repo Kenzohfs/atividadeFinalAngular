@@ -1,6 +1,4 @@
 <main>
-
-
   <div>
     <div id="divFiltro">
       <div id="left-part">
@@ -9,20 +7,37 @@
       </div>
       <div id="right-part">
 
-        <button (click)='ordernarLista("ASC")'>Ordenar asc</button>
-        <button (click)='ordernarLista("DESC")'>Ordenar desc</button>
-        
-        <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
-        [(ngModel)]="selectedItems" (onSelect)="filtrarGenero()" (onSelectAll)="onSelectAll($event)"
-        (onDeSelect)="filtrarGeneroDeSelect()" (onDeSelectAll)="onDeSelectAll($event)">
-      </ng-multiselect-dropdown>
-    </div>
+        <div id="ordenar" class="dropdown">
+          <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Ordenar
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item" (click)='ordernarLista("ASC")'>A - Z</button></li>
+            <li><button class="dropdown-item" (click)='ordernarLista("DESC")'>Z - A</button></li>
+          </ul>
+        </div>
+        <!-- <button (click)='ordernarLista("ASC")'>Ordenar asc</button>
+        <button (click)='ordernarLista("DESC")'>Ordenar desc</button> -->
+
+        <ng-multiselect-dropdown id="generos" [placeholder]="'Gêneros'" [settings]="dropdownSettings"
+          [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="filtrarGenero()"
+          (onSelectAll)="onSelectAll($event)" (onDeSelect)="filtrarGeneroDeSelect()"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </ng-multiselect-dropdown>
+      </div>
     </div>
 
-    <div class="jogo_container" *ngFor="let jogo of listaJogosFiltrada" (click)="redirecionarJogo(jogo.CODIGO)">
-      <img class="imagem_jogo" src="{{ getPath(jogo.IMAGEM_NOME) }}" alt="{{ jogo.NOME }}">
+    <div class="jogo_container">
+      <div *ngFor="let jogo of listaJogosFiltrada" class="card" style="width: 12rem;" (click)="redirecionarJogo(jogo.CODIGO)">
+        <img src="{{ getPath(jogo.IMAGEM_NOME) }}" class="card-img-top" alt="{{ jogo.NOME }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ jogo.NOME }}</h5>
+          <p class="card-text">{{ getPreco(jogo.PRECO) }}</p>
+        </div>
+      </div>
+      <!-- <img class="imagem_jogo" src="{{ getPath(jogo.IMAGEM_NOME) }}" alt="{{ jogo.NOME }}">
       <p>{{jogo.NOME}}</p>
-      <p>{{getPreco(jogo.PRECO)}}</p>
+      <p>{{getPreco(jogo.PRECO)}}</p> -->
     </div>
   </div>
 </main>
