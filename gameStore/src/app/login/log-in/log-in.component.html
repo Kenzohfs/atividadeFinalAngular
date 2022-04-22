@@ -1,8 +1,13 @@
-<div>
-  <input [(ngModel)]="id" type="text" placeholder="Nome ou Email">
-  <br />
-  <input [(ngModel)]="senha" type="password" placeholder="Senha">
-  <br />
-  <button (click)="logar()">Entrar</button>
-  <button (click)="this.router.navigate(['/signup'])">Cadastrar</button>
-</div>
+<main>
+  <div id="divLogin">
+    <div>
+      <h2 id="title">Login</h2>
+      <label for="id">Nome ou Email</label>
+      <input id="id" [(ngModel)]="id" type="text" placeholder="Nome ou Email">
+      <label for="senha">Senha</label>
+      <input id="senha" [(ngModel)]="senha" type="password" placeholder="Senha">
+    </div>
+    <button id="entrar" (click)="logar()">Entrar</button>
+    <p id="p-cadastrar">Não possui uma conta? <u id="cadastrar" (click)="this.router.navigate(['/signup'])">Cadastrar</u></p>
+  </div>
+</main>

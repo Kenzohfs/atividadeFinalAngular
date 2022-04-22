@@ -9,7 +9,6 @@ main {
 #divSignup {
     width: 25vw;
     min-width: 280px;
-    /* min-height: 300px; */
     padding: 4.5vh 2.7vw;
     display: flex;
     align-items: center;
