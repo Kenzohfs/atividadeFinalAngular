@@ -1,16 +1,30 @@
-<div id="divSignup">
-  <h2 id="title">Signup</h2>
-  <label for=""></label>
-  <input [(ngModel)]="nome" type="text" placeholder="Nome">
-  <br />
-  <input [(ngModel)]="email" type="text" placeholder="Email">
-  <br />
-  <input [(ngModel)]="telefone" type="text" placeholder="Telefone">
-  <br />
-  <input [(ngModel)]="senha" type="password" placeholder="Senha">
-  <br />
-  <input [(ngModel)]="confirmarSenha" type="password" placeholder="Confirmar senha">
-  <br />
-  <button (click)="cadastrarUsuario()">Cadastrar</button>
-  <button (click)="this.router.navigate(['/login'])">Entrar</button>
-</div>
+<main>
+  <div id="divSignup">
+    <div id="">
+
+      <h2 id="title">Signup</h2>
+      <label for="nome">
+        Nome
+      </label>
+      <input id="nome" class="input" [(ngModel)]="nome" type="text">
+      <label for="email">
+        Email
+      </label>
+      <input id="email" class="input" [(ngModel)]="email" type="text">
+      <label for="telefone">
+        Telefone
+      </label>
+      <input id="telefone" class="input" [(ngModel)]="telefone" type="text">
+      <label for="senha">
+        Senha
+      </label>
+      <input id="senha" class="input" [(ngModel)]="senha" type="password">
+      <label for="confirmarSenha">
+        Confirmar Senha
+      </label>
+      <input id="confirmarSenha" class="input" [(ngModel)]="confirmarSenha" type="password">
+    </div>
+    <button id="cadastrar" (click)="cadastrarUsuario()">Cadastrar</button>
+    <p id="p-entrar">Já possui uma conta? <u id="entrar" (click)="this.router.navigate(['/login'])">Entrar</u></p>
+  </div>
+</main>
