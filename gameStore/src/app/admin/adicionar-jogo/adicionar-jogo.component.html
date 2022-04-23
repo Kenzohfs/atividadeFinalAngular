@@ -13,21 +13,21 @@
         <label for="faixaEtaria">Faixa etária</label>
         <input id="faixaEtaria" type="number" [(ngModel)]="faixaEtaria">
 
-        <ng-multiselect-dropdown style="color: #e7dfdd;" id="generos" [placeholder]="'Gêneros'" [settings]="dropdownSettings"
-          [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
-          (onSelectAll)="onSelectAll($event)">
-        </ng-multiselect-dropdown>
+        <label for="sinopse">Sinopse</label>
+        <input id="sinopse" type="text" [(ngModel)]="sinopse">
       </div>
 
       <div class="divisao-campos">
+        <ng-multiselect-dropdown style="" id="generos" [placeholder]="'Gêneros'" [settings]="dropdownSettings"
+          [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)">
+        </ng-multiselect-dropdown>
+
         <label for="imagem">Imagem URL</label>
         <input id="imagem" type="text" [(ngModel)]="imagem">
 
         <label for="imagem_principal">Imagem principal URL</label>
         <input id="imagem_principal" type="text" [(ngModel)]="imagem_principal">
-
-        <label for="sinopse">Sinopse</label>
-        <input id="sinopse" type="text" [(ngModel)]="sinopse">
       </div>
     </div>
 

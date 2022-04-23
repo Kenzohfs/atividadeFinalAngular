@@ -10,6 +10,9 @@ main {
 
 #adicionar-jogo-div {
     display: flex;
+    width: 60%;
+    margin: auto;
+    margin-top: 2rem;
     flex-direction: column;
     padding: 1rem;
     justify-content: center;
@@ -25,12 +28,15 @@ h4 {
 
 #campos {
     display: flex;
+    align-items: center;
     width: 100%;
 }
 
 .divisao-campos {
     width: 50%;
     display: flex;
+    align-items: center;
+    text-align: start;
     flex-direction: column;
 }
 
@@ -41,8 +47,23 @@ label {
 input {
     border-radius: 0.3rem;
     background-color: #e7dfdd;
-    width: 85%;
+    width: 60%;
+    padding-left: 0.5rem;
+    outline: none;
+    margin-bottom: 0.5rem;
+}
+
+ng-multiselect-dropdown {
+    color: #e7dfdd;
+    background-color: blue;
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 #adicionar {
+    margin-top: 1.3rem;
+    background-color: #4717f6;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
 }
