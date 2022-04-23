@@ -8,6 +8,10 @@ body {
     background-color: #1f2538;
 }
 
+main {
+    min-height: 80vh;
+}
+
 .dropdown-menu {
     background-color: #1f2538;
     width: fit-content;
