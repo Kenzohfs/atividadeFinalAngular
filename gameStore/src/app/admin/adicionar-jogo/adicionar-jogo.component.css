@@ -1,0 +1,24 @@
+main {
+    padding: 2rem;
+}
+
+#title {
+    color: #a239ca;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+#adicionar-jogo-div {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.3rem solid black;
+    border-radius: 0.5rem;
+}
+
+h4 {
+    color: white;
+    font-weight: bold;
+}
