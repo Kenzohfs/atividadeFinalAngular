@@ -2,22 +2,35 @@
   <h2 id="title">Adicionar Jogo</h2>
   <div id="adicionar-jogo-div">
     <h4>Preencha os dados</h4>
-    <input type="text" placeholder="Nome" [(ngModel)]="nome">
-    <br>
-    <input type="number" placeholder="Preço" [(ngModel)]="preco">
-    <br>
-    <input type="text" placeholder="Imagem URL" [(ngModel)]="imagem">
-    <br>
-    <input type="text" placeholder="Imagem principal URL" [(ngModel)]="imagem_principal">
-    <br>
-    <input type="number" placeholder="Faixa Etária" [(ngModel)]="faixaEtaria">
-    <br>
-    <input type="text" placeholder="Sinopse" [(ngModel)]="sinopse">
-    <br>
-    <ng-multiselect-dropdown [placeholder]="'Gêneros'" [settings]="dropdownSettings" [data]="dropdownList"
-      [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
-    </ng-multiselect-dropdown>
-    <br>
-    <button (click)="adicionarJogo();">Enviar</button>
+    <div id="campos">
+      <div class="divisao-campos">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" [(ngModel)]="nome">
+
+        <label for="preco">Preço</label>
+        <input id="preco" type="number" [(ngModel)]="preco">
+
+        <label for="faixaEtaria">Faixa etária</label>
+        <input id="faixaEtaria" type="number" [(ngModel)]="faixaEtaria">
+
+        <ng-multiselect-dropdown style="color: #e7dfdd;" id="generos" [placeholder]="'Gêneros'" [settings]="dropdownSettings"
+          [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)">
+        </ng-multiselect-dropdown>
+      </div>
+
+      <div class="divisao-campos">
+        <label for="imagem">Imagem URL</label>
+        <input id="imagem" type="text" [(ngModel)]="imagem">
+
+        <label for="imagem_principal">Imagem principal URL</label>
+        <input id="imagem_principal" type="text" [(ngModel)]="imagem_principal">
+
+        <label for="sinopse">Sinopse</label>
+        <input id="sinopse" type="text" [(ngModel)]="sinopse">
+      </div>
+    </div>
+
+    <button id="adicionar" (click)="adicionarJogo();">Enviar</button>
   </div>
 </main>
