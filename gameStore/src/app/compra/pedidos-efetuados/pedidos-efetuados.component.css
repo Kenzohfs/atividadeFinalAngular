@@ -1,0 +1,35 @@
+main {
+    padding: 2rem;
+}
+
+#title {
+    color: #a239ca;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.pedido {
+    padding: 1rem;
+    background-color: #0e0b16;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #e7dfdd;
+    text-align: end;
+}
+
+.jogo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtotal {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-weight: bold;
+}

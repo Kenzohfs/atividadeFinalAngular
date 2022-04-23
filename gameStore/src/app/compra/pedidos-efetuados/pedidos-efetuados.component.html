@@ -1,17 +1,19 @@
-<div>
+<main>
+    <h2 id="title">Meus Pedidos</h2>
     <div *ngIf="aparecer">
-        <div *ngFor="let jogo of listaJogos; let i = index;">
+        <div class="pedido" *ngFor="let jogo of listaJogos; let i = index;">
             <ul>
-                <li *ngFor="let joguinho of jogo">
-                    Nome: {{ joguinho.NOME }} Preço: {{ returnMoedaBrasileria(joguinho.PRECO) }}
-                    <div *ngFor="">
-                    </div>
+                <li class="jogo" *ngFor="let joguinho of jogo">
+                    <span>{{ joguinho.NOME }}</span>
+                    <span>{{ returnMoedaBrasileria(joguinho.PRECO) }}</span>
                 </li>
-                Subtotal: {{ returnMoedaBrasileria(listaPedidos[i].VALOR) }}
+                <p class="subtotal">
+                    Subtotal: {{ returnMoedaBrasileria(listaPedidos[i].VALOR) }}
+                </p>
             </ul>
         </div>
     </div>
     <div *ngIf="!aparecer">
         Nenhum pedido efetuado!
     </div>
-</div>
+</main>
