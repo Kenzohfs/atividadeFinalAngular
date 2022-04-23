@@ -1,15 +1,28 @@
-<div>
-  <img id="img" src="{{ imagemPrincipal }}" [alt]="nome">
-  <p>{{ nome }}</p>
-  <p>{{ preco }}</p>
-  <button *ngIf="aparecer" (click)="adicionarCarrinho()"> + Carrinho </button>
-  <button *ngIf="!aparecer" (click)="this.router.navigate(['/carrinho'])"> Visualizar carrinho</button>
-  <ul *ngFor="let genero of listaGeneros">
-    <li>
-      <div>{{ genero.GENERO }}</div>
-    </li>
-  </ul>
-  <p>{{ faixaEtaria }} Classificação Etária</p>
-  <p>Sinopse:</p>
-  <p>{{ descricao }}</p>
-</div>
+<main>
+  <div id="left-part">
+    <img id="img" src="{{ imagemPrincipal }}" [alt]="nome">
+    <h3 id="nome">{{ nome }}</h3>
+    <div id="preco-carrinho">
+      <h4 id="preco">{{ preco }}</h4>
+      <button class="carrinho" *ngIf="aparecer" (click)="adicionarCarrinho()"> + Carrinho </button>
+      <button class="carrinho" *ngIf="!aparecer" (click)="this.router.navigate(['/carrinho'])"> Visualizar
+        carrinho</button>
+    </div>
+    <ul id="lista-generos">
+      <li class="genero" *ngFor="let genero of listaGeneros">
+        <div>{{ genero.GENERO }}</div>
+      </li>
+    </ul>
+    <div id="faixa-etaria">
+      <p id="idade-faixa-etaria">
+        {{ faixaEtaria }}
+      </p>
+      Classificação Etária
+    </div>
+
+  </div>
+  <div id="sinopse">
+    <h2 id="sinopse-title">Descrição</h2>
+      <p id="descricao">{{ descricao }}</p>
+  </div>
+</main>

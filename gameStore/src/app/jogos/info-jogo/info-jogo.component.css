@@ -1,3 +1,85 @@
+main {
+    display: flex;
+    padding: 4% 6vw;
+}
+
+#left-part {
+    width: 50vw;
+    margin-right: 3rem;
+}
+
 #img {
-    width: 300px;
+    width: 50vw;
+    border-radius: 1rem;
+}
+
+#nome {
+    margin-top: 1rem;
+    color: white;
+}
+
+#preco-carrinho {
+    display: flex;
+    justify-content: space-between;
+}
+
+#preco {
+    color: #e7dfdd;
+}
+
+.carrinho {
+    border-radius: 8px;
+    background-color: #51b150;
+    color: #e7dfdd;
+    font-weight: bold;
+}
+
+#lista-generos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+}
+
+.genero {
+    color: #e7dfdd;
+    background-color: #4717f6;
+    margin-right: 3%;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+#faixa-etaria {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #0e0b16;
+    width: fit-content;
+    color: #a239ca;
+}
+
+#idade-faixa-etaria {
+    margin-bottom: 0;
+    margin-right: 8px;
+    padding: 6px 10px;
+    background-color: #4717f6;
+    color: white;
+    width: fit-content;
+}
+
+#sinopse {
+    background-color: #0e0b16;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    height: fit-content;
+}
+
+#sinopse-title {
+    color: #a239ca;
+    letter-spacing: 0.2rem;
+}
+
+#descricao {
+    color: #e7dfdd;
 }
