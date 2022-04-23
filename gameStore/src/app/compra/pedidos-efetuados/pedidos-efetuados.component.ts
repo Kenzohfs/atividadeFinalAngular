@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { JogoService } from 'src/app/services/jogo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidos-efetuados',
@@ -20,7 +21,7 @@ export class PedidosEfetuadosComponent implements OnInit {
   //adicionar uma lista com os jogos de cada pedido em outra lista
   //dessa lista fazer aparecer na tela as informações solicitadas
 
-  constructor(private usuarioService: UsuarioService, private jogoService: JogoService
+  constructor(private usuarioService: UsuarioService, private jogoService: JogoService, private router: Router
   ) {
     this.usuarioService.listar_pedidos().then((e: any) => {
       e.json().then(dados => {

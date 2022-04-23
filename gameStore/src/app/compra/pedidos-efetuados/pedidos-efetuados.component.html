@@ -1,5 +1,6 @@
 <main>
     <h2 id="title">Meus Pedidos</h2>
+
     <div *ngIf="aparecer">
         <div class="pedido" *ngFor="let jogo of listaJogos; let i = index;">
             <ul>
@@ -13,7 +14,14 @@
             </ul>
         </div>
     </div>
-    <div *ngIf="!aparecer">
-        Nenhum pedido efetuado!
+    <div id="not-found-div" *ngIf="!aparecer">
+        <div id="fundo-erro">
+            <img id="erro-icon" src="../../../assets/images/error.png" alt="ERROR">
+        </div>
+        <h5>
+            Nenhum pedido efetuado!
+        </h5>
+        <p style="color: #e7dfdd;">Compre algo na loja para aparecer aqui</p>
+        <h6><u (click)="this.router.navigate(['/'])">Ir para Loja</u></h6>
     </div>
 </main>
