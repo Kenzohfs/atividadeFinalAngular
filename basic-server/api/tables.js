@@ -93,7 +93,7 @@ database(`CREATE TABLE IF NOT EXISTS GENERO (
             ('Furtivo'),
             ('Esporte'),
             ('Singleplayer'),
-            ('Multiplayer'),
+            ('Multiplayer');
             `).then(resultado => {
                 console.log("Resultado: ", resultado);
             }).catch(erro => {
@@ -134,7 +134,14 @@ database(`CREATE TABLE IF NOT EXISTS JOGO_GENERO(
             (4, 2),
             (4, 3),
             (5, 3),
-            (6, 3)`).then(resultado => {
+            (6, 3),
+            (1, 4),
+            (9, 4),
+            (22, 4),
+            (13, 5),
+            (15, 5),
+            (23, 5)
+            ;`).then(resultado => {
                 console.log('Jogos_generos adicionados');
             }).catch(erro => {
                 console.log('Erro ao adicionar jogos_generos: ', erro);
@@ -170,7 +177,7 @@ database(`CREATE TABLE IF NOT EXISTS JOGO_PEDIDO_EFETUADO (
     ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (PEDIDO_EFETUADO_CODIGO) REFERENCES PEDIDO_EFETUADO (CODIGO)
     ON DELETE CASCADE ON UPDATE CASCADE
-)`) .then(result => {
+)`).then(result => {
     console.log("Tabela Jogo_Pedido_Efetuado criada com sucesso!");
 }).catch(erro => {
     console.log("Erro ao criar a tabela Jogo_Pedido_Efetuado");

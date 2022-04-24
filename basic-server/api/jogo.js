@@ -49,6 +49,14 @@ database(`CREATE TABLE IF NOT EXISTS JOGO (
                 'LEGO STAR WARS THE SKYWALKER SAGA',
                 'LEGO STAR WARS THE SKYWALKER SAGA PRINCIPAL',
                 10
+            ),
+            (
+                'Insurgency: Sandstorm', 
+                79.9, 
+                'Lute em ambientes dilacerados pela guerra de um conflito contemporâneo ao longo de uma série de modos multijogador intensos, cooperativo e JxJ. Sinta cada bala e tema cada impacto em ferozes combates aproximados enquanto sua equipe luta pela vitória.', 
+                'INSURGENCY SANDSTORM', 
+                'INSURGENCY SANDSTORM PRINCIPAL', 
+                14
             );
             `).then(resultado => {
                 console.log("inserts jogo resultado: ", resultado);
