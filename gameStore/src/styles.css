@@ -45,6 +45,7 @@ main {
     background-color: #1f2538 !important;
     box-shadow: none !important;
     border: 1px solid black !important;
+    position: fixed !important;
 }
 
 .dropdown-list li:hover {
