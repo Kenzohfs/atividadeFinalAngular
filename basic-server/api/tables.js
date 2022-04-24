@@ -20,7 +20,7 @@ database(`CREATE TABLE IF NOT EXISTS USER (
             })
             console.log("if");
         } else {
-            console.log("elseaaaaa");
+            console.log("Usuários já inseridos previamente");
         }
     }).catch(erro => {
         console.log("Erro: ", erro);
@@ -48,10 +48,8 @@ database(`CREATE TABLE IF NOT EXISTS ADMINISTRADOR (
             }).catch(erro => {
                 console.log("erro: ", erro);
             });
-
-            console.log("Entrou if");
         } else {
-            console.log("Entrou else");
+            console.log("Administrador já cadastrado!");
         }
     }).catch(error => {
         console.log("Error: ", error);
@@ -99,9 +97,8 @@ database(`CREATE TABLE IF NOT EXISTS GENERO (
             }).catch(erro => {
                 console.log("erro: ", erro);
             });
-            console.log("Entrou genero");
         } else {
-            console.log("Entrou else Genero");
+            console.log("Gêneros já cadastrados previamente!");
         }
     }).catch(error => {
         console.log("Error: ", error);
