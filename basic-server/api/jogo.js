@@ -57,8 +57,145 @@ database(`CREATE TABLE IF NOT EXISTS JOGO (
                 'INSURGENCY SANDSTORM', 
                 'INSURGENCY SANDSTORM PRINCIPAL', 
                 14
+            ),
+            (
+                'Amnesia: Rebirth', 
+                57.99, 
+                'Amnesia: Rebirth, uma nova incursão nas trevas dos criadores da icônica série Amnesia. Uma angustiante jornada pela desolação e pelo desespero, explorando os limites da resiliência humana.', 
+                'AMNESIA REBIRTH', 
+                'AMNESIA REBIRTH PRINCIPAL', 
+                18
+            ),
+            (
+                'Rocket League', 
+                0.0, 
+                'Rocket League é uma competição híbrida radical de futebol estilo arcade e destruição automotiva com controles fluidos e fáceis de entender baseada em física real. ', 
+                'ROCKET LEAGUE', 
+                'ROCKET LEAGUE PRINCIPAL', 
+                0
+            ),
+            (
+                'Grand Theft Auto V', 
+                69.99, 
+                'Quando um malandro de rua, um ladrão de bancos aposentado e um psicopata aterrorizante se veem encrencados, eles precisam realizar uma série de golpes ousados para sobreviver em uma cidade onde não podem confiar em ninguém, nem mesmo um no outro.', 
+                'GRAND THEFT AUTO V', 
+                'GRAND THEFT AUTO V PRINCIPAL', 
+                18
+            ),
+            (
+                'Dead by Daylight', 
+                49.99, 
+                'Dead by Daylight é um jogo de terror multijogador (4x1) no qual um jogador assume o papel de Assassino enquanto os demais jogadores, na pele de quatro Sobreviventes, tentam fugir e evitar uma morte cruel e violenta.', 
+                'DEAD BY DAYLIGHT', 
+                'DEAD BY DAYLIGHT PRINCIPAL', 
+                18
+            ),
+            (
+                'NBA 2K21', 
+                249.9, 
+                'O NBA 2K21 é o mais novo jogo da renomada franquia de sucesso mundial NBA 2K. Com empolgantes melhorias de jogabilidade, funcionalidades online competitivas e de comunidade, e contando com modos de jogos variados e aprofundados, o NBA 2K21 oferece uma imersão sem igual no mundo e na cultura do basquete da NBA —onde "Everything is Game", tudo é jogo.', 
+                'NBA 2K21', 
+                'NBA 2K21 PRINCIPAL', 
+                0
+            ),
+            (
+                'Shattered: Tale of the Forgotten King', 
+                56.99, 
+                'O velho mundo se foi, perdido com o desaparecimento do Rei. Recrie a realidade neste RPG de ação sombrio por meio de combate baseado em habilidade, plataformas em mundo aberto inovadoras e os testemunhos de sobreviventes... alguns mais confiáveis que outros. Você está preparado, Andarilho?', 
+                'SHATTERED TALE OF THE FORGOTTEN KING', 
+                'SHATTERED TALE OF THE FORGOTTEN KING PRINCIPAL', 
+                14
+            ),
+            (
+                'The Hunter: Call of the Wild', 
+                37.99, 
+                'Experimente um jogo de caça atmosférico sem igual em um mundo aberto realista e de visual deslumbrante. Entre de cabeça na campanha atmosférica para um jogador, ou compartilhe a experiência da caça com seus amigos.', 
+                'THE HUNTER CALL OF THE WILD', 
+                'THE HUNTER CALL OF THE WILD PRINCIPAL', 
+                16
+            ),
+            (
+                "Sid Meier s Civilization® VI", 
+                129.0, 
+                "Civilization VI oferece novas formas de interagir com o seu mundo, expandir seu império pelo mapa, avançar sua cultura e competir com os maiores líderes da história para criar uma civilização que resistirá ao tempo.", 
+                "SID MEIER S CIVILIZATION® VI", 
+                "SID MEIER S CIVILIZATION® VI PRINCIPAL", 
+                10
+            ),
+            (
+                'ARK: Survival Evolved', 
+                56.99, 
+                'Isolado na costa de uma ilha misteriosa, você precisa aprender a sobreviver. Use a sua astúcia para matar ou domar as criaturas primitivas que vagam pela área e encontre outros jogadores para sobreviver, dominar... e escapar!', 
+                'ARK SURVIVAL EVOLVED', 
+                'ARK SURVIVAL EVOLVED PRINCIPAL', 
+                14
+            ),
+            (
+                'League of Legends', 
+                0.0, 
+                'Vire uma lenda. Encontre seu Campeão, domine as habilidades dele e derrote seus oponentes em uma batalha 5v5 épica para destruir a base inimiga.', 
+                'LEAGUE OF LEGENDS', 
+                'LEAGUE OF LEGENDS PRINCIPAL', 
+                10
+            ),
+            (
+                'Farming Simulator 19', 
+                69.9, 
+                'A incrível simulação de fazenda está de volta com uma renovação total nos gráficos e a experiência agrícola mais completa que você já viu! Torne-se um fazendeiro moderno e desenvolva a sua fazenda em dois imensos ambientes nos Estados Unidos e na Europa, com novas atividades agrícolas e agropecuárias, plantações para colher e animais para cuidar.', 
+                'FARMING SIMULATOR 19', 
+                'FARMING SIMULATOR 19 PRINCIPAL', 
+                0
+            ),
+            (
+                'World War Z: Aftermath', 
+                75.99, 
+                'World War Z: Aftermath é o jogo de tiro cooperativo de zumbis definitivo, e a próxima evolução do sucesso original World War Z, que já cativou mais de 15 milhões de jogadores. Lute contra hordas de zumbis esfomeados em episódios intensos através de novos locais devastados por zumbis em todo o mundo.', 
+                'WORLD WAR Z AFTERMATH', 
+                'WORLD WAR Z AFTERMATH PRINCIPAL', 
+                16
+            ),
+            (
+                'XCOM® 2', 
+                99.9, 
+                'Os alienígenas dominam a Terra, mas escondem um plano secreto sinistro. Como líder de uma força de guerrilha, você deve iniciar uma resistência global para eliminar a ameaça alienígena e salvar a raça humana.', 
+                'XCOM® 2', 
+                'XCOM® 2 PRINCIPAL', 
+                14
+            ),
+            (
+                'Othercide', 
+                109.9, 
+                'Como a última esperança da Humanidade, lidere seu exército na luta contra chefes terríveis em uma dança de ações e reações baseadas no Sistema de Linha do Tempo Dinâmica.', 
+                'OTHERCIDE', 
+                'OTHERCIDE PRINCIPAL', 
+                14
+            ),
+            (
+                'DEATH STRANDING DIRECTOR S CUT', 
+                161.99, 
+                'Do lendário diretor Hideo Kojima, surge uma experiência que desafia gêneros, ainda maior em DIRECTOR S CUT. Jogando como Sam Bridges, sua missão é entregar esperança à humanidade ao conectar os sobreviventes de uma América devastada.', 
+                'DEATH STRANDING DIRECTOR S CUT', 
+                'DEATH STRANDING DIRECTOR S CUT PRINCIPAL', 
+                14
+            ),
+            (
+                'Ghostwire: Tokyo', 
+                209.0, 
+                'A população de Tóquio desapareceu e forças sobrenaturais mortais vagam pela cidade. Use um arsenal de habilidades elementais para descobrir a verdade por trás do desaparecimento e salvar a cidade.', 
+                'GHOSTWIRE TOKYO', 
+                'GHOSTWIRE TOKYO PRINCIPAL', 
+                14
+            ),
+            (
+                'Apex Legends™', 
+                0.0, 
+                'Apex Legends é o premiado jogo de tiro em primeira pessoa de heróis e heroínas da Respawn Entertainment. Domine um elenco cada vez mais amplo de personagens lendários com habilidades poderosas, experimente partidas estratégicas e a jogabilidade inovadora.', 
+                'APEX LEGENDS™', 
+                'APEX LEGENDS™ PRINCIPAL', 
+                14
             );
-            `).then(resultado => {
+            `
+            ).then(resultado => {
                 console.log("inserts jogo resultado: ", resultado);
             }).catch(erro => {
                 console.log('inserts jogo erro: ', erro);

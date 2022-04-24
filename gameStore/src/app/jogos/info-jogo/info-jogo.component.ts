@@ -32,8 +32,16 @@ export class InfoJogoComponent implements OnInit {
           this.imagemPrincipal = dado.IMAGEM_PRINCIPAL;
         }
         this.nome = dado.NOME;
-        this.preco = dado.PRECO.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        this.faixaEtaria = dado.FAIXA_ETARIA;
+        if (dado.PRECO == 0) {
+          this.preco = "Grátis"
+        } else {
+          this.preco = dado.PRECO.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        }
+        if (dado.FAIXA_ETARIA == 0) {
+          this.faixaEtaria = "Livre"
+        } else {
+          this.faixaEtaria = dado.FAIXA_ETARIA;
+        }
         this.descricao = dado.DESCRICAO;
         this.aparecer = true;
         this.listaCarrinho.forEach(e => {

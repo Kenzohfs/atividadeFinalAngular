@@ -30,7 +30,11 @@ export class HomepageComponent implements OnInit {
   }
 
   getPreco(preco) {
-    return preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+    if (preco == 0) {
+      return "Grátis";
+    } else {
+      return preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+    }
   }
 
   redirecionamento(jogoCodigo) {
