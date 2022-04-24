@@ -10,6 +10,10 @@ main {
     width: 55vw;
 }
 
+.cursor:hover {
+    cursor: pointer;
+}
+
 .cartao-destaque {
     width: 25vw;
     display: flex;
