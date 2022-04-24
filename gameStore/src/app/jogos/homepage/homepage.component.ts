@@ -24,8 +24,13 @@ export class HomepageComponent implements OnInit {
     this.listaJogos = JSON.parse(localStorage.getItem("LISTAJOGOS"))
     return true;
   }
+
   getJogo(indice) {
     return this.listaJogos[indice];
+  }
+
+  getPreco(preco) {
+    return preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
   }
 
   redirecionamento(jogoCodigo) {

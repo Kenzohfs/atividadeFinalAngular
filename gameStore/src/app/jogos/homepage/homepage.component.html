@@ -42,12 +42,12 @@
       <div class="cartao-destaque cursor" (click)="redirecionamento(getJogo(4).CODIGO)">
         <img class="imagem-destaque" src="../../../assets/images/{{ getJogo(4).IMAGEM_PRINCIPAL }}.jpg" alt="">
         <p class="nome-destaque">{{ getJogo(4).NOME }}</p>
-        <p class="preco-destaque">{{ getJogo(4).PRECO }}</p>
+        <p class="preco-destaque">{{ getPreco(getJogo(4).PRECO) }}</p>
       </div>
       <div class="cartao-destaque cursor" (click)="redirecionamento(getJogo(5).CODIGO)">
         <img class="imagem-destaque" src="../../../assets/images/{{ getJogo(5).IMAGEM_PRINCIPAL }}.jpg" alt="">
         <p class="nome-destaque">{{ getJogo(5).NOME }}</p>
-        <p class="preco-destaque">{{ getJogo(5).PRECO }}</p>
+        <p class="preco-destaque">{{ getPreco(getJogo(5).PRECO) }}</p>
       </div>
     </div>
   </div>
@@ -61,7 +61,7 @@
             <img src="../../../assets/images/{{ getJogo(6).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(6).NOME }}</h5>
-              <p class="card-text">{{ getJogo(6).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(6).PRECO) }}</p>
             </div>
           </div>
 
@@ -69,7 +69,7 @@
             <img src="../../../assets/images/{{ getJogo(7).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(7).NOME }}</h5>
-              <p class="card-text">{{ getJogo(7).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(7).PRECO) }}</p>
             </div>
           </div>
 
@@ -77,7 +77,7 @@
             <img src="../../../assets/images/{{ getJogo(8).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(8).NOME }}</h5>
-              <p class="card-text">{{ getJogo(8).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(8).PRECO) }}</p>
             </div>
           </div>
 
@@ -91,7 +91,7 @@
             <img src="../../../assets/images/{{ getJogo(9).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(9).NOME }}</h5>
-              <p class="card-text">{{ getJogo(9).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(9).PRECO) }}</p>
             </div>
           </div>
 
@@ -99,7 +99,7 @@
             <img src="../../../assets/images/{{ getJogo(10).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(10).NOME }}</h5>
-              <p class="card-text">{{ getJogo(10).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(10).PRECO) }}</p>
             </div>
           </div>
 
@@ -107,7 +107,7 @@
             <img src="../../../assets/images/{{ getJogo(11).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(11).NOME }}</h5>
-              <p class="card-text">{{ getJogo(11).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(11).PRECO) }}</p>
             </div>
           </div>
 
@@ -120,7 +120,7 @@
             <img src="../../../assets/images/{{ getJogo(12).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(12).NOME }}</h5>
-              <p class="card-text">{{ getJogo(12).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(12).PRECO) }}</p>
             </div>
           </div>
 
@@ -128,7 +128,7 @@
             <img src="../../../assets/images/{{ getJogo(13).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(13).NOME }}</h5>
-              <p class="card-text">{{ getJogo(13).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(13).PRECO) }}</p>
             </div>
           </div>
 
@@ -136,7 +136,7 @@
             <img src="../../../assets/images/{{ getJogo(14).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(14).NOME }}</h5>
-              <p class="card-text">{{ getJogo(14).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(14).PRECO) }}</p>
             </div>
           </div>
 
@@ -164,7 +164,7 @@
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(15).NOME }}</h5>
-          <p class="card-text">{{ getJogo(15).PRECO }}</p>
+          <p class="card-text">{{ getPreco(getJogo(15).PRECO) }}</p>
         </div>
       </div>
 
@@ -173,7 +173,7 @@
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(16).NOME }}</h5>
-          <p class="card-text">{{ getJogo(16).PRECO }}</p>
+          <p class="card-text">{{ getPreco(getJogo(16).PRECO) }}</p>
         </div>
       </div>
 
@@ -182,7 +182,7 @@
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(17).NOME }}</h5>
-          <p class="card-text">{{ getJogo(17).PRECO }}</p>
+          <p class="card-text">{{ getPreco(getJogo(17).PRECO) }}</p>
         </div>
       </div>
 
@@ -191,7 +191,7 @@
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(18).NOME }}</h5>
-          <p class="card-text">{{ getJogo(18).PRECO }}</p>
+          <p class="card-text">{{ getPreco(getJogo(18).PRECO) }}</p>
         </div>
       </div>
 
@@ -207,7 +207,7 @@
             <img src="../../../assets/images/{{ getJogo(19).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(19).NOME }}</h5>
-              <p class="card-text">{{ getJogo(19).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(19).PRECO) }}</p>
             </div>
           </div>
 
@@ -215,7 +215,7 @@
             <img src="../../../assets/images/{{ getJogo(20).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(20).NOME }}</h5>
-              <p class="card-text">{{ getJogo(20).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(20).PRECO) }}</p>
             </div>
           </div>
 
@@ -223,7 +223,7 @@
             <img src="../../../assets/images/{{ getJogo(21).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(21).NOME }}</h5>
-              <p class="card-text">{{ getJogo(21).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(21).PRECO) }}</p>
             </div>
           </div>
 
@@ -237,7 +237,7 @@
             <img src="../../../assets/images/{{ getJogo(22).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(22).NOME }}</h5>
-              <p class="card-text">{{ getJogo(22).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(22).PRECO) }}</p>
             </div>
           </div>
 
@@ -245,7 +245,7 @@
             <img src="../../../assets/images/{{ getJogo(23).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(23).NOME }}</h5>
-              <p class="card-text">{{ getJogo(23).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(23).PRECO) }}</p>
             </div>
           </div>
 
@@ -253,7 +253,7 @@
             <img src="../../../assets/images/{{ getJogo(24).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(24).NOME }}</h5>
-              <p class="card-text">{{ getJogo(24).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(24).PRECO) }}</p>
             </div>
           </div>
 
@@ -266,7 +266,7 @@
             <img src="../../../assets/images/{{ getJogo(25).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(25).NOME }}</h5>
-              <p class="card-text">{{ getJogo(25).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(25).PRECO) }}</p>
             </div>
           </div>
 
@@ -274,7 +274,7 @@
             <img src="../../../assets/images/{{ getJogo(26).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(26).NOME }}</h5>
-              <p class="card-text">{{ getJogo(26).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(26).PRECO) }}</p>
             </div>
           </div>
 
@@ -282,7 +282,7 @@
             <img src="../../../assets/images/{{ getJogo(27).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(27).NOME }}</h5>
-              <p class="card-text">{{ getJogo(27).PRECO }}</p>
+              <p class="card-text">{{ getPreco(getJogo(27).PRECO) }}</p>
             </div>
           </div>
 
