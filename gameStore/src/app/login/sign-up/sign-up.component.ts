@@ -40,6 +40,8 @@ export class SignUpComponent implements OnInit {
               console.log("RESULTADO: ", resultado)
               this.nome = this.email = this.telefone = this.senha = this.confirmarSenha = undefined;
               this.router.navigate(['login']);
+
+              alert("Usuário cadastrado com sucesso!");
             }).catch(erro => {
               console.log("ERRO AO BUSCAR USUARIOS: ", erro)
             });

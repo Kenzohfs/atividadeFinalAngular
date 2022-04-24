@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
   }
 
   returnListaJogosLength() {
-    this.listaJogos = JSON.parse(localStorage.getItem("LISTAJOGOS"))
+    this.listaJogos = JSON.parse(localStorage.getItem("LISTAJOGOS"));
     return true;
   }
 

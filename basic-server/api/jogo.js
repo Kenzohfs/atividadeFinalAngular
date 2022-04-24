@@ -193,6 +193,158 @@ database(`CREATE TABLE IF NOT EXISTS JOGO (
                 'APEX LEGENDS™', 
                 'APEX LEGENDS™ PRINCIPAL', 
                 14
+            ),
+            (
+                'Hades', 
+                47.49, 
+                'Dos criadores de Bastion e Transistor, desafie o deus dos mortos enquanto corta e massacra todos no seu caminho para sair do Submundo neste dungeon crawler roguelike.', 
+                'HADES', 
+                'HADES PRINCIPAL', 
+                10
+            ),
+            (
+                'Neon Abyss', 
+                59.99, 
+                'O Neon Abyss é um jogo roguelike frenético, onde você corre e atira para entrar no Abismo como parte do "Grim Squad". Com sinergias ilimitadas de itens e um sistema único de masmorras que evoluem, cada partida diversifica a experiência e cada opção altera as regras.', 
+                'NEON ABYSS', 
+                'NEON ABYSS PRINCIPAL', 
+                12
+            ),
+            (
+                'Watch Dogs: Legion', 
+                115.49, 
+                'Monte uma resistência com praticamente qualquer pessoa que você vê enquanto hackeia, se infiltra e luta para retomar num futuro próximo uma Londres que está à beira do colapso. Boas-vindas à Resistência. Recrute e jogue com qualquer habitante da cidade. Todo mundo que você vê tem história, personalidade e conjunto de habilidades exclusivas.', 
+                'WATCH DOGS LEGION', 
+                'WATCH DOGS LEGION PRINCIPAL', 
+                18
+            ),
+            (
+                'Risk of Rain 2', 
+                23.99, 
+                'Lute contra legiões de monstros ferozes para escapar de um planeta alienígena caótico – com ajuda de seus amigos ou por conta própria. Combine espólios de guerra de maneiras surpreendentes e domine cada personagem até se tornar a destruição que temia em sua primeira aterrissagem de emergência.', 
+                'RISK OF RAIN 2', 
+                'RISK OF RAIN 2 PRINCIPAL', 
+                14
+            ),
+            (
+                'Rise of the Tomb Raider', 
+                85.0, 
+                'O Passe de Temporada do Rise of the Tomb Raider: aniversário de 20 anos inclui o jogo base e o Passe de Temporada que apresenta conteúdo totalmente novo. Explore a Mansão Croft na nova história “Laços de Sangue” e a defenda contra uma invasão zumbi em “Pesadelo de Lara”.', 
+                'RISE OF THE TOMB RAIDER', 
+                'RISE OF THE TOMB RAIDER PRINCIPAL', 
+                18
+            ),
+            (
+                'Shadow of the Tomb Raider', 
+                145.9, 
+                'Em Shadow of the Tomb Raider: Definitive Edition você vivenciará o último capítulo da origem de Lara, no qual ela cumprirá seu destino e se tornará a Tomb Raider. Ao combinar o jogo de base, todas as tumbas de desafios dos sete DLCs, bem como todas as armas, trajes e habilidades complementares, Shadow of the Tomb Raider: Definitive Edition é a forma definitiva de vivenciar o momento determinante de Lara.', 
+                'SHADOW OF THE TOMB RAIDER', 
+                'SHADOW OF THE TOMB RAIDER PRINCIPAL', 
+                18
+            ),
+            (
+                'Tomb Raider GOTY', 
+                39.0, 
+                'Tomb Raider é uma aventura de ação aclamada pela crítica que explora a história intensa e corajosa da origem de Lara Croft e sua transformação de jovem mulher em sobrevivente implacável. Armada apenas com um instinto brutal e a habilidade de ir além dos limites da resistência humana, Lara deve lutar para desvendar a história sombria de uma ilha esquecida a fim de escapar de seu domínio impiedoso. A Game of the Year Edition inclui Tomb of the Lost Adventurer, 6 trajes para Lara no modo para um jogador e 4 personagens.', 
+                'TOMB RAIDER GOTY', 
+                'TOMB RAIDER GOTY PRINCIPAL', 
+                18
+            ),
+            (
+                'Hollow Knight', 
+                27.99, 
+                'Forje seu caminho em Hollow Knight! Uma aventura de ação épica em um vasto reino arruinado de insetos e heróis. Explore cavernas serpenteantes, lute contra criaturas malignas e alie-se a insetos bizarros num estilo clássico 2D desenhado à mão.', 
+                'HOLLOW KNIGHT', 
+                'HOLLOW KNIGHT PRINCIPAL', 
+                14
+            ),
+            (
+                'Pathfinder: Wrath of the Righteous', 
+                97.49, 
+                'Embarque em uma jornada para um reino tomado por demônios em um novo RPG épico dos mesmos criadores de Pathfinder: Kingmaker. Explore a natureza do bem e do mal, descubra o verdadeiro preço do poder e ascenda como um Herói Mítico capaz de realizar façanhas que vão além de qualquer expectativa mortal.', 
+                'PATHFINDER WRATH OF THE RIGHTEOUS', 
+                'PATHFINDER WRATH OF THE RIGHTEOUS PRINCIPAL', 
+                16
+            ),
+            (
+                'BioShock™ Remastered', 
+                29.99, 
+                'BioShock é um jogo de tiro diferente de qualquer outro que você já tenha jogado, cheio de armas e táticas nunca vistas. Você terá um arsenal completo à sua disposição que vai de revólveres simples até lançadores de granadas e de produtos químicos.', 
+                'BIOSHOCK™ REMASTERED', 
+                'BIOSHOCK™ REMASTERED PRINCIPAL', 
+                18
+            ),
+            (
+                'BioShock™ 2 Remastered', 
+                29.99, 
+                'BioShock 2 traz a premiada narrativa da série com um explosivo combate de tiro em primeira pessoa. Rapture novamente ecoa pecados do passado. Ao longo da costa do Atlântico, um monstro tem capturado garotinhas e as levado para a cidade submersa. Os jogadores assumem o papel de Big Daddy, e exploram a decrépita cidade atrás de um inimigo invisível, de respostas e da sua própria sobrevivência.', 
+                'BIOSHOCK™ 2 REMASTERED', 
+                'BIOSHOCK™ 2 REMASTERED PRINCIPAL', 
+                18
+            ),
+            (
+                'BioShock Infinite', 
+                89.99, 
+                'Em dívida com as pessoas erradas, com sua vida em jogo, veterano da Cavalaria dos EUA e agora contratado, Booker DeWitt tem apenas uma oportunidade de limpar sua lousa. Ele deve resgatar Elizabeth, uma garota misteriosa presa desde a infância e trancada na cidade voadora de Columbia.', 
+                'BIOSHOCK INFINITE', 
+                'BIOSHOCK INFINITE PRINCIPAL', 
+                18
+            ),
+            (
+                'Hood: Outlaws & Legends', 
+                74.0, 
+                'Em um mundo medieval violento, vença gangues rivais em assaltos multiplayer PvPvE intensos. Seja movimentando-se com furtividade para roubar tesouros sem ser visto(a), seja através de combate brutal e chamativo, apenas os melhores escapam com as riquezas conquistadas.', 
+                'HOOD OUTLAWS & LEGENDS', 
+                'HOOD OUTLAWS & LEGENDS PRINCIPAL', 
+                16
+            ),
+            (
+                'Among Us', 
+                9.99, 
+                'Jogue com 4 a 15 jogadores online ou na sua rede Wi-Fi enquanto prepara sua nave para decolar, mas cuidado! Um ou mais jogadores aleatórios da Tripulação são Impostores e estão doidos pra matar geral!', 
+                'AMONG US', 
+                'AMONG US PRINCIPAL', 
+                0
+            ),
+            (
+                'Cities: Skylines', 
+                55.99, 
+                'Cities: Skylines é uma versão moderna dos simuladores de cidade clássicos. O jogo introduz novos elementos de jogabilidade para que você sinta a emoção e a dificuldade de criar e manter uma cidade de verdade, além de aprimorar os elementos clássicos da construção de cidades.', 
+                'CITIES SKYLINES', 
+                'CITIES SKYLINES PRINCIPAL', 
+                0
+            ),
+            (
+                'Spirit of the North', 
+                28.49, 
+                'Spirit of the North é um jogo de aventura em terceira pessoa para um jogador inspirado nas paisagens de tirar o fôlego e misteriosas da Islândia. A história se enraíza em várias peças do folclore nórdico.', 
+                'SPIRIT OF THE NORTH', 
+                'SPIRIT OF THE NORTH PRINCIPAL', 
+                10
+            ),
+            (
+                'LEGO® Batman™: The Videogame', 
+                36.99, 
+                'Quando todos os vilões do Asilo Arkham se unem e fogem, apenas a Dupla Dinâmica é corajosa o suficiente para enfrentar todos eles e salvar Gotham City. A diversão de LEGO e o drama de Batman se unem em uma combinação singular, gerando a aventura divertida e animada de LEGO Batman: The Videogame.', 
+                'LEGO® BATMAN™ THE VIDEOGAME', 
+                'LEGO® BATMAN™ THE VIDEOGAME PRINCIPAL', 
+                0
+            ),
+            (
+                'LEGO® Batman™ 2: DC Super Heroes', 
+                36.99, 
+                'Lendas, uni-vos! A Dupla Dinâmica de Batman e Robin se unem a outros super-heróis famosos do Universo DC, como Super-Homem, Mulher Maravilha e Lanterna Verde, para salvar Gotham City da destruição pelas mãos de notórios vilões como Lex Luthor e Coringa.', 
+                'LEGO® BATMAN™ 2 DC SUPER HEROES', 
+                'LEGO® BATMAN™ 2 DC SUPER HEROES PRINCIPAL', 
+                0
+            ),
+            (
+                'LEGO® Batman™ 3: Beyond Gotham', 
+                49.99, 
+                'A franquia de games LEGO Batman mais vendida está de volta em uma aventura cheia de ação frenética! No LEGO Batman™ 3: Beyond Gotham, o Cruzado Encapuzado une forças com os super-heróis do universo da DC Comics e vai ao espaço para impedir o malvado Brainiac de destruir a Terra. Usando o poder dos Anéis dos Lanternas, Brainiac encolhe mundos para incrementar sua coleção doentia de cidades em miniatura do universo todo. Agora, os maiores super-heróis e os vilões mais perversos devem se unir e viajar aos Mundos dos Lanternas para colecionar os Anéis e deter Brainiac antes que seja tarde demais.', 
+                'LEGO® BATMAN™ 3 BEYOND GOTHAM', 
+                'LEGO® BATMAN™ 3 BEYOND GOTHAM PRINCIPAL', 
+                0
             );
             `
             ).then(resultado => {

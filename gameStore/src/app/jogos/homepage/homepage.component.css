@@ -14,6 +14,10 @@ main {
     cursor: pointer;
 }
 
+.img-set-tamanho {
+    height: 420px;
+}
+
 .cartao-destaque {
     width: 25vw;
     display: flex;
