@@ -56,6 +56,8 @@ export class CarrinhoComponent implements OnInit {
 
   removerItem(indice) {
     this.listaJogosCarrinho.splice(indice, 1);
+    let listaTemp = this.listaJogosCarrinho;
+    this.listaJogosCarrinho = listaTemp;
     let lista = JSON.parse(localStorage.getItem("CARRINHO"));
     lista.splice(indice, 1);
     if (lista.length > 0) {
@@ -64,7 +66,6 @@ export class CarrinhoComponent implements OnInit {
       this.aparecer = !this.aparecer;
       localStorage.removeItem("CARRINHO");
     }
-    this.constructor();
   }
 
   returnPreco(preco) {
