@@ -1,11 +1,11 @@
 <main>
     <h2 id="title">Meus Pedidos</h2>
 
-    <div *ngIf="aparecer">
+    <div style="margin-top: 2rem; padding: 0rem 2rem;" *ngIf="aparecer">
         <div class="pedido" *ngFor="let jogo of listaJogos; let i = index;">
             <ul>
                 <li class="jogo" *ngFor="let joguinho of jogo">
-                    <span>{{ joguinho.NOME }}</span>
+                    <span class="nome-jogo" (click)="this.router.navigate(['jogos/' + joguinho.CODIGO])">{{ joguinho.NOME }}</span>
                     <span>{{ returnMoedaBrasileria(joguinho.PRECO) }}</span>
                 </li>
                 <p class="subtotal">

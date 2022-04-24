@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -13,7 +14,7 @@ export class CarrinhoComponent implements OnInit {
   aparecer;
   subtotal: number = 0;
 
-  constructor(private usuarioService: UsuarioService
+  constructor(private usuarioService: UsuarioService, private router: Router
   ) {
     this.aparecer = true;
     if (this.listaJogosCarrinho.length == 0) {
@@ -65,6 +66,7 @@ export class CarrinhoComponent implements OnInit {
       localStorage.removeItem("CARRINHO");
     }
     console.log('listacarrinhos: ', this.listaJogosCarrinho);
+    this.constructor();
   }
 
   returnPreco(preco) {

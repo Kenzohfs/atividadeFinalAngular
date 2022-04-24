@@ -1,17 +1,51 @@
-<div>
-  <div *ngIf="aparecer">
-    <ul>
-      <li *ngFor="let jogo of listaJogosCarrinho, let i = index;">Nome: {{ jogo.NOME }}
-        <br>
-        Preço: {{ returnPreco(jogo.PRECO) }}
-        <br>
-        <button (click)="removerItem(i)">Remover</button>
+<main>
+  <h2 class="title">Meu Carrinho</h2>
+  <div id="carrinho" *ngIf="aparecer">
+    <ul id="lista-jogos">
+      <li class="jogo" *ngFor="let jogo of listaJogosCarrinho, let i = index;">
+        <div style="display: flex; align-items: center;">
+          <img (click)="this.router.navigate(['/jogos/' + jogo.CODIGO])" class="img-jogo"
+            src="../../../assets/images/{{ jogo.IMAGEM_NOME }}.jpg" alt="JOGO">
+          <p (click)="this.router.navigate(['/jogos/' + jogo.CODIGO])" class="nome-jogo">
+            {{ jogo.NOME }}
+          </p>
+        </div>
+        <div style="text-align: center;">
+          <p style="color: white; font-size: large;">
+            {{ returnPreco(jogo.PRECO) }}
+          </p>
+          <button class="remover" (click)="removerItem(i)">Remover</button>
+        </div>
       </li>
     </ul>
-    <div>Subtotal: {{ returnPreco(subtotal) }}</div>
-    <button (click)="fecharPedido()">Finalizar Pedido</button>
+
+    <div id="resumo">
+      <h3 class="title" style="margin-bottom: 1rem;">Resumo</h3>
+      <p style="color: white; font-size: large; width: 100%;">Preços</p>
+      <ul style="text-align: end; color: #e7dfdd;">
+        <li *ngFor="let jogo of listaJogosCarrinho">
+          {{ returnPreco(jogo.PRECO) }}
+        </li>
+      </ul>
+      <p style="color: white; font-size: large; width: 100%;">
+        Subtotal
+      </p>
+      <p style="text-align: end; color: #e7dfdd;">
+        {{ returnPreco(subtotal) }}
+      </p>
+      <div id="div-button">
+        <button id="finalizar-compra" (click)="fecharPedido()">Finalizar compra</button>
+      </div>
+    </div>
   </div>
-  <div *ngIf="!aparecer">
-    Carrinho vazio
+  <div id="not-found-div" *ngIf="!aparecer">
+    <div id="fundo-erro">
+      <img id="erro-icon" src="../../../assets/images/error.png" alt="ERROR">
+    </div>
+    <h5>
+      Carrinho vazio
+    </h5>
+    <p style="color: #e7dfdd; margin-bottom: 1rem;">Adicione um item ao carrinho para aparecer aqui</p>
+    <h6><u (click)="this.router.navigate(['/'])">Ir para Loja</u></h6>
   </div>
-</div>
+</main>

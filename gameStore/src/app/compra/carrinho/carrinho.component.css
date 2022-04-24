@@ -1,0 +1,107 @@
+main {
+    padding: 2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    margin: 0;
+}
+
+#carrinho {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    color: #a239ca;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+#lista-jogos {
+    width: 60vw;
+}
+
+.jogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0e0b16;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.img-jogo {
+    width: 6rem;
+}
+
+.nome-jogo, .img-jogo:hover {
+    cursor: pointer;
+}
+
+.nome-jogo {
+    color: white;
+    margin-left: 1.5rem;
+    font-size: large;
+}
+
+.remover {
+    background-color: transparent;
+    color: #e7dfdd;
+    font-size: small;
+}
+
+#resumo {
+    background-color: #0e0b16;
+    width: 30vw;
+    height: fit-content;
+    border-radius: 0.7rem;
+    padding: 1.5rem;
+}
+
+#div-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#finalizar-compra {
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    color: #e7dfdd;
+    background-color: #4717f6;
+    margin-top: 1rem;
+}
+
+
+#not-found-div {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#fundo-erro {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 10rem;
+    background-color: #0e0b16;
+    height: 10rem;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+
+#erro-icon {
+    height: 100%;
+}
+
+h6:hover {
+    cursor: pointer;
+}

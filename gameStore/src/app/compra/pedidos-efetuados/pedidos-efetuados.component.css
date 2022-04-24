@@ -28,6 +28,10 @@ ul {
     justify-content: space-between;
 }
 
+.nome-jogo:hover {
+    cursor: pointer;
+}
+
 .subtotal {
     margin-top: 1rem;
     margin-bottom: 0;
