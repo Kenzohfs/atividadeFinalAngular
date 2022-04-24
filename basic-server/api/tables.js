@@ -77,8 +77,24 @@ database(`CREATE TABLE IF NOT EXISTS GENERO (
             ('Mundo Aberto'),
             ('2D'),
             ('Plataforma'),
-            ('Roguelike'),
-            ('Battle Royale')`).then(resultado => {
+            ('Roguelite'),
+            ('Battle Royale'),
+            ('Aventura'),
+            ('Indie'),
+            ('Estratégia'),
+            ('Sobrevivência'),
+            ('Tiro'),
+            ('Terror'),
+            ('Primeira Pessoa'),
+            ('Simulador'),
+            ('Exploração'),
+            ('Corrida'),
+            ('Luta'),
+            ('Furtivo'),
+            ('Esporte'),
+            ('Singleplayer'),
+            ('Multiplayer'),
+            `).then(resultado => {
                 console.log("Resultado: ", resultado);
             }).catch(erro => {
                 console.log("erro: ", erro);
