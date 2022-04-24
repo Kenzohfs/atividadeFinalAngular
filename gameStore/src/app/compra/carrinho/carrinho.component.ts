@@ -20,7 +20,6 @@ export class CarrinhoComponent implements OnInit {
     if (this.listaJogosCarrinho.length == 0) {
       this.aparecer = false;
     }
-    console.log("a", this.listaJogosCarrinho)
     this.listaJogosCarrinho.forEach(e => {
       this.subtotal += e.PRECO
     })
@@ -37,7 +36,6 @@ export class CarrinhoComponent implements OnInit {
 
         e.json().then(dados => {
 
-          console.log("dados listar pedidos: ", dados);
           this.listaJogosCarrinho.forEach(e => {
 
             this.usuarioService.inserirJogoPedido((dados.length), e.CODIGO);
@@ -66,7 +64,6 @@ export class CarrinhoComponent implements OnInit {
       this.aparecer = !this.aparecer;
       localStorage.removeItem("CARRINHO");
     }
-    console.log('listacarrinhos: ', this.listaJogosCarrinho);
     this.constructor();
   }
 

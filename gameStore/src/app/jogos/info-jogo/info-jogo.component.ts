@@ -56,17 +56,13 @@ export class InfoJogoComponent implements OnInit {
 
     this.jogoService.returnGenerosCodigos(this.urlParam).then((resultado: any) => {
       resultado.json().then(dados => {
-        console.log("dados adfasdf: ", dados)
         dados.forEach(e => {
-          console.log('egenerocodigo: ', e);
           this.jogoService.returnObjetoGenero(e.GENERO_CODIGO).then((resultado: any) => {
             resultado.json().then(dado => {
-              console.log("dado asdsaçflkj: ", dado)
               this.listaGeneros.push(dado);
             })
           })
         })
-        console.log('listaGeneros: ', this.listaGeneros)
       })
     })
 

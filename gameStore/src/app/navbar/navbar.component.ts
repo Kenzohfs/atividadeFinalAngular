@@ -32,11 +32,9 @@ export class NavbarComponent implements OnInit {
   }
 
   redirecionar(caminho) {
-    console.log("caminho home: ", caminho);
     localStorage.setItem("CAMINHO", caminho);
     localStorage.setItem('PASTCAMINHO', window.location.pathname);
     this.router.navigate([caminho]);
-    console.log("redirecionamento service: ", localStorage.getItem('CAMINHO'));
   }
 
   sair() {

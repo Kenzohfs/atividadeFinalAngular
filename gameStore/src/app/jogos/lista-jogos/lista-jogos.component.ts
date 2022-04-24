@@ -25,8 +25,6 @@ export class ListaJogosComponent implements OnInit {
       dados.json().then(e => {
         this.listaJogos = e;
         this.listaJogosFiltrada = e;
-        console.log('e', e);
-        console.log("lista jogos: ", this.listaJogos);
         this.ordernarLista(this.orderBy);
       })
     });
@@ -47,7 +45,6 @@ export class ListaJogosComponent implements OnInit {
 
   pesquisarJogo(onItemDeSelect: boolean) {
     let palavra = this.palavraChave;
-    console.log("palavra: ", palavra)
     if (this.selectedItems.length == 0) {
 
       const listaFiltrada = this.listaJogos.filter(function (element) {
@@ -75,7 +72,6 @@ export class ListaJogosComponent implements OnInit {
   }
 
   ordernarLista(tipo) {
-    console.log("listajogosfiltrada: ", this.listaJogosFiltrada);
     if (tipo == 'ASC') {
       this.listaJogosFiltrada = this.listaJogosFiltrada.sort(function (a, b) {
         return (a.NOME.toLowerCase() > b.NOME.toLowerCase()) ? 1 : ((b.NOME.toLowerCase() > a.NOME.toLowerCase()) ? -1 : 0);
@@ -85,7 +81,6 @@ export class ListaJogosComponent implements OnInit {
         return (a.NOME.toLowerCase() < b.NOME.toLowerCase()) ? 1 : ((b.NOME.toLowerCase() < a.NOME.toLowerCase()) ? -1 : 0);
       })
     }
-    console.log("listajogosfiltrada: ", this.listaJogosFiltrada);
 
     this.orderBy = tipo;
   }
@@ -103,7 +98,6 @@ export class ListaJogosComponent implements OnInit {
       if (this.palavraChave == "") {
         this.listaJogosFiltrada = this.listaJogos;
       }
-      console.log('lista: ', this.selectedItems)
       let listaFiltradaGenero = [];
 
       //fetch para pegar lista de jogos generos (codigo do jogo e codigo do genero, a tabela n-n);
@@ -111,8 +105,6 @@ export class ListaJogosComponent implements OnInit {
         method: 'POST'
       }).then(resultado => {
         resultado.json().then(dado => {
-          console.log('dado: ', dado);
-          console.log('generos: ', this.selectedItems);
 
           //verificar o código do genero selecionado é igual a um código_genero da lista de jogos generos
           //adicionar os codigos dos jogos numa lista
@@ -127,7 +119,7 @@ export class ListaJogosComponent implements OnInit {
           //lista de jogos que corresponderam a algum genero selecionado
           //IMPORTANTE: se escolher mais de um gênero e um jogo tiver mais de uma congruência com essa lista
           //de gêneros, o jogo vai ser adicionado mais de uma vez
-          console.log("listaFiltradaGenero: ", listaFiltradaGenero);
+          // console.log("listaFiltradaGenero: ", listaFiltradaGenero);
 
           //lógica para descobrir quantas vezes cada jogo repetiu na listafiltradagenero
           let countJogo, listaFiltrada = [], verificacao;
@@ -140,9 +132,6 @@ export class ListaJogosComponent implements OnInit {
                 countJogo++;
               }
             }
-
-            console.log('jogo de código: ', listaFiltradaGenero[i], " repetiu ", countJogo, " vezes")
-            console.log('length select: ', this.selectedItems.length);
 
             //se o jogo repetiu a mesma quantidade de vezes que a quantidade de gêneros selecionada
             //quer dizer q o jogo possui todos os gêneros selecionados pelo usuários
@@ -166,7 +155,7 @@ export class ListaJogosComponent implements OnInit {
           }
 
           //lista dos códigos dos jogos que foram filtrados
-          console.log("listafiltrada: ", listaFiltrada);
+          // console.log("listafiltrada: ", listaFiltrada);
 
           //lógica para excluir os itens da listafiltrada caso não estejam aparecendo na tela
           let contagem = 0;
@@ -205,7 +194,6 @@ export class ListaJogosComponent implements OnInit {
 
               vai.json().then(a => {
 
-                console.log('a ', a);
                 listaJogosFiltradaByGen.push(a);
                 this.ordernarLista(this.orderBy);
               })
@@ -213,7 +201,7 @@ export class ListaJogosComponent implements OnInit {
           })
 
           //lista de objetos jogos que corresponderam aos generos seleciondados
-          console.log('oi: ', listaJogosFiltradaByGen);
+          // console.log('oi: ', listaJogosFiltradaByGen);
           this.listaJogosFiltrada = listaJogosFiltradaByGen;
 
         })
@@ -236,11 +224,9 @@ export class ListaJogosComponent implements OnInit {
   }
 
   onItemSelect(item: any) {
-    console.log(item);
   }
 
   onSelectAll(items: any) {
-    console.log(items);
     this.selectedItems = items;
     this.filtrarGenero();
   }

@@ -25,7 +25,6 @@ export class PedidosEfetuadosComponent implements OnInit {
   ) {
     this.usuarioService.listar_pedidos().then((e: any) => {
       e.json().then(dados => {
-        console.log("dados : ", dados)
         dados.forEach(element => {
           if (element.USER_ID == localStorage.getItem("USER_ID")) {
             this.listaPedidos.push(element);
@@ -33,7 +32,7 @@ export class PedidosEfetuadosComponent implements OnInit {
         })
 
         //lista de pedidos do usuário feita
-        console.log('lista pedidos: ', this.listaPedidos)
+        // console.log('lista pedidos: ', this.listaPedidos)
 
         //decidir qual div vai aparecer
         if (this.listaPedidos.length > 0) {
@@ -45,7 +44,6 @@ export class PedidosEfetuadosComponent implements OnInit {
         //fetch para pegar a lista com os jogos de cada pedido
         this.usuarioService.listar_jogo_pedido().then((resultado: any) => {
           resultado.json().then(jogosPedidos => {
-            console.log('jogos pedidos: ', jogosPedidos)
 
             this.listaPedidos.forEach(a => {
 
@@ -62,15 +60,12 @@ export class PedidosEfetuadosComponent implements OnInit {
 
             })
 
-            console.log('listajogopedido: ', this.listaJogoPedido);
-
             //lógica para pegar o nome e preco de cada jogo
             //criar lista com os jogos da listaJogoPedido
             //usar ela para mostar no frontend
 
             this.jogoService.returnListaJogos().then((e: any) => {
               e.json().then(dados => {
-                console.log("dados: ", dados);
 
                 let listaTemp;
 
@@ -91,7 +86,6 @@ export class PedidosEfetuadosComponent implements OnInit {
                   this.listaJogos.push(listaTemp);
 
                 })
-                console.log('lista jogos: ', this.listaJogos);
               })
             })
 
@@ -106,7 +100,6 @@ export class PedidosEfetuadosComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("oninit: ", this.listaJogos);
     window.scrollTo(0, 0);
   }
 

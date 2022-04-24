@@ -28,7 +28,6 @@ export class SignUpComponent implements OnInit {
 
       let boolean: boolean = true;
       this.usuarioService.dadosSignup(this.nome, this.email).then((dados: any) => {
-        console.log(dados);
         if (dados.length > 0) {
           alert("Email ou Usuário já cadastrado!");
           boolean = false;
@@ -37,13 +36,11 @@ export class SignUpComponent implements OnInit {
         if (boolean) {
           this.usuarioService.criarUsuario(this.nome, this.email, this.telefone, this.senha)
             .then(resultado => {
-              console.log("RESULTADO: ", resultado)
               this.nome = this.email = this.telefone = this.senha = this.confirmarSenha = undefined;
               this.router.navigate(['login']);
 
               alert("Usuário cadastrado com sucesso!");
             }).catch(erro => {
-              console.log("ERRO AO BUSCAR USUARIOS: ", erro)
             });
         }
       })
