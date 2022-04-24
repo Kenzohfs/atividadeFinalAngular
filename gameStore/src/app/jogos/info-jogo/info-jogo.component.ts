@@ -65,6 +65,7 @@ export class InfoJogoComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
   }
 
   adicionarCarrinho() {

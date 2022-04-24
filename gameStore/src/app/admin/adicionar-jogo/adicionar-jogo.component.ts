@@ -27,6 +27,8 @@ export class AdicionarJogoComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+
+    window.scrollTo(0, 0);
   }
 
   nome;

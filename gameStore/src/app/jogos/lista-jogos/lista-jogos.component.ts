@@ -42,6 +42,7 @@ export class ListaJogosComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+    window.scrollTo(0, 0);
   }
 
   pesquisarJogo(onItemDeSelect: boolean) {

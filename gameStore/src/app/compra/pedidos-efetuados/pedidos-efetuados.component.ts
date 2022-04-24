@@ -107,6 +107,7 @@ export class PedidosEfetuadosComponent implements OnInit {
 
   ngOnInit() {
     console.log("oninit: ", this.listaJogos);
+    window.scrollTo(0, 0);
   }
 
   returnMoedaBrasileria(valor) {
