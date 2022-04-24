@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
 
   returnListaJogosLength() {
     this.listaJogos = JSON.parse(localStorage.getItem("LISTAJOGOS"))
-    return 28;
+    return true;
   }
   getJogo(indice) {
     return this.listaJogos[indice];
