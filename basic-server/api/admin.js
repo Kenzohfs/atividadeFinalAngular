@@ -11,7 +11,7 @@ inserirRota("/adicionar-jogo", function (dados, resposta) {
 })
 
 inserirRota("/procurar-jogo", function (dados, resposta) {
-    database(`SELECT * FROM JOGO WHERE NOME = "${dados.nome}" AND PRECO = "${dados.preco}" AND DESCRICAO = "${dados.descricao}" AND FAIXA_ETARIA = "${dados.faixa_etaria}" LIMIT 1`)
+    database(`SELECT * FROM JOGO WHERE NOME = "${dados.nome}" AND PRECO = ${dados.preco} AND DESCRICAO = "${dados.descricao}" AND FAIXA_ETARIA = ${dados.faixa_etaria} LIMIT 1`)
         .then(result => {
             resposta({ user: result[0] });
         }).catch(erro => {

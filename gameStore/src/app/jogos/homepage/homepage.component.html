@@ -12,16 +12,16 @@
     </div>
     <div style="border-radius: 20px;" class="carousel-inner">
       <div class="carousel-item active" (click)="redirecionamento(getJogo(0).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(0).IMAGEM_PRINCIPAL }}.jpg" class="d-block w-100 cursor img-set-tamanho" alt="...">
+        <img src="{{ getImagem(0) }}" class="d-block w-100 cursor img-set-tamanho" alt="...">
       </div>
       <div class="carousel-item" (click)="redirecionamento(getJogo(1).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(1).IMAGEM_PRINCIPAL }}.jpg" class="d-block w-100 cursor img-set-tamanho" alt="...">
+        <img src="{{ getImagem(1) }}" class="d-block w-100 cursor img-set-tamanho" alt="...">
       </div>
       <div class="carousel-item" (click)="redirecionamento(getJogo(2).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(2).IMAGEM_PRINCIPAL }}.jpg" class="d-block w-100 cursor img-set-tamanho" alt="...">
+        <img src="{{ getImagem(2) }}" class="d-block w-100 cursor img-set-tamanho" alt="...">
       </div>
       <div class="carousel-item" (click)="redirecionamento(getJogo(3).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(3).IMAGEM_PRINCIPAL }}.jpg" class="d-block w-100 cursor img-set-tamanho" alt="...">
+        <img src="{{ getImagem(3) }}" class="d-block w-100 cursor img-set-tamanho" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -40,12 +40,12 @@
     <h2 class="title">Destaques</h2>
     <div id="destaques-cartoes">
       <div class="cartao-destaque cursor" (click)="redirecionamento(getJogo(4).CODIGO)">
-        <img class="imagem-destaque" src="../../../assets/images/{{ getJogo(4).IMAGEM_PRINCIPAL }}.jpg" alt="">
+        <img class="imagem-destaque" src="{{ getImagem(4) }}" alt="">
         <p class="nome-destaque">{{ getJogo(4).NOME }}</p>
         <p class="preco-destaque">{{ getPreco(getJogo(4).PRECO) }}</p>
       </div>
       <div class="cartao-destaque cursor" (click)="redirecionamento(getJogo(5).CODIGO)">
-        <img class="imagem-destaque" src="../../../assets/images/{{ getJogo(5).IMAGEM_PRINCIPAL }}.jpg" alt="">
+        <img class="imagem-destaque" src="{{ getImagem(5) }}" alt="">
         <p class="nome-destaque">{{ getJogo(5).NOME }}</p>
         <p class="preco-destaque">{{ getPreco(getJogo(5).PRECO) }}</p>
       </div>
@@ -58,7 +58,7 @@
         <div class="conjunto-cards">
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(6).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(6).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(6) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(6).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(6).PRECO) }}</p>
@@ -66,7 +66,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(7).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(7).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(7) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(7).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(7).PRECO) }}</p>
@@ -74,7 +74,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(8).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(8).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(8) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(8).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(8).PRECO) }}</p>
@@ -88,7 +88,7 @@
         <div class="conjunto-cards">
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(9).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(9).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(9) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(9).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(9).PRECO) }}</p>
@@ -96,7 +96,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(10).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(10).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(10) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(10).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(10).PRECO) }}</p>
@@ -104,7 +104,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(11).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(11).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(11) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(11).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(11).PRECO) }}</p>
@@ -117,7 +117,7 @@
         <div class="conjunto-cards">
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(12).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(12).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(12) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(12).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(12).PRECO) }}</p>
@@ -125,7 +125,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(13).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(13).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(13) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(13).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(13).PRECO) }}</p>
@@ -133,7 +133,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(14).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(14).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(14) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(14).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(14).PRECO) }}</p>
@@ -160,7 +160,7 @@
     <div id="conjunto-recomendados">
 
       <div class="card recomendados cursor" style="width: 13rem;" (click)="redirecionamento(getJogo(15).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(15).IMAGEM_NOME }}.jpg" class="card-img-top img-recomendados"
+        <img src="{{ getImagem(15) }}" class="card-img-top img-recomendados"
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(15).NOME }}</h5>
@@ -169,7 +169,7 @@
       </div>
 
       <div class="card recomendados cursor" style="width: 13rem;" (click)="redirecionamento(getJogo(16).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(16).IMAGEM_NOME }}.jpg" class="card-img-top img-recomendados"
+        <img src="{{ getImagem(16) }}" class="card-img-top img-recomendados"
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(16).NOME }}</h5>
@@ -178,7 +178,7 @@
       </div>
 
       <div class="card recomendados cursor" style="width: 13rem;" (click)="redirecionamento(getJogo(17).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(17).IMAGEM_NOME }}.jpg" class="card-img-top img-recomendados"
+        <img src="{{ getImagem(17) }}" class="card-img-top img-recomendados"
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(17).NOME }}</h5>
@@ -187,7 +187,7 @@
       </div>
 
       <div class="card recomendados cursor" style="width: 13rem;" (click)="redirecionamento(getJogo(18).CODIGO)">
-        <img src="../../../assets/images/{{ getJogo(18).IMAGEM_NOME }}.jpg" class="card-img-top img-recomendados"
+        <img src="{{ getImagem(18) }}" class="card-img-top img-recomendados"
           alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ getJogo(18).NOME }}</h5>
@@ -204,7 +204,7 @@
         <div class="conjunto-cards">
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(19).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(19).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(19) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(19).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(19).PRECO) }}</p>
@@ -212,7 +212,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(20).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(20).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(20) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(20).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(20).PRECO) }}</p>
@@ -220,7 +220,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(21).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(21).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(21) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(21).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(21).PRECO) }}</p>
@@ -234,7 +234,7 @@
         <div class="conjunto-cards">
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(22).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(22).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(22) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(22).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(22).PRECO) }}</p>
@@ -242,7 +242,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(23).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(23).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(23) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(23).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(23).PRECO) }}</p>
@@ -250,7 +250,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(24).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(24).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(24) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(24).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(24).PRECO) }}</p>
@@ -263,7 +263,7 @@
         <div class="conjunto-cards">
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(25).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(25).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(25) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(25).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(25).PRECO) }}</p>
@@ -271,7 +271,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(26).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(26).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(26) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(26).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(26).PRECO) }}</p>
@@ -279,7 +279,7 @@
           </div>
 
           <div class="card cursor" style="width: 18rem; height: 16rem;" (click)="redirecionamento(getJogo(27).CODIGO)">
-            <img src="../../../assets/images/{{ getJogo(27).IMAGEM_PRINCIPAL }}.jpg" class="card-img-top" alt="...">
+            <img src="{{ getImagem(27) }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ getJogo(27).NOME }}</h5>
               <p class="card-text">{{ getPreco(getJogo(27).PRECO) }}</p>

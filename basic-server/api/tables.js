@@ -14,11 +14,10 @@ database(`CREATE TABLE IF NOT EXISTS USER (
                 ('Maria', 'maria@gmail.com', '123'),
                 ('Admin', 'admin@gmail.com', '123')
             `).then(result => {
-                console.log("Insert inserido com sucesso!");
+                console.log("Usuários inseridos com sucesso!");
             }).catch(erro => {
                 console.log("Erro!");
             })
-            console.log("if");
         } else {
             console.log("Usuários já inseridos previamente");
         }
@@ -44,7 +43,7 @@ database(`CREATE TABLE IF NOT EXISTS ADMINISTRADOR (
         if (resultado.length == 0) {
             database(`INSERT INTO ADMINISTRADOR (CPF, USER_ID) VALUES
             ('12595716964', 3)`).then(resultado => {
-                console.log("Resultado: ", resultado);
+                console.log("Administrador inserido com sucesso");
             }).catch(erro => {
                 console.log("erro: ", erro);
             });
@@ -93,7 +92,7 @@ database(`CREATE TABLE IF NOT EXISTS GENERO (
             ('Singleplayer'),
             ('Multiplayer');
             `).then(resultado => {
-                console.log("Resultado: ", resultado);
+                console.log("Gêneros inseridos com sucesso");
             }).catch(erro => {
                 console.log("erro: ", erro);
             });

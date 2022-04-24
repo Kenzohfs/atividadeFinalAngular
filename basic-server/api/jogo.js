@@ -348,7 +348,7 @@ database(`CREATE TABLE IF NOT EXISTS JOGO (
             );
             `
             ).then(resultado => {
-                console.log("inserts jogo resultado: ", resultado);
+                console.log("Jogos inseridos com sucesso");
             }).catch(erro => {
                 console.log('inserts jogo erro: ', erro);
             })

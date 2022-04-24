@@ -29,6 +29,25 @@ export class HomepageComponent implements OnInit {
     return this.listaJogos[indice];
   }
 
+  getImagem(indice) {
+    if (this.listaJogos[indice].IMAGEM_PRINCIPAL.toUpperCase() == this.listaJogos[indice].IMAGEM_PRINCIPAL) {
+      let caminho;
+      if (indice > 14 && indice < 19) {
+        caminho = "../../../assets/images/" + this.listaJogos[indice].IMAGEM_NOME + ".jpg"; 
+        return caminho;
+      } else {
+        caminho = "../../../assets/images/" + this.listaJogos[indice].IMAGEM_PRINCIPAL + ".jpg"; 
+        return caminho;
+      }
+    } else {
+      if (indice > 14 && indice < 19) {
+        return this.listaJogos[indice].IMAGEM_NOME;
+      } else {
+        return this.listaJogos[indice].IMAGEM_PRINCIPAL;
+      }
+    }
+  }
+
   getPreco(preco) {
     if (preco == 0) {
       return "Grátis";
